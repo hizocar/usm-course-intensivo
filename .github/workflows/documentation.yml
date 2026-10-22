@@ -1,5 +1,7 @@
 name: GitHub Actions
 on: [push]
+permissions:
+  contents: write
 jobs:
   Pages:
     runs-on: ubuntu-latest

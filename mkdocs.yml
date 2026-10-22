@@ -1,8 +1,8 @@
 # Project information
-site_name: Machine Learning and Business Applications · Modalidad Intensiva
+site_name: Machine Learning and Business Applications · Intensive Format
 site_url: https://hizocar.github.io/usm-course-intensivo/
 site_author: Sebastian Azocar
-site_description: Curso intensivo de machine learning aplicado a negocios, USM, noviembre 2026
+site_description: Intensive course on machine learning for business, USM, October to December 2026
 repo_url: https://github.com/hizocar/usm-course-intensivo
 repo_name: usm-course-intensivo
 edit_uri: ""
@@ -37,7 +37,7 @@ extra_css:
 # Theme
 theme:
   name: material
-  language: es
+  language: en
   logo: images/logo.bmp
   favicon: images/logo_python.svg
   font: false
@@ -55,14 +55,14 @@ theme:
       accent: deep orange
       toggle:
         icon: material/toggle-switch-off-outline
-        name: Cambiar a modo oscuro
+        name: Switch to dark mode
     - media: '(prefers-color-scheme: dark)'
       scheme: slate
       primary: deep orange
       accent: deep orange
       toggle:
         icon: material/toggle-switch
-        name: Cambiar a modo claro
+        name: Switch to light mode
 
 # Customization
 extra:
@@ -78,11 +78,11 @@ plugins:
 
 # Navigation
 nav:
-  - Inicio: index.md
-  - Programa: programa.md
-  - Clases: clases/clases.md
-  - Guía de Colab: colab.md
-  - Proyecto final:
-      - Enunciado y rúbrica: proyecto/proyecto.md
-      - Sprints: proyecto/sprints.md
+  - Home: index.md
+  - Schedule: schedule.md
+  - Classes: classes/classes.md
+  - Colab guide: colab.md
+  - Final project:
+      - Brief and rubric: project/project.md
+      - Sprints: project/sprints.md
   - Datasets: datasets/datasets.md

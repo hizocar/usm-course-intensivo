@@ -1,28 +1,28 @@
-# Guía de Google Colab
+# Google Colab guide
 
-[Google Colab](https://colab.research.google.com/) es un entorno de notebooks de Python que corre en el navegador. No necesitas instalar nada: solo una cuenta de Google. Todo el curso, incluido el proyecto, se trabaja aquí.
+[Google Colab](https://colab.research.google.com/) is a Python notebook environment that runs in your browser. You don't need to install anything, just a Google account. The whole course, including the project, is done here.
 
-## 1. Abrir un notebook del curso
+## 1. Open a course notebook
 
-1. En la página de [clases](clases/clases.md), haz clic en **Open in Colab**.
-2. El notebook se abre en **modo lectura**. Para editarlo, ve a **Archivo › Guardar una copia en Drive**.
-3. Tu copia queda en la carpeta *Colab Notebooks* de tu Google Drive.
+1. On the [classes](classes/classes.md) page, click **Open in Colab**.
+2. The notebook opens in **read-only mode**. To edit it, go to **File › Save a copy in Drive**.
+3. Your copy is saved in the *Colab Notebooks* folder of your Google Drive.
 
-## 2. Ejecutar código
+## 2. Run code
 
-| Acción | Cómo |
+| Action | How |
 |---|---|
-| Ejecutar la celda actual y pasar a la siguiente | ++shift+enter++ |
-| Ejecutar todo el notebook | **Entorno de ejecución › Ejecutar todas** |
-| Empezar de cero | **Entorno de ejecución › Reiniciar sesión y ejecutar todo** |
-| Agregar una celda de código o de texto | Botones **+ Código** y **+ Texto** |
+| Run the current cell and move to the next one | ++shift+enter++ |
+| Run the whole notebook | **Runtime › Run all** |
+| Start from scratch | **Runtime › Restart session and run all** |
+| Add a code or text cell | **+ Code** and **+ Text** buttons |
 
-!!! warning "El orden importa"
-    Colab recuerda las variables de las celdas que ya ejecutaste, aunque las borres. Si algo funciona "a veces", reinicia la sesión y ejecuta todo de arriba hacia abajo.
+!!! warning "Order matters"
+    Colab remembers the variables from cells you already ran, even if you delete those cells. If something works "sometimes", restart the session and run everything from top to bottom.
 
-## 3. Cargar datos
+## 3. Load data
 
-La forma recomendada en este curso es **leer el archivo directo desde su URL**. Funciona igual para todos y no depende de tu Drive:
+The recommended way in this course is to **read the file directly from its URL**. It works the same for everyone and doesn't depend on your Drive:
 
 ```python
 import pandas as pd
@@ -32,45 +32,45 @@ df = pd.read_csv(url)
 df.head()
 ```
 
-Las URLs de cada archivo están en la página de [datasets](datasets/datasets.md). Otras dos opciones:
+The URL of each file is on the [datasets](datasets/datasets.md) page. Two other options:
 
-=== "Subir un archivo"
+=== "Upload a file"
 
     ```python
     from google.colab import files
-    subido = files.upload()   # abre un selector de archivos
-    df = pd.read_csv("nombre_del_archivo.csv")
+    uploaded = files.upload()   # opens a file picker
+    df = pd.read_csv("your_file.csv")
     ```
 
-    El archivo se borra cuando se cierra la sesión de Colab.
+    The file is deleted when the Colab session ends.
 
-=== "Leer desde tu Google Drive"
+=== "Read from your Google Drive"
 
     ```python
     from google.colab import drive
     drive.mount("/content/drive")
-    df = pd.read_csv("/content/drive/MyDrive/carpeta/archivo.csv")
+    df = pd.read_csv("/content/drive/MyDrive/folder/file.csv")
     ```
 
-    Cada integrante del equipo tendría que tener el archivo en la misma ruta, así que para el proyecto es mejor usar la URL.
+    Every team member would need the file at the same path, so for the project the URL is a better choice.
 
-## 4. Librerías
+## 4. Libraries
 
-Colab ya trae pandas, NumPy, matplotlib, seaborn, scikit-learn y statsmodels. Si te falta alguna, instálala en una celda:
+Colab already includes pandas, NumPy, matplotlib, seaborn, scikit-learn, and statsmodels. If you need something else, install it in a cell:
 
 ```python
 !pip install xgboost
 ```
 
-## 5. Trabajar en equipo y compartir el proyecto
+## 5. Teamwork and sharing the project
 
-1. Una persona del equipo crea el notebook del proyecto y lo comparte con el resto con permiso de **Editor** (botón **Compartir**, arriba a la derecha).
-2. Compártelo también con **hizocar@gmail.com** con permiso de **Comentarista**. Así reviso el avance en cada sprint sin que tengan que enviar nada.
-3. Colab permite que varias personas abran el mismo notebook, pero si dos editan a la vez pueden pisarse cambios. Repártanse secciones y avisen antes de ejecutar todo.
+1. One team member creates the project notebook and shares it with the rest of the team as **Editor** (the **Share** button, top right).
+2. Also share it with **hizocar@gmail.com** as **Commenter**. That way I can review your progress at each sprint without you having to send anything.
+3. Several people can open the same notebook in Colab, but if two people edit at the same time they can overwrite each other's changes. Split the work by section and let the team know before you run everything.
 
-## 6. Antes de la entrega final
+## 6. Before the final submission
 
-- [ ] **Entorno de ejecución › Reiniciar sesión y ejecutar todo** termina sin errores.
-- [ ] Los datos se leen desde una URL, no desde una ruta de tu computador o tu Drive.
-- [ ] Cada sección tiene un título y un texto que explica qué se hizo y qué se concluye.
-- [ ] Descargaste el archivo con **Archivo › Descargar › Descargar .ipynb**.
+- [ ] **Runtime › Restart session and run all** finishes without errors.
+- [ ] The data is read from a URL, not from a path on your computer or your Drive.
+- [ ] Each section has a heading and text explaining what was done and what you conclude.
+- [ ] You downloaded the file with **File › Download › Download .ipynb**.

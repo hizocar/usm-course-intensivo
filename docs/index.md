@@ -6,68 +6,68 @@ hide:
 
 <div class="hz-hero" markdown>
 
-<p class="hz-kicker">Universidad Técnica Federico Santa María · Modalidad intensiva</p>
+<p class="hz-kicker">Universidad Técnica Federico Santa María · Intensive format</p>
 
 # Machine Learning and Business Applications
 
-<p class="hz-lede">Seis semanas para aprender a programar en Python con Google Colab, analizar datos reales, entrenar modelos de machine learning y presentar un proyecto que muestre todo eso junto.</p>
+<p class="hz-lede">Six weeks to learn Python in Google Colab, analyze real data, train machine learning models, and present a project that brings all of it together.</p>
 
-<p class="hz-dates">26 de octubre — 4 de diciembre de 2026</p>
+<p class="hz-dates">October 26 — December 4, 2026</p>
 
-[Ver el programa](programa.md){ .md-button .md-button--primary }
-[Proyecto final](proyecto/proyecto.md){ .md-button }
+[See the schedule](schedule.md){ .md-button .md-button--primary }
+[Final project](project/project.md){ .md-button }
 
 </div>
 
-## Secciones
+## Sections
 
 <div class="hz-sections" markdown>
 
 <div class="hz-section-card" markdown>
-<p class="hz-kicker">Sección Casa Central</p>
-### Miércoles, 16:05 a 18:40
-Primera clase: **miércoles 28 de octubre**
+<p class="hz-kicker">Casa Central campus</p>
+### Wednesdays, 16:05 to 18:40
+First class: **Wednesday, October 28**
 
-Presentaciones finales: **miércoles 2 de diciembre**
+Final presentations: **Wednesday, December 2**
 </div>
 
 <div class="hz-section-card" markdown>
-<p class="hz-kicker">Sección Vitacura</p>
-### Viernes, 11:05 a 13:40
-Primera clase: **viernes 30 de octubre**
+<p class="hz-kicker">Vitacura campus</p>
+### Fridays, 11:05 to 13:40
+First class: **Friday, October 30**
 
-Presentaciones finales: **viernes 4 de diciembre**
+Final presentations: **Friday, December 4**
 </div>
 
 </div>
 
-## Cómo funciona
+## How it works
 
 <div class="hz-steps" markdown>
 
 <div markdown>
 <span class="hz-step">01</span>
-**Cinco sesiones de contenido.** Python y Colab, análisis de datos con pandas, regresión, clasificación y árboles. Cada sesión mezcla explicación y código en vivo.
+**Five content sessions.** Python and Colab, data analysis with pandas, regression, classification, and trees. Every session mixes explanation with live coding.
 </div>
 
 <div markdown>
 <span class="hz-step">02</span>
-**Un proyecto que avanza con el curso.** Desde la primera clase trabajas en equipo sobre un caso de negocio. Cada sesión termina con un taller donde aplicas lo que se acaba de ver.
+**One project that grows with the course.** From the first class you work in a team on a business case. Each session ends with a workshop where you apply what was just covered.
 </div>
 
 <div markdown>
 <span class="hz-step">03</span>
-**Sprints para monitorear, no para calificar.** Tres revisiones de avance con retroalimentación tipo semáforo. Sirven para detectar problemas a tiempo; no llevan nota.
+**Sprints to track progress, not to grade it.** Three progress reviews with traffic-light feedback. They help you catch problems early and do not count toward your grade.
 </div>
 
 <div markdown>
 <span class="hz-step">04</span>
-**Una sola evaluación.** El proyecto final (notebook + presentación) es el 100% de la nota. Se presenta la primera semana de diciembre.
+**A single assessment.** The final project (notebook + presentation) is 100% of the grade. It is presented in the first week of December.
 </div>
 
 </div>
 
-## Profesor
+## Instructor
 
 <div class="hz-teacher" markdown>
 
@@ -75,8 +75,8 @@ Presentaciones finales: **viernes 4 de diciembre**
 
 <div markdown>
 ### Sebastián Azócar
-Ingeniero matemático y magíster en Data Science. Data scientist en LATAM Airlines y profesor de machine learning, econometría e IA en la USM.
-Contacto: [hizocar@gmail.com](mailto:hizocar@gmail.com) · [LinkedIn](https://www.linkedin.com/in/sebasti%C3%A1n-az%C3%B3car/) · [hizocar.github.io](https://hizocar.github.io/)
+Mathematical engineer with a master's degree in Data Science. Data scientist at LATAM Airlines and lecturer in machine learning, econometrics, and AI at USM.
+Contact: [hizocar@gmail.com](mailto:hizocar@gmail.com) · [LinkedIn](https://www.linkedin.com/in/sebasti%C3%A1n-az%C3%B3car/) · [hizocar.github.io](https://hizocar.github.io/)
 </div>
 
 </div>

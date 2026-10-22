@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class · Pyramid Presentations in Business</title>
+<style>
+  :root{
+    --ink:#1f2933; --muted:#5b6b7b; --line:#e3e8ee; --bg:#f4f6f9; --card:#fff;
+    --brand:#0b3d62; --brand2:#1d6fa5; --accent:#f0a500; --ok:#2e7d32; --bad:#c0392b;
+    --soft:#eef4f9;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);line-height:1.6;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  a{color:var(--brand2)}
+  header.hero{background:linear-gradient(135deg,#0b3d62,#1d6fa5);color:#fff;padding:38px 20px 30px;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 20px;}
+  header.hero h1{margin:0 0 6px;font-size:1.7rem;}
+  header.hero p{margin:0;opacity:.92;}
+  .tags{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}
+  .tag{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);
+    padding:4px 11px;border-radius:20px;font-size:.8rem}
+  nav.toc{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);
+    box-shadow:0 1px 4px rgba(0,0,0,.04)}
+  nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;padding:8px 20px}
+  nav.toc a{white-space:nowrap;font-size:.82rem;color:var(--muted);text-decoration:none;
+    padding:6px 10px;border-radius:6px}
+  nav.toc a:hover{background:var(--soft);color:var(--brand)}
+  section{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:24px 26px;margin:22px 0;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+  section h2{margin:0 0 4px;color:var(--brand);font-size:1.28rem}
+  .min{display:inline-block;background:var(--soft);color:var(--brand2);font-weight:600;
+    font-size:.74rem;padding:3px 9px;border-radius:20px;margin-bottom:10px}
+  h3{color:var(--brand);margin:22px 0 6px;font-size:1.05rem}
+  .lead{font-size:1.02rem;color:var(--muted)}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:680px){.grid2{grid-template-columns:1fr}}
+  .panel{border:1px solid var(--line);border-radius:10px;padding:14px 16px;background:#fbfcfe}
+  .panel h4{margin:0 0 6px;font-size:.95rem}
+  .bad-box{border-left:4px solid var(--bad)}
+  .ok-box{border-left:4px solid var(--ok)}
+  .callout{background:var(--soft);border-left:4px solid var(--brand2);padding:12px 16px;
+    border-radius:8px;margin:14px 0;font-size:.94rem}
+  .quote{font-style:italic;color:var(--muted);border-left:3px solid var(--accent);
+    padding-left:14px;margin:14px 0}
+  /* Agenda */
+  .agenda{list-style:none;padding:0;margin:0}
+  .agenda li{display:flex;gap:14px;align-items:flex-start;padding:9px 0;border-bottom:1px dashed var(--line)}
+  .agenda li:last-child{border-bottom:none}
+  .agenda .t{flex:0 0 86px;font-weight:700;color:var(--brand2);font-size:.85rem}
+  .agenda .d{flex:1}
+  .agenda .d small{color:var(--muted)}
+  /* Pyramid */
+  .pyr{display:flex;flex-direction:column;align-items:center;gap:6px;margin:18px 0}
+  .pyr .row{display:flex;gap:6px;justify-content:center}
+  .pyr .blk{background:var(--brand);color:#fff;border-radius:6px;padding:10px 14px;
+    text-align:center;font-size:.86rem;min-width:120px}
+  .pyr .l1 .blk{background:var(--brand);font-weight:700}
+  .pyr .l2 .blk{background:var(--brand2)}
+  .pyr .l3 .blk{background:#7aa9c9;color:#06263d}
+  /* toggle */
+  .toggle-btns{display:flex;gap:8px;margin:8px 0 14px}
+  .toggle-btns button{border:1px solid var(--brand2);background:#fff;color:var(--brand2);
+    padding:7px 14px;border-radius:20px;cursor:pointer;font-size:.85rem;font-family:inherit}
+  .toggle-btns button.active{background:var(--brand2);color:#fff}
+  .case{display:none}
+  .case.show{display:block}
+  /* SCQA builder + eval inputs */
+  label.fld{display:block;font-weight:600;font-size:.85rem;margin:12px 0 3px;color:var(--brand)}
+  input.txt,textarea.txt{width:100%;border:1px solid var(--line);border-radius:8px;
+    padding:9px 11px;font-family:inherit;font-size:.92rem;resize:vertical}
+  textarea.txt{min-height:54px}
+  .preview{background:#06263d;color:#eaf2f8;border-radius:10px;padding:16px 18px;margin-top:14px;
+    font-size:.92rem;white-space:pre-wrap;min-height:40px}
+  .preview b{color:var(--accent)}
+  button.act{background:var(--brand);color:#fff;border:none;padding:10px 18px;border-radius:8px;
+    cursor:pointer;font-family:inherit;font-size:.9rem;margin-top:12px}
+  button.act:hover{background:#0a3457}
+  /* Quiz */
+  .q{margin:16px 0;padding:14px 16px;border:1px solid var(--line);border-radius:10px}
+  .q p.qt{font-weight:600;margin:0 0 8px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;
+    border-radius:8px;padding:9px 12px;margin:6px 0;cursor:pointer;font-family:inherit;font-size:.9rem}
+  .opt:hover{background:var(--soft)}
+  .opt.correct{border-color:var(--ok);background:#eafaef}
+  .opt.wrong{border-color:var(--bad);background:#fdeeec}
+  .fb{font-size:.85rem;margin-top:6px;display:none}
+  .fb.show{display:block}
+  .score{font-weight:700;color:var(--brand)}
+  /* checklist */
+  .check{list-style:none;padding:0;margin:8px 0}
+  .check li{padding:6px 0;font-size:.9rem}
+  .check input{margin-right:8px;transform:translateY(1px)}
+  /* timer */
+  .timer{display:flex;align-items:center;gap:12px;background:var(--soft);border-radius:10px;
+    padding:12px 16px;margin:12px 0}
+  .timer .clock{font-size:1.7rem;font-weight:800;color:var(--brand);font-variant-numeric:tabular-nums}
+  .timer button{border:1px solid var(--brand2);background:#fff;color:var(--brand2);border-radius:8px;
+    padding:7px 13px;cursor:pointer;font-family:inherit}
+  table.rub{width:100%;border-collapse:collapse;margin-top:10px;font-size:.85rem}
+  table.rub th,table.rub td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  table.rub th{background:var(--brand);color:#fff}
+  .refs{font-size:.86rem;color:var(--muted)}
+  .refs li{margin-bottom:6px}
+  footer{color:var(--muted);font-size:.8rem;text-align:center;padding:30px 20px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>Communicating Results in Business</h1>
+    <p>The pyramid principle: the result first, then how you got there.</p>
+    <div class="tags">
+      <span class="tag">⏱️ 2 hours</span>
+      <span class="tag">🧩 Interactive class</span>
+      <span class="tag">📊 Applied to Data Science</span>
+      <span class="tag">✅ Final assessment 30 min</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="wrap">
+    <a href="#agenda">Agenda</a>
+    <a href="#porque">1. Why</a>
+    <a href="#piramide">2. The pyramid</a>
+    <a href="#scqa">3. SCQA</a>
+    <a href="#mece">4. MECE</a>
+    <a href="#titulos">5. Titles and data</a>
+    <a href="#ejemplo">6. Example</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#eval">Assessment</a>
+    <a href="#refs">References</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- AGENDA -->
+  <section id="agenda">
+    <h2>Session agenda</h2>
+    <p class="lead">120 minutes: 90 of interactive content and 30 of applied in-class assessment.</p>
+    <ul class="agenda">
+      <li><span class="t">0–15'</span><span class="d"><b>Why do we present differently in business?</b><br><small>Academic logic (bottom-up) vs. executive logic (top-down).</small></span></li>
+      <li><span class="t">15–40'</span><span class="d"><b>The pyramid principle (Barbara Minto)</b><br><small>Governing thought, vertical and horizontal logic.</small></span></li>
+      <li><span class="t">40–60'</span><span class="d"><b>SCQA: how to open a presentation</b><br><small>Situation, Complication, Question, Answer. Interactive builder.</small></span></li>
+      <li><span class="t">60–75'</span><span class="d"><b>MECE and ordering ideas</b><br><small>Group without overlaps or gaps; order by importance.</small></span></li>
+      <li><span class="t">75–85'</span><span class="d"><b>Action titles and storytelling with data</b></span></li>
+      <li><span class="t">85–90'</span><span class="d"><b>Worked example + Quiz</b><br><small>Before/after, applied to a course project.</small></span></li>
+      <li><span class="t">90–120'</span><span class="d"><b>Final in-class assessment</b><br><small>Build the executive pyramid for your ML project.</small></span></li>
+    </ul>
+  </section>
+
+  <!-- 1. WHY -->
+  <section id="porque">
+    <span class="min">0–15 min</span>
+    <h2>1. Why do we present differently in business?</h2>
+    <p>At university we learn to communicate <strong>bottom-up</strong>: context → method → results → conclusion.
+    It is the logic of the scientific paper, which builds suspense and makes the reader go through the whole journey before finding out what happened.</p>
+    <p>In business, the listener (a manager, a committee, a client) has <strong>little time and has to make a decision</strong>.
+    They need the conclusion <em>first</em>. That is why executive communication is <strong>top-down</strong>:
+    the answer at the start, and the details only if they ask for them.</p>
+
+    <div class="grid2">
+      <div class="panel bad-box">
+        <h4>❌ Academic logic (bottom-up)</h4>
+        <p style="font-size:.9rem;margin:0">"We collected 10,000 records, cleaned the data, did EDA, tried 4 models, tuned hyperparameters, compared metrics… <em>and therefore</em> we recommend the XGBoost model."</p>
+        <p style="font-size:.82rem;color:var(--muted);margin:8px 0 0">The decision-maker waited 5 minutes to find out what to do.</p>
+      </div>
+      <div class="panel ok-box">
+        <h4>✅ Executive logic (top-down)</h4>
+        <p style="font-size:.9rem;margin:0">"We recommend deploying the XGBoost model to anticipate customer churn: it could prevent ~CLP 120 million in losses next quarter. <em>Three reasons support this…</em>"</p>
+        <p style="font-size:.82rem;color:var(--muted);margin:8px 0 0">The decision-maker knows what to do within 10 seconds.</p>
+      </div>
+    </div>
+
+    <div class="callout"><strong>BLUF — Bottom Line Up Front.</strong> It is the writing standard of the U.S. Army and of the consulting world:
+    put the conclusion <em>at the top</em>. If your audience read only the first sentence, would they understand what you propose and why?</div>
+  </section>
+
+  <!-- 2. PYRAMID -->
+  <section id="piramide">
+    <span class="min">15–40 min</span>
+    <h2>2. The pyramid principle</h2>
+    <p class="lead">Barbara Minto developed it at McKinsey and published it in <em>The Pyramid Principle</em> (1987). It is the standard communication method in consulting.</p>
+
+    <p>The core idea: <strong>every message should be organized as a pyramid under a single governing thought</strong>.</p>
+
+    <div class="pyr">
+      <div class="row l1"><div class="blk">Governing thought<br>(your recommendation / answer)</div></div>
+      <div class="row l2"><div class="blk">Argument 1</div><div class="blk">Argument 2</div><div class="blk">Argument 3</div></div>
+      <div class="row l3"><div class="blk">data · charts</div><div class="blk">data · charts</div><div class="blk">data · charts</div></div>
+    </div>
+
+    <div class="grid2">
+      <div class="panel">
+        <h4>Vertical logic</h4>
+        <p style="font-size:.9rem;margin:0">Between levels there is a <strong>question–answer</strong> dialogue. Each idea raises a question ("why?", "how?") that the level below answers.</p>
+      </div>
+      <div class="panel">
+        <h4>Horizontal logic</h4>
+        <p style="font-size:.9rem;margin:0">Ideas on the same level are grouped <strong>logically</strong>: by deduction (a chain of reasoning) or by induction (ideas of the same kind).</p>
+      </div>
+    </div>
+
+    <div class="callout"><strong>The "so what?" test.</strong> For every data point, ask yourself "so what?" until you reach the
+    actionable implication. That implication (not the data point) is what goes at the top of the pyramid.
+    <br><br><em>"The model has an AUC of 0.86"</em> → so what? → <em>"we can detect 8 out of 10 customers who will churn"</em> → so what? → <strong>"we can focus retention efforts and reduce churn by 10%"</strong>.</div>
+  </section>
+
+  <!-- 3. SCQA -->
+  <section id="scqa">
+    <span class="min">40–60 min</span>
+    <h2>3. SCQA: how to open without losing your audience</h2>
+    <p>Before delivering the recommendation, Minto proposes a short introduction that "hooks" the audience with a frame everyone shares. This is the <strong>SCQA</strong> pattern:</p>
+    <div class="grid2">
+      <div class="panel"><h4>S — Situation</h4><p style="font-size:.88rem;margin:0">A fact about the context that nobody disputes.</p></div>
+      <div class="panel"><h4>C — Complication</h4><p style="font-size:.88rem;margin:0">Something that changed, or a problem that puts the situation under strain.</p></div>
+      <div class="panel"><h4>Q — Question</h4><p style="font-size:.88rem;margin:0">The question that naturally arises from the complication.</p></div>
+      <div class="panel"><h4>A — Answer</h4><p style="font-size:.88rem;margin:0">Your main message: the top of the pyramid.</p></div>
+    </div>
+
+    <h3>🛠️ SCQA builder</h3>
+    <p style="font-size:.9rem;color:var(--muted)">Write each part and watch an executive opening take shape. (Preloaded with an example from a course project.)</p>
+    <label class="fld">Situation</label>
+    <input class="txt" id="s_s" value="The bank has 10,000 active customers.">
+    <label class="fld">Complication</label>
+    <input class="txt" id="s_c" value="The churn rate has risen to 20%, and every lost customer costs money to reacquire.">
+    <label class="fld">Question</label>
+    <input class="txt" id="s_q" value="How do we identify and retain at-risk customers before they leave?">
+    <label class="fld">Answer (main message)</label>
+    <input class="txt" id="s_a" value="A classification model that prioritizes the riskiest 20% lets us focus retention efforts and reduce churn by 10%.">
+    <div class="preview" id="scqa_out"></div>
+  </section>
+
+  <!-- 4. MECE -->
+  <section id="mece">
+    <span class="min">60–75 min</span>
+    <h2>4. MECE: grouping without overlaps or gaps</h2>
+    <p><strong>MECE</strong> = <em>Mutually Exclusive, Collectively Exhaustive</em>.
+    Your arguments should not overlap with each other (exclusive) or leave important gaps (exhaustive).</p>
+    <div class="grid2">
+      <div class="panel bad-box"><h4>❌ Not MECE</h4>
+        <p style="font-size:.88rem;margin:0">1. The model is accurate · 2. The model has a good AUC · 3. It reduces costs<br>
+        <small>(1 and 2 overlap; the "how it gets implemented" is missing).</small></p></div>
+      <div class="panel ok-box"><h4>✅ MECE</h4>
+        <p style="font-size:.88rem;margin:0">1. It <b>detects</b> churners well (performance) · 2. It <b>explains</b> the drivers of churn (interpretation) · 3. It <b>plugs into</b> the retention campaign (action)<br>
+        <small>No overlaps, and it covers performance + interpretation + action.</small></p></div>
+    </div>
+    <h3>Ordering within a group</h3>
+    <p style="font-size:.92rem">Once the ideas are grouped, order them by an explicit criterion:</p>
+    <ul>
+      <li><strong>By importance</strong> (most relevant first): the most common in business.</li>
+      <li><strong>By time</strong> (steps in a process: first, then, next).</li>
+      <li><strong>By structure</strong> (by area, region, segment).</li>
+    </ul>
+  </section>
+
+  <!-- 5. TITLES -->
+  <section id="titulos">
+    <span class="min">75–85 min</span>
+    <h2>5. Action titles and storytelling with data</h2>
+    <h3>Titles that state, not label</h3>
+    <p>Each slide should be titled with its <strong>message</strong>, not its <strong>topic</strong>. If someone read only your slide titles, they should understand the whole story.</p>
+    <div class="grid2">
+      <div class="panel bad-box"><h4>❌ Topic title</h4><p style="font-size:.9rem;margin:0">"Variable analysis"</p></div>
+      <div class="panel ok-box"><h4>✅ Action title</h4><p style="font-size:.9rem;margin:0">"Inactivity and high balance are the main predictors of churn"</p></div>
+    </div>
+    <h3>Storytelling with data</h3>
+    <p style="font-size:.92rem">Cole Nussbaumer Knaflic (<em>Storytelling with Data</em>, 2015) sums up good practice: choose the right chart,
+    remove distractions, <strong>direct attention</strong> with color to the data point that matters, and pair every chart with a sentence that says what to look at.</p>
+    <div class="quote">A chart without a message is a Rorschach test: everyone sees what they want to see. Tell your audience what they should conclude.</div>
+  </section>
+
+  <!-- 6. EXAMPLE -->
+  <section id="ejemplo">
+    <span class="min">85–90 min</span>
+    <h2>6. Worked example (before / after)</h2>
+    <p style="font-size:.92rem">The same information, two ways of presenting it to an executive committee. Switch between them:</p>
+    <div class="toggle-btns">
+      <button id="btnBefore" class="active" onclick="showCase('before')">Academic version</button>
+      <button id="btnAfter" onclick="showCase('after')">Pyramid version</button>
+    </div>
+    <div id="case_before" class="case show panel bad-box">
+      <h4>❌ Bottom-up</h4>
+      <p style="font-size:.92rem;margin:0">"Good morning. We worked with a dataset of 10,000 customers and 15 variables. We found missing values and outliers, which we cleaned. We did exploratory analysis: we plotted distributions and correlations. Then we tried logistic regression, a decision tree, random forest and XGBoost. We tuned hyperparameters with cross-validation. XGBoost got the best AUC (0.86), followed by random forest. The most important variables were inactivity, balance and country. Therefore, we recommend using XGBoost and focusing retention on inactive, high-balance customers."</p>
+    </div>
+    <div id="case_after" class="case panel ok-box">
+      <h4>✅ Top-down (pyramid)</h4>
+      <p style="font-size:.92rem;margin:0"><strong>Recommendation:</strong> "Deploying the churn model to prioritize the riskiest 20% of customers can reduce churn by 10% next quarter. Three reasons support this:</p>
+      <ol style="font-size:.92rem;margin:8px 0 0">
+        <li><strong>It detects churn well:</strong> the model identifies 8 out of 10 customers who will churn (AUC 0.86).</li>
+        <li><strong>We know why they leave:</strong> inactivity and high balance are the main triggers.</li>
+        <li><strong>Acting pays off:</strong> retaining the prioritized segment costs less than reacquiring the customers we would lose.</li>
+      </ol>
+      <p style="font-size:.92rem;margin:8px 0 0"><strong>Next step:</strong> launch a pilot retention campaign for that 20% and measure the impact."</p>
+      <p style="font-size:.84rem;color:var(--muted);margin:10px 0 0">The technical details (cleaning, EDA, model comparison) move to the backup slides, available if anyone asks.</p>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="quiz">
+    <h2>Quick quiz</h2>
+    <p class="lead">Check the essentials. Your score updates automatically: <span class="score" id="qscore">0 / 5</span></p>
+
+    <div class="q" data-correct="1">
+      <p class="qt">1. In an executive presentation, what should you start with?</p>
+      <button class="opt" onclick="ans(this)">The context and the methodology</button>
+      <button class="opt" data-ok="1" onclick="ans(this)">The conclusion or recommendation</button>
+      <button class="opt" onclick="ans(this)">The data cleaning</button>
+      <div class="fb"></div>
+    </div>
+
+    <div class="q" data-correct="1">
+      <p class="qt">2. What does MECE stand for?</p>
+      <button class="opt" data-ok="1" onclick="ans(this)">Mutually Exclusive, Collectively Exhaustive</button>
+      <button class="opt" onclick="ans(this)">Model for Efficient Classification Estimates</button>
+      <button class="opt" onclick="ans(this)">Method of Effective Communication for Executives</button>
+      <div class="fb"></div>
+    </div>
+
+    <div class="q" data-correct="1">
+      <p class="qt">3. What is the correct order of the opening framework?</p>
+      <button class="opt" onclick="ans(this)">Question · Situation · Answer · Complication</button>
+      <button class="opt" data-ok="1" onclick="ans(this)">Situation · Complication · Question · Answer</button>
+      <button class="opt" onclick="ans(this)">Answer · Situation · Complication · Question</button>
+      <div class="fb"></div>
+    </div>
+
+    <div class="q" data-correct="1">
+      <p class="qt">4. A good slide title (action title)…</p>
+      <button class="opt" data-ok="1" onclick="ans(this)">States the message (the conclusion of that slide)</button>
+      <button class="opt" onclick="ans(this)">Names the general topic ("Results")</button>
+      <button class="opt" onclick="ans(this)">Repeats the slide number</button>
+      <div class="fb"></div>
+    </div>
+
+    <div class="q" data-correct="1">
+      <p class="qt">5. The "so what?" test is used to…</p>
+      <button class="opt" onclick="ans(this)">Add more data to each slide</button>
+      <button class="opt" onclick="ans(this)">Make the presentation longer</button>
+      <button class="opt" data-ok="1" onclick="ans(this)">Get from the data point to the actionable implication</button>
+      <div class="fb"></div>
+    </div>
+  </section>
+
+  <!-- ASSESSMENT -->
+  <section id="eval">
+    <span class="min">90–120 min · 30 minutes in class</span>
+    <h2>Final assessment: build your executive pyramid</h2>
+    <p class="lead">Take the results of your course project (for example, your churn or credit default model)
+    and put together a <strong>1–2 minute</strong> pyramid-style message for a non-technical executive committee.</p>
+
+    <div class="timer">
+      <span class="clock" id="clock">30:00</span>
+      <button onclick="startTimer()">Start</button>
+      <button onclick="resetTimer()">Reset</button>
+      <span style="font-size:.85rem;color:var(--muted)">Suggested in-class working time.</span>
+    </div>
+
+    <h3>Step 1 — Opening (SCQA)</h3>
+    <label class="fld">Situation</label><input class="txt e" id="e_s" placeholder="A fact about the context that nobody disputes…">
+    <label class="fld">Complication</label><input class="txt e" id="e_c" placeholder="What changed, or what problem came up…">
+    <label class="fld">Question</label><input class="txt e" id="e_q" placeholder="The question that arises…">
+
+    <h3>Step 2 — Main message (top of the pyramid)</h3>
+    <label class="fld">Recommendation / answer, with an impact figure if possible</label>
+    <textarea class="txt e" id="e_msg" placeholder="E.g.: Deploying model X lets us reduce churn by 10% next quarter…"></textarea>
+
+    <h3>Step 3 — Three MECE arguments</h3>
+    <label class="fld">Argument 1 — Performance (does it detect well?)</label><input class="txt e" id="e_a1" placeholder="E.g.: it detects 8 out of 10 churners (AUC 0.86)…">
+    <label class="fld">Argument 2 — Interpretation (why does it happen?)</label><input class="txt e" id="e_a2" placeholder="E.g.: inactivity and high balance are the triggers…">
+    <label class="fld">Argument 3 — Action/value (what do we do and what is it worth?)</label><input class="txt e" id="e_a3" placeholder="E.g.: retaining the prioritized segment is cheaper than reacquiring…">
+
+    <h3>Step 4 — Call to action</h3>
+    <label class="fld">Concrete next step</label><input class="txt e" id="e_next" placeholder="E.g.: launch a pilot campaign for the riskiest 20%…">
+
+    <button class="act" onclick="buildPyramid()">Generate my executive pyramid</button>
+    <div class="preview" id="eval_out">Your executive summary will appear here…</div>
+
+    <h3>Self-check before presenting</h3>
+    <ul class="check">
+      <li><input type="checkbox"> Does my first sentence already state my recommendation? (answer-first / BLUF)</li>
+      <li><input type="checkbox"> Did I include a business impact figure?</li>
+      <li><input type="checkbox"> Are my 3 arguments MECE (no overlaps or gaps)?</li>
+      <li><input type="checkbox"> Did I apply the "so what?" test to every data point?</li>
+      <li><input type="checkbox"> Did I avoid unnecessary technical jargon for a non-technical committee?</li>
+      <li><input type="checkbox"> Did I close with a concrete action?</li>
+    </ul>
+
+    <h3>Assessment rubric (100 points)</h3>
+    <table class="rub">
+      <tr><th>Criterion</th><th>Description</th><th style="width:70px">Points</th></tr>
+      <tr><td>Message first (answer-first)</td><td>The recommendation comes at the start, clearly stated and with quantified impact.</td><td>30</td></tr>
+      <tr><td>SCQA opening</td><td>Situation, complication and question are linked together and relevant to the business.</td><td>20</td></tr>
+      <tr><td>MECE arguments</td><td>Three non-overlapping arguments that cover performance, interpretation and action.</td><td>25</td></tr>
+      <tr><td>Action orientation</td><td>Closes with a concrete, actionable next step ("so what").</td><td>15</td></tr>
+      <tr><td>Communication</td><td>Clear language for a non-technical audience; no unnecessary jargon.</td><td>10</td></tr>
+    </table>
+    <p style="font-size:.82rem;color:var(--muted);margin-top:8px">Minimum passing score: 60 / 100. Suggested presentation time: 1–2 minutes per student or group.</p>
+  </section>
+
+  <!-- REFERENCES -->
+  <section id="refs">
+    <h2>References</h2>
+    <ul class="refs">
+      <li>Minto, B. (1987). <em>The Pyramid Principle: Logic in Writing and Thinking</em>. Pearson.</li>
+      <li>Nussbaumer Knaflic, C. (2015). <em>Storytelling with Data: A Data Visualization Guide for Business Professionals</em>. Wiley.</li>
+      <li>Duarte, N. (2010). <em>Resonate: Present Visual Stories that Transform Audiences</em>. Wiley.</li>
+      <li>Heath, C. &amp; Heath, D. (2007). <em>Made to Stick: Why Some Ideas Survive and Others Die</em>. Random House.</li>
+      <li>U.S. Army (2002). <em>Effective Writing for Army Leaders</em> (DA Pam 600-67): origin of the BLUF practice.</li>
+    </ul>
+  </section>
+
+</div>
+
+<footer>Supplementary class · Machine Learning and Business Applications · UTFSM</footer>
+
+<script>
+  // SCQA live builder
+  function renderSCQA(){
+    var s=val('s_s'),c=val('s_c'),q=val('s_q'),a=val('s_a');
+    document.getElementById('scqa_out').innerHTML =
+      "<b>Situation:</b> "+esc(s)+"\n<b>Complication:</b> "+esc(c)+
+      "\n<b>Question:</b> "+esc(q)+"\n\n<b>→ Answer (your message):</b> "+esc(a);
+  }
+  ['s_s','s_c','s_q','s_a'].forEach(function(id){
+    document.getElementById(id).addEventListener('input',renderSCQA);
+  });
+  renderSCQA();
+
+  // Before/after toggle
+  function showCase(which){
+    document.getElementById('case_before').classList.toggle('show',which==='before');
+    document.getElementById('case_after').classList.toggle('show',which==='after');
+    document.getElementById('btnBefore').classList.toggle('active',which==='before');
+    document.getElementById('btnAfter').classList.toggle('active',which==='after');
+  }
+
+  // Quiz
+  var answered={};
+  function qIndex(q){return Array.prototype.indexOf.call(document.querySelectorAll('.q'),q);}
+  function ans(btn){
+    var q=btn.closest('.q');
+    var idx=qIndex(q);
+    if(answered[idx]) return;          // one shot per question
+    answered[idx]=true;
+    var ok=btn.getAttribute('data-ok')==='1';
+    var fb=q.querySelector('.fb');
+    if(ok){
+      btn.classList.add('correct');
+      q.dataset.userok='1';
+      fb.textContent='✅ Correct.';
+    } else {
+      btn.classList.add('wrong');
+      q.querySelector('.opt[data-ok="1"]').classList.add('correct');
+      fb.textContent='❌ The correct answer is highlighted in green.';
+    }
+    fb.classList.add('show');
+    updateScore();
+  }
+  function updateScore(){
+    var s=0;
+    document.querySelectorAll('.q').forEach(function(q){ if(q.dataset.userok==='1') s++; });
+    document.getElementById('qscore').textContent=s+' / 5';
+  }
+
+  // Evaluation pyramid builder
+  function buildPyramid(){
+    var s=val('e_s'),c=val('e_c'),q=val('e_q'),m=val('e_msg'),
+        a1=val('e_a1'),a2=val('e_a2'),a3=val('e_a3'),nx=val('e_next');
+    var out="<b>▌MAIN MESSAGE</b>\n"+esc(m||'(write your recommendation)')+
+      "\n\n<b>Opening</b>\n• Situation: "+esc(s)+"\n• Complication: "+esc(c)+"\n• Question: "+esc(q)+
+      "\n\n<b>Arguments (MECE)</b>\n1. "+esc(a1)+"\n2. "+esc(a2)+"\n3. "+esc(a3)+
+      "\n\n<b>▶ Next step:</b> "+esc(nx);
+    document.getElementById('eval_out').innerHTML=out;
+  }
+
+  // Timer 30:00
+  var tLeft=30*60, tId=null;
+  function fmt(s){var m=Math.floor(s/60),x=s%60;return (m<10?'0':'')+m+':'+(x<10?'0':'')+x;}
+  function startTimer(){
+    if(tId) return;
+    tId=setInterval(function(){
+      if(tLeft<=0){clearInterval(tId);tId=null;return;}
+      tLeft--; document.getElementById('clock').textContent=fmt(tLeft);
+    },1000);
+  }
+  function resetTimer(){clearInterval(tId);tId=null;tLeft=30*60;document.getElementById('clock').textContent='30:00';}
+
+  // helpers
+  function val(id){return document.getElementById(id).value.trim();}
+  function esc(t){return (t||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+</script>
+</body>
+</html>

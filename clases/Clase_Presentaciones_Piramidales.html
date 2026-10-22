@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clase · Presentaciones piramidales en el mundo empresarial</title>
+<style>
+  :root{
+    --ink:#1f2933; --muted:#5b6b7b; --line:#e3e8ee; --bg:#f4f6f9; --card:#fff;
+    --brand:#0b3d62; --brand2:#1d6fa5; --accent:#f0a500; --ok:#2e7d32; --bad:#c0392b;
+    --soft:#eef4f9;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);line-height:1.6;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  a{color:var(--brand2)}
+  header.hero{background:linear-gradient(135deg,#0b3d62,#1d6fa5);color:#fff;padding:38px 20px 30px;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 20px;}
+  header.hero h1{margin:0 0 6px;font-size:1.7rem;}
+  header.hero p{margin:0;opacity:.92;}
+  .tags{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}
+  .tag{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);
+    padding:4px 11px;border-radius:20px;font-size:.8rem}
+  nav.toc{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);
+    box-shadow:0 1px 4px rgba(0,0,0,.04)}
+  nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;padding:8px 20px}
+  nav.toc a{white-space:nowrap;font-size:.82rem;color:var(--muted);text-decoration:none;
+    padding:6px 10px;border-radius:6px}
+  nav.toc a:hover{background:var(--soft);color:var(--brand)}
+  section{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:24px 26px;margin:22px 0;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+  section h2{margin:0 0 4px;color:var(--brand);font-size:1.28rem}
+  .min{display:inline-block;background:var(--soft);color:var(--brand2);font-weight:600;
+    font-size:.74rem;padding:3px 9px;border-radius:20px;margin-bottom:10px}
+  h3{color:var(--brand);margin:22px 0 6px;font-size:1.05rem}
+  .lead{font-size:1.02rem;color:var(--muted)}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:680px){.grid2{grid-template-columns:1fr}}
+  .panel{border:1px solid var(--line);border-radius:10px;padding:14px 16px;background:#fbfcfe}
+  .panel h4{margin:0 0 6px;font-size:.95rem}
+  .bad-box{border-left:4px solid var(--bad)}
+  .ok-box{border-left:4px solid var(--ok)}
+  .callout{background:var(--soft);border-left:4px solid var(--brand2);padding:12px 16px;
+    border-radius:8px;margin:14px 0;font-size:.94rem}
+  .quote{font-style:italic;color:var(--muted);border-left:3px solid var(--accent);
+    padding-left:14px;margin:14px 0}
+  /* Agenda */
+  .agenda{list-style:none;padding:0;margin:0}
+  .agenda li{display:flex;gap:14px;align-items:flex-start;padding:9px 0;border-bottom:1px dashed var(--line)}
+  .agenda li:last-child{border-bottom:none}
+  .agenda .t{flex:0 0 86px;font-weight:700;color:var(--brand2);font-size:.85rem}
+  .agenda .d{flex:1}
+  .agenda .d small{color:var(--muted)}
+  /* Pyramid */
+  .pyr{display:flex;flex-direction:column;align-items:center;gap:6px;margin:18px 0}
+  .pyr .row{display:flex;gap:6px;justify-content:center}
+  .pyr .blk{background:var(--brand);color:#fff;border-radius:6px;padding:10px 14px;
+    text-align:center;font-size:.86rem;min-width:120px}
+  .pyr .l1 .blk{background:var(--brand);font-weight:700}
+  .pyr .l2 .blk{background:var(--brand2)}
+  .pyr .l3 .blk{background:#7aa9c9;color:#06263d}
+  /* toggle */
+  .toggle-btns{display:flex;gap:8px;margin:8px 0 14px}
+  .toggle-btns button{border:1px solid var(--brand2);background:#fff;color:var(--brand2);
+    padding:7px 14px;border-radius:20px;cursor:pointer;font-size:.85rem;font-family:inherit}
+  .toggle-btns button.active{background:var(--brand2);color:#fff}
+  .case{display:none}
+  .case.show{display:block}
+  /* SCQA builder + eval inputs */
+  label.fld{display:block;font-weight:600;font-size:.85rem;margin:12px 0 3px;color:var(--brand)}
+  input.txt,textarea.txt{width:100%;border:1px solid var(--line);border-radius:8px;
+    padding:9px 11px;font-family:inherit;font-size:.92rem;resize:vertical}
+  textarea.txt{min-height:54px}
+  .preview{background:#06263d;color:#eaf2f8;border-radius:10px;padding:16px 18px;margin-top:14px;
+    font-size:.92rem;white-space:pre-wrap;min-height:40px}
+  .preview b{color:var(--accent)}
+  button.act{background:var(--brand);color:#fff;border:none;padding:10px 18px;border-radius:8px;
+    cursor:pointer;font-family:inherit;font-size:.9rem;margin-top:12px}
+  button.act:hover{background:#0a3457}
+  /* Quiz */
+  .q{margin:16px 0;padding:14px 16px;border:1px solid var(--line);border-radius:10px}
+  .q p.qt{font-weight:600;margin:0 0 8px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;
+    border-radius:8px;padding:9px 12px;margin:6px 0;cursor:pointer;font-family:inherit;font-size:.9rem}
+  .opt:hover{background:var(--soft)}
+  .opt.correct{border-color:var(--ok);background:#eafaef}
+  .opt.wrong{border-color:var(--bad);background:#fdeeec}
+  .fb{font-size:.85rem;margin-top:6px;display:none}
+  .fb.show{display:block}
+  .score{font-weight:700;color:var(--brand)}
+  /* checklist */
+  .check{list-style:none;padding:0;margin:8px 0}
+  .check li{padding:6px 0;font-size:.9rem}
+  .check input{margin-right:8px;transform:translateY(1px)}
+  /* timer */
+  .timer{display:flex;align-items:center;gap:12px;background:var(--soft);border-radius:10px;
+    padding:12px 16px;margin:12px 0}
+  .timer .clock{font-size:1.7rem;font-weight:800;color:var(--brand);font-variant-numeric:tabular-nums}
+  .timer button{border:1px solid var(--brand2);background:#fff;color:var(--brand2);border-radius:8px;
+    padding:7px 13px;cursor:pointer;font-family:inherit}
+  table.rub{width:100%;border-collapse:collapse;margin-top:10px;font-size:.85rem}
+  table.rub th,table.rub td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  table.rub th{background:var(--brand);color:#fff}
+  .refs{font-size:.86rem;color:var(--muted)}
+  .refs li{margin-bottom:6px}
+  footer{color:var(--muted);font-size:.8rem;text-align:center;padding:30px 20px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>Comunicar resultados en el mundo empresarial</h1>
+    <p>El principio de la pirámide: primero el resultado, luego cómo se llega a él.</p>
+    <div class="tags">
+      <span class="tag">⏱️ 2 horas cronológicas</span>
+      <span class="tag">🧩 Clase interactiva</span>
+      <span class="tag">📊 Aplicada a Ciencia de Datos</span>
+      <span class="tag">✅ Evaluación final 30 min</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="wrap">
+    <a href="#agenda">Agenda</a>
+    <a href="#porque">1. Por qué</a>
+    <a href="#piramide">2. La pirámide</a>
+    <a href="#scqa">3. SCQA</a>
+    <a href="#mece">4. MECE</a>
+    <a href="#titulos">5. Títulos y datos</a>
+    <a href="#ejemplo">6. Ejemplo</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#eval">Evaluación</a>
+    <a href="#refs">Referencias</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- AGENDA -->
+  <section id="agenda">
+    <h2>Agenda de la sesión</h2>
+    <p class="lead">120 minutos: 90 de contenido interactivo y 30 de evaluación aplicada en clases.</p>
+    <ul class="agenda">
+      <li><span class="t">0–15'</span><span class="d"><b>¿Por qué presentamos distinto en la empresa?</b><br><small>Lógica académica (de abajo hacia arriba) vs. lógica ejecutiva (de arriba hacia abajo).</small></span></li>
+      <li><span class="t">15–40'</span><span class="d"><b>El principio de la pirámide (Barbara Minto)</b><br><small>Idea gobernante, lógica vertical y horizontal.</small></span></li>
+      <li><span class="t">40–60'</span><span class="d"><b>SCQA: cómo abrir una presentación</b><br><small>Situación, Complicación, Pregunta, Respuesta. Constructor interactivo.</small></span></li>
+      <li><span class="t">60–75'</span><span class="d"><b>MECE y ordenamiento de ideas</b><br><small>Agrupar sin solapes ni vacíos; ordenar por importancia.</small></span></li>
+      <li><span class="t">75–85'</span><span class="d"><b>Títulos de acción y storytelling con datos</b></span></li>
+      <li><span class="t">85–90'</span><span class="d"><b>Ejemplo demostrativo + Quiz</b><br><small>Antes/después aplicado a un proyecto del curso.</small></span></li>
+      <li><span class="t">90–120'</span><span class="d"><b>Evaluación final en clases</b><br><small>Construye la pirámide ejecutiva de tu proyecto de ML.</small></span></li>
+    </ul>
+  </section>
+
+  <!-- 1. POR QUÉ -->
+  <section id="porque">
+    <span class="min">0–15 min</span>
+    <h2>1. ¿Por qué presentamos distinto en la empresa?</h2>
+    <p>En la universidad aprendemos a comunicar <strong>de abajo hacia arriba</strong>: contexto → método → resultados → conclusión.
+    Es la lógica del paper científico, que construye suspenso y exige al lector recorrer todo el camino antes de saber qué pasó.</p>
+    <p>En la empresa, quien escucha (un gerente, un comité, un cliente) tiene <strong>poco tiempo y debe decidir</strong>.
+    Necesita la conclusión <em>primero</em>. Por eso la comunicación ejecutiva es <strong>de arriba hacia abajo</strong>:
+    la respuesta al inicio, y el detalle solo si lo piden.</p>
+
+    <div class="grid2">
+      <div class="panel bad-box">
+        <h4>❌ Lógica académica (bottom-up)</h4>
+        <p style="font-size:.9rem;margin:0">"Recolectamos 10.000 registros, limpiamos datos, hicimos EDA, probamos 4 modelos, ajustamos hiperparámetros, comparamos métricas… <em>y por lo tanto</em> recomendamos el modelo XGBoost."</p>
+        <p style="font-size:.82rem;color:var(--muted);margin:8px 0 0">El que decide esperó 5 minutos para saber qué hacer.</p>
+      </div>
+      <div class="panel ok-box">
+        <h4>✅ Lógica ejecutiva (top-down)</h4>
+        <p style="font-size:.9rem;margin:0">"Recomendamos desplegar el modelo XGBoost para anticipar la fuga de clientes: puede evitar ~$120M el próximo trimestre. <em>Esto se sustenta en tres razones…</em>"</p>
+        <p style="font-size:.82rem;color:var(--muted);margin:8px 0 0">El que decide ya sabe qué hacer en 10 segundos.</p>
+      </div>
+    </div>
+
+    <div class="callout"><strong>BLUF — Bottom Line Up Front.</strong> Es el estándar de redacción del ejército de EE. UU. y del mundo consultor:
+    pon la conclusión <em>arriba</em>. Si tu audiencia leyera solo la primera frase, ¿entendería qué propones y por qué?</div>
+  </section>
+
+  <!-- 2. PIRÁMIDE -->
+  <section id="piramide">
+    <span class="min">15–40 min</span>
+    <h2>2. El principio de la pirámide</h2>
+    <p class="lead">Barbara Minto lo desarrolló en McKinsey y lo publicó en <em>The Pyramid Principle</em> (1987). Es el método estándar de comunicación en consultoría.</p>
+
+    <p>La idea central: <strong>todo mensaje debe ordenarse como una pirámide bajo una única idea gobernante</strong>.</p>
+
+    <div class="pyr">
+      <div class="row l1"><div class="blk">Idea gobernante<br>(tu recomendación / respuesta)</div></div>
+      <div class="row l2"><div class="blk">Argumento 1</div><div class="blk">Argumento 2</div><div class="blk">Argumento 3</div></div>
+      <div class="row l3"><div class="blk">datos · gráficos</div><div class="blk">datos · gráficos</div><div class="blk">datos · gráficos</div></div>
+    </div>
+
+    <div class="grid2">
+      <div class="panel">
+        <h4>Lógica vertical</h4>
+        <p style="font-size:.9rem;margin:0">Entre niveles hay un diálogo de <strong>pregunta–respuesta</strong>. Cada idea provoca una pregunta ("¿por qué?", "¿cómo?") que el nivel inferior responde.</p>
+      </div>
+      <div class="panel">
+        <h4>Lógica horizontal</h4>
+        <p style="font-size:.9rem;margin:0">Las ideas de un mismo nivel se agrupan de forma <strong>lógica</strong>: por deducción (un razonamiento encadenado) o por inducción (ideas del mismo tipo).</p>
+      </div>
+    </div>
+
+    <div class="callout"><strong>La prueba del "¿y entonces qué?"</strong> (<em>so what?</em>). Por cada dato pregúntate "¿y entonces qué?" hasta llegar a la
+    implicancia accionable. Esa implicancia —no el dato— es lo que va arriba en la pirámide.
+    <br><br><em>"El modelo tiene AUC 0.86"</em> → ¿y entonces qué? → <em>"podemos detectar 8 de cada 10 clientes que se fugarán"</em> → ¿y entonces qué? → <strong>"podemos enfocar la retención y reducir la fuga un 10%"</strong>.</div>
+  </section>
+
+  <!-- 3. SCQA -->
+  <section id="scqa">
+    <span class="min">40–60 min</span>
+    <h2>3. SCQA: cómo abrir sin perder a la audiencia</h2>
+    <p>Antes de soltar la recomendación, Minto propone una introducción breve que "engancha" con un marco que todos comparten. Es el patrón <strong>SCQA</strong>:</p>
+    <div class="grid2">
+      <div class="panel"><h4>S — Situación</h4><p style="font-size:.88rem;margin:0">Un hecho del contexto que nadie discute.</p></div>
+      <div class="panel"><h4>C — Complicación</h4><p style="font-size:.88rem;margin:0">Algo que cambió o un problema que tensiona la situación.</p></div>
+      <div class="panel"><h4>Q — Pregunta</h4><p style="font-size:.88rem;margin:0">La pregunta que surge naturalmente de la complicación.</p></div>
+      <div class="panel"><h4>A — Respuesta</h4><p style="font-size:.88rem;margin:0">Tu mensaje principal: la cima de la pirámide.</p></div>
+    </div>
+
+    <h3>🛠️ Constructor SCQA</h3>
+    <p style="font-size:.9rem;color:var(--muted)">Escribe cada parte y mira cómo se arma una apertura ejecutiva. (Ejemplo precargado de un proyecto del curso.)</p>
+    <label class="fld">Situación</label>
+    <input class="txt" id="s_s" value="El banco tiene 10.000 clientes activos.">
+    <label class="fld">Complicación</label>
+    <input class="txt" id="s_c" value="La tasa de fuga subió a 20% y cada cliente perdido cuesta dinero en readquisición.">
+    <label class="fld">Pregunta</label>
+    <input class="txt" id="s_q" value="¿Cómo identificamos y retenemos a los clientes en riesgo antes de que se vayan?">
+    <label class="fld">Respuesta (mensaje principal)</label>
+    <input class="txt" id="s_a" value="Un modelo de clasificación que prioriza el 20% más riesgoso permite enfocar la retención y reducir la fuga un 10%.">
+    <div class="preview" id="scqa_out"></div>
+  </section>
+
+  <!-- 4. MECE -->
+  <section id="mece">
+    <span class="min">60–75 min</span>
+    <h2>4. MECE: agrupar sin solapes ni vacíos</h2>
+    <p><strong>MECE</strong> = <em>Mutually Exclusive, Collectively Exhaustive</em> (Mutuamente Excluyente, Colectivamente Exhaustivo).
+    Tus argumentos no deben pisarse entre sí (exclusivos) ni dejar huecos importantes (exhaustivos).</p>
+    <div class="grid2">
+      <div class="panel bad-box"><h4>❌ No MECE</h4>
+        <p style="font-size:.88rem;margin:0">1. El modelo es preciso · 2. El modelo tiene buen AUC · 3. Reduce costos<br>
+        <small>(1 y 2 se solapan; falta el "cómo se implementa").</small></p></div>
+      <div class="panel ok-box"><h4>✅ MECE</h4>
+        <p style="font-size:.88rem;margin:0">1. <b>Detecta</b> bien a los churners (desempeño) · 2. <b>Explica</b> los factores de fuga (interpretación) · 3. <b>Se integra</b> a la campaña de retención (acción)<br>
+        <small>Sin solapes y cubre desempeño + interpretación + acción.</small></p></div>
+    </div>
+    <h3>Ordenar dentro de un grupo</h3>
+    <p style="font-size:.92rem">Una vez agrupadas, ordena las ideas con un criterio explícito:</p>
+    <ul>
+      <li><strong>Por importancia</strong> (lo más relevante primero) — el más usado en negocios.</li>
+      <li><strong>Por tiempo</strong> (pasos de un proceso: primero, luego, después).</li>
+      <li><strong>Por estructura</strong> (por área, región, segmento).</li>
+    </ul>
+  </section>
+
+  <!-- 5. TÍTULOS -->
+  <section id="titulos">
+    <span class="min">75–85 min</span>
+    <h2>5. Títulos de acción y storytelling con datos</h2>
+    <h3>Títulos que afirman, no que rotulan</h3>
+    <p>Cada lámina debería titularse con su <strong>mensaje</strong>, no con su <strong>tema</strong>. Si alguien leyera solo los títulos de tus láminas, debería entender toda la historia.</p>
+    <div class="grid2">
+      <div class="panel bad-box"><h4>❌ Título-tema</h4><p style="font-size:.9rem;margin:0">"Análisis de variables"</p></div>
+      <div class="panel ok-box"><h4>✅ Título-acción</h4><p style="font-size:.9rem;margin:0">"La inactividad y el saldo alto son los principales predictores de fuga"</p></div>
+    </div>
+    <h3>Storytelling con datos</h3>
+    <p style="font-size:.92rem">Cole Nussbaumer Knaflic (<em>Storytelling with Data</em>, 2015) resume buenas prácticas: elige el gráfico correcto,
+    elimina lo que distrae, <strong>dirige la atención</strong> con color hacia el dato que importa, y acompaña cada gráfico con la frase que dice qué mirar.</p>
+    <div class="quote">Un gráfico sin un mensaje es un test de Rorschach: cada quien ve lo que quiere. Dile a tu audiencia qué debe concluir.</div>
+  </section>
+
+  <!-- 6. EJEMPLO -->
+  <section id="ejemplo">
+    <span class="min">85–90 min</span>
+    <h2>6. Ejemplo demostrativo (antes / después)</h2>
+    <p style="font-size:.92rem">Misma información, dos formas de presentarla a un comité ejecutivo. Cambia entre ambas:</p>
+    <div class="toggle-btns">
+      <button id="btnBefore" class="active" onclick="showCase('before')">Versión académica</button>
+      <button id="btnAfter" onclick="showCase('after')">Versión piramidal</button>
+    </div>
+    <div id="case_before" class="case show panel bad-box">
+      <h4>❌ De abajo hacia arriba</h4>
+      <p style="font-size:.92rem;margin:0">"Buenos días. Trabajamos con un dataset de 10.000 clientes con 15 variables. Encontramos valores faltantes y outliers que limpiamos. Hicimos análisis exploratorio: graficamos distribuciones y correlaciones. Luego probamos regresión logística, árbol de decisión, random forest y XGBoost. Ajustamos hiperparámetros con validación cruzada. XGBoost obtuvo el mejor AUC (0.86), seguido de random forest. Las variables más importantes fueron la inactividad, el saldo y el país. Por lo tanto, recomendamos usar XGBoost y enfocar la retención en clientes inactivos de alto saldo."</p>
+    </div>
+    <div id="case_after" class="case panel ok-box">
+      <h4>✅ De arriba hacia abajo (pirámide)</h4>
+      <p style="font-size:.92rem;margin:0"><strong>Recomendación:</strong> "Desplegar el modelo de fuga para priorizar al 20% de clientes más riesgosos puede reducir la fuga un 10% el próximo trimestre. Tres razones lo sustentan:</p>
+      <ol style="font-size:.92rem;margin:8px 0 0">
+        <li><strong>Lo detecta bien:</strong> el modelo identifica a 8 de cada 10 clientes que se fugarán (AUC 0.86).</li>
+        <li><strong>Sabemos por qué se van:</strong> inactividad y saldo alto son los principales gatillos.</li>
+        <li><strong>Es rentable actuar:</strong> retener al segmento priorizado cuesta menos que readquirir a los que perderíamos.</li>
+      </ol>
+      <p style="font-size:.92rem;margin:8px 0 0"><strong>Siguiente paso:</strong> lanzar una campaña piloto de retención sobre ese 20% y medir el impacto."</p>
+      <p style="font-size:.84rem;color:var(--muted);margin:10px 0 0">El detalle técnico (limpieza, EDA, comparación de modelos) pasa al backup, disponible si lo piden.</p>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="quiz">
+    <h2>Quiz rápido</h2>
+    <p class="lead">Comprueba lo esencial. La puntuación se actualiza sola: <span class="score" id="qscore">0 / 5</span></p>
+
+    <div class="q" data-correct="1">
+      <p class="qt">1. En una presentación ejecutiva, ¿con qué deberías empezar?</p>
+      <button class="opt" onclick="ans(this)">Con el contexto y la metodología</button>
+      <button class="opt" data-ok="1" onclick="ans(this)">Con la conclusión o recomendación</button>
+      <button class="opt" onclick="ans(this)">Con la limpieza de datos</button>
+      <div class="fb"></div>
+    </div>
+
+    <div class="q" data-correct="1">
+      <p class="qt">2. ¿Qué significa MECE?</p>
+      <button class="opt" data-ok="1" onclick="ans(this)">Mutuamente Excluyente, Colectivamente Exhaustivo</button>
+      <button class="opt" onclick="ans(this)">Modelo Estadístico de Clasificación Eficiente</button>
+      <button class="opt" onclick="ans(this)">Método Estructurado de Comunicación Ejecutiva</button>
+      <div class="fb"></div>
+    </div>
+
+    <div class="q" data-correct="1">
+      <p class="qt">3. ¿Cuál es el orden correcto del marco de apertura?</p>
+      <button class="opt" onclick="ans(this)">Pregunta · Situación · Respuesta · Complicación</button>
+      <button class="opt" data-ok="1" onclick="ans(this)">Situación · Complicación · Pregunta · Respuesta</button>
+      <button class="opt" onclick="ans(this)">Respuesta · Situación · Complicación · Pregunta</button>
+      <div class="fb"></div>
+    </div>
+
+    <div class="q" data-correct="1">
+      <p class="qt">4. Un buen título de lámina (título de acción)…</p>
+      <button class="opt" data-ok="1" onclick="ans(this)">Enuncia el mensaje (la conclusión de esa lámina)</button>
+      <button class="opt" onclick="ans(this)">Nombra el tema general ("Resultados")</button>
+      <button class="opt" onclick="ans(this)">Repite el número de la diapositiva</button>
+      <div class="fb"></div>
+    </div>
+
+    <div class="q" data-correct="1">
+      <p class="qt">5. La prueba del "¿y entonces qué?" sirve para…</p>
+      <button class="opt" onclick="ans(this)">Agregar más datos a cada lámina</button>
+      <button class="opt" onclick="ans(this)">Alargar la presentación</button>
+      <button class="opt" data-ok="1" onclick="ans(this)">Llegar desde el dato hasta la implicancia accionable</button>
+      <div class="fb"></div>
+    </div>
+  </section>
+
+  <!-- EVALUACIÓN -->
+  <section id="eval">
+    <span class="min">90–120 min · 30 minutos en clases</span>
+    <h2>Evaluación final: construye tu pirámide ejecutiva</h2>
+    <p class="lead">Toma los resultados de tu proyecto del curso (por ejemplo, tu modelo de fuga o de incumplimiento de crédito)
+    y arma una comunicación piramidal de <strong>1–2 minutos</strong> dirigida a un comité ejecutivo no técnico.</p>
+
+    <div class="timer">
+      <span class="clock" id="clock">30:00</span>
+      <button onclick="startTimer()">Iniciar</button>
+      <button onclick="resetTimer()">Reiniciar</button>
+      <span style="font-size:.85rem;color:var(--muted)">Tiempo sugerido de trabajo en clases.</span>
+    </div>
+
+    <h3>Paso 1 — Apertura (SCQA)</h3>
+    <label class="fld">Situación</label><input class="txt e" id="e_s" placeholder="Un hecho de contexto que nadie discute…">
+    <label class="fld">Complicación</label><input class="txt e" id="e_c" placeholder="Qué cambió o qué problema apareció…">
+    <label class="fld">Pregunta</label><input class="txt e" id="e_q" placeholder="La pregunta que surge…">
+
+    <h3>Paso 2 — Mensaje principal (cima de la pirámide)</h3>
+    <label class="fld">Recomendación / respuesta, con un número de impacto si es posible</label>
+    <textarea class="txt e" id="e_msg" placeholder="Ej.: Desplegar el modelo X permite reducir la fuga un 10% el próximo trimestre…"></textarea>
+
+    <h3>Paso 3 — Tres argumentos MECE</h3>
+    <label class="fld">Argumento 1 — Desempeño (¿lo detecta bien?)</label><input class="txt e" id="e_a1" placeholder="Ej.: detecta 8 de cada 10 churners (AUC 0.86)…">
+    <label class="fld">Argumento 2 — Interpretación (¿por qué ocurre?)</label><input class="txt e" id="e_a2" placeholder="Ej.: inactividad y saldo alto son los gatillos…">
+    <label class="fld">Argumento 3 — Acción/valor (¿qué hacemos y cuánto vale?)</label><input class="txt e" id="e_a3" placeholder="Ej.: retener al segmento priorizado es más barato que readquirir…">
+
+    <h3>Paso 4 — Llamada a la acción</h3>
+    <label class="fld">Siguiente paso concreto</label><input class="txt e" id="e_next" placeholder="Ej.: lanzar una campaña piloto sobre el 20% más riesgoso…">
+
+    <button class="act" onclick="buildPyramid()">Generar mi pirámide ejecutiva</button>
+    <div class="preview" id="eval_out">Tu resumen ejecutivo aparecerá aquí…</div>
+
+    <h3>Auto-chequeo antes de presentar</h3>
+    <ul class="check">
+      <li><input type="checkbox"> ¿La primera frase ya dice mi recomendación? (answer-first / BLUF)</li>
+      <li><input type="checkbox"> ¿Incluí un número de impacto para el negocio?</li>
+      <li><input type="checkbox"> ¿Mis 3 argumentos son MECE (sin solapes ni vacíos)?</li>
+      <li><input type="checkbox"> ¿Pasé la prueba del "¿y entonces qué?" en cada dato?</li>
+      <li><input type="checkbox"> ¿Evité jerga técnica innecesaria para un comité no técnico?</li>
+      <li><input type="checkbox"> ¿Cerré con una acción concreta?</li>
+    </ul>
+
+    <h3>Rúbrica de evaluación (100 puntos)</h3>
+    <table class="rub">
+      <tr><th>Criterio</th><th>Descripción</th><th style="width:70px">Puntos</th></tr>
+      <tr><td>Mensaje primero (answer-first)</td><td>La recomendación aparece al inicio, clara y con impacto cuantificado.</td><td>30</td></tr>
+      <tr><td>Apertura SCQA</td><td>Situación, complicación y pregunta encadenadas y pertinentes al negocio.</td><td>20</td></tr>
+      <tr><td>Argumentos MECE</td><td>Tres argumentos sin solapes, que cubren desempeño, interpretación y acción.</td><td>25</td></tr>
+      <tr><td>Orientación a la acción</td><td>Cierre con un siguiente paso concreto y accionable ("so what").</td><td>15</td></tr>
+      <tr><td>Comunicación</td><td>Lenguaje claro para audiencia no técnica; sin jerga innecesaria.</td><td>10</td></tr>
+    </table>
+    <p style="font-size:.82rem;color:var(--muted);margin-top:8px">Nota mínima de aprobación: 60 / 100. Tiempo de exposición sugerido: 1–2 minutos por estudiante o grupo.</p>
+  </section>
+
+  <!-- REFERENCIAS -->
+  <section id="refs">
+    <h2>Referencias</h2>
+    <ul class="refs">
+      <li>Minto, B. (1987). <em>The Pyramid Principle: Logic in Writing and Thinking</em>. Pearson.</li>
+      <li>Nussbaumer Knaflic, C. (2015). <em>Storytelling with Data: A Data Visualization Guide for Business Professionals</em>. Wiley.</li>
+      <li>Duarte, N. (2010). <em>Resonate: Present Visual Stories that Transform Audiences</em>. Wiley.</li>
+      <li>Heath, C. &amp; Heath, D. (2007). <em>Made to Stick: Why Some Ideas Survive and Others Die</em>. Random House.</li>
+      <li>U.S. Army (2002). <em>Effective Writing for Army Leaders</em> (DA Pam 600-67) — origen de la práctica BLUF.</li>
+    </ul>
+  </section>
+
+</div>
+
+<footer>Clase complementaria · Machine Learning and Business Applications · UTFSM</footer>
+
+<script>
+  // SCQA live builder
+  function renderSCQA(){
+    var s=val('s_s'),c=val('s_c'),q=val('s_q'),a=val('s_a');
+    document.getElementById('scqa_out').innerHTML =
+      "<b>Situación:</b> "+esc(s)+"\n<b>Complicación:</b> "+esc(c)+
+      "\n<b>Pregunta:</b> "+esc(q)+"\n\n<b>→ Respuesta (tu mensaje):</b> "+esc(a);
+  }
+  ['s_s','s_c','s_q','s_a'].forEach(function(id){
+    document.getElementById(id).addEventListener('input',renderSCQA);
+  });
+  renderSCQA();
+
+  // Before/after toggle
+  function showCase(which){
+    document.getElementById('case_before').classList.toggle('show',which==='before');
+    document.getElementById('case_after').classList.toggle('show',which==='after');
+    document.getElementById('btnBefore').classList.toggle('active',which==='before');
+    document.getElementById('btnAfter').classList.toggle('active',which==='after');
+  }
+
+  // Quiz
+  var answered={};
+  function qIndex(q){return Array.prototype.indexOf.call(document.querySelectorAll('.q'),q);}
+  function ans(btn){
+    var q=btn.closest('.q');
+    var idx=qIndex(q);
+    if(answered[idx]) return;          // one shot per question
+    answered[idx]=true;
+    var ok=btn.getAttribute('data-ok')==='1';
+    var fb=q.querySelector('.fb');
+    if(ok){
+      btn.classList.add('correct');
+      q.dataset.userok='1';
+      fb.textContent='✅ Correcto.';
+    } else {
+      btn.classList.add('wrong');
+      q.querySelector('.opt[data-ok="1"]').classList.add('correct');
+      fb.textContent='❌ La respuesta correcta está marcada en verde.';
+    }
+    fb.classList.add('show');
+    updateScore();
+  }
+  function updateScore(){
+    var s=0;
+    document.querySelectorAll('.q').forEach(function(q){ if(q.dataset.userok==='1') s++; });
+    document.getElementById('qscore').textContent=s+' / 5';
+  }
+
+  // Evaluation pyramid builder
+  function buildPyramid(){
+    var s=val('e_s'),c=val('e_c'),q=val('e_q'),m=val('e_msg'),
+        a1=val('e_a1'),a2=val('e_a2'),a3=val('e_a3'),nx=val('e_next');
+    var out="<b>▌MENSAJE PRINCIPAL</b>\n"+esc(m||'(escribe tu recomendación)')+
+      "\n\n<b>Apertura</b>\n• Situación: "+esc(s)+"\n• Complicación: "+esc(c)+"\n• Pregunta: "+esc(q)+
+      "\n\n<b>Argumentos (MECE)</b>\n1. "+esc(a1)+"\n2. "+esc(a2)+"\n3. "+esc(a3)+
+      "\n\n<b>▶ Siguiente paso:</b> "+esc(nx);
+    document.getElementById('eval_out').innerHTML=out;
+  }
+
+  // Timer 30:00
+  var tLeft=30*60, tId=null;
+  function fmt(s){var m=Math.floor(s/60),x=s%60;return (m<10?'0':'')+m+':'+(x<10?'0':'')+x;}
+  function startTimer(){
+    if(tId) return;
+    tId=setInterval(function(){
+      if(tLeft<=0){clearInterval(tId);tId=null;return;}
+      tLeft--; document.getElementById('clock').textContent=fmt(tLeft);
+    },1000);
+  }
+  function resetTimer(){clearInterval(tId);tId=null;tLeft=30*60;document.getElementById('clock').textContent='30:00';}
+
+  // helpers
+  function val(id){return document.getElementById(id).value.trim();}
+  function esc(t){return (t||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+</script>
+</body>
+</html>

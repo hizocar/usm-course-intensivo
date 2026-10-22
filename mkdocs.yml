@@ -1,0 +1,88 @@
+# Project information
+site_name: Machine Learning and Business Applications · Modalidad Intensiva
+site_url: https://hizocar.github.io/usm-course-intensivo/
+site_author: Sebastian Azocar
+site_description: Curso intensivo de machine learning aplicado a negocios, USM, noviembre 2026
+repo_url: https://github.com/hizocar/usm-course-intensivo
+repo_name: usm-course-intensivo
+edit_uri: ""
+
+# Markdown extensions
+markdown_extensions:
+  - attr_list
+  - admonition
+  - md_in_html
+  - tables
+  - pymdownx.details
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tabbed:
+      alternate_style: true
+
+# Extra javascript and css
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+extra_css:
+  - stylesheets/extra.css
+
+# Theme
+theme:
+  name: material
+  language: es
+  logo: images/logo.bmp
+  favicon: images/logo_python.svg
+  font: false
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.top
+    - content.code.annotate
+    - search.suggest
+    - search.highlight
+  palette:
+    - media: '(prefers-color-scheme: light)'
+      scheme: default
+      primary: deep orange
+      accent: deep orange
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Cambiar a modo oscuro
+    - media: '(prefers-color-scheme: dark)'
+      scheme: slate
+      primary: deep orange
+      accent: deep orange
+      toggle:
+        icon: material/toggle-switch
+        name: Cambiar a modo claro
+
+# Customization
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/hizocar
+
+# Plugins
+plugins:
+  - mkdocs-jupyter:
+      kernel_name: python3
+  - search
+
+# Navigation
+nav:
+  - Inicio: index.md
+  - Programa: programa.md
+  - Clases: clases/clases.md
+  - Guía de Colab: colab.md
+  - Proyecto final:
+      - Enunciado y rúbrica: proyecto/proyecto.md
+      - Sprints: proyecto/sprints.md
+  - Datasets: datasets/datasets.md

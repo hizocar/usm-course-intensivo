@@ -4,8 +4,9 @@
  * is in tools/mailbox/Code.gs.
  */
 (function () {
-  // Paste the web app's /exec URL here after deploying tools/mailbox/Code.gs.
-  const ENDPOINT = "";
+  // The web app deployed from tools/mailbox/Code.gs. After changing Code.gs, publish a
+  // new version of the same deployment (Deploy › Manage deployments) so this URL stays.
+  const ENDPOINT = "https://script.google.com/macros/s/AKfycbw8PjDZUK6MH8UDilOw4b6KKfgyMN-0SGqUtlkjcXNy-qcZavX5vtqbmEfnGDg3AFa9Kg/exec";
 
   let teams = null;
 

@@ -41,6 +41,8 @@
     
       <link rel="stylesheet" href="../../stylesheets/pyrunner.css">
     
+      <link rel="stylesheet" href="../../stylesheets/lessons.css">
+    
     <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -223,11 +225,15 @@
   
 
 
-  <li class="md-tabs__item">
-    <a href="../../classes/classes/" class="md-tabs__link">
-      Classes
-    </a>
-  </li>
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../classes/classes/" class="md-tabs__link">
+        Classes
+      </a>
+    </li>
+  
 
       
         
@@ -352,10 +358,113 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Classes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Classes" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Classes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../classes/classes/" class="md-nav__link">
-        Classes
+        The five classes
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../classes/Session_1_Day_One/" class="md-nav__link">
+        Day one at Cordillera Mobile
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../classes/Session_2_Cleaning/" class="md-nav__link">
+        Cleaning the customer base
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../classes/Session_3_Monthly_Bill/" class="md-nav__link">
+        What drives the monthly bill?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../classes/Session_4_Churn/" class="md-nav__link">
+        Who is about to leave?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../classes/Session_5_Better_Models/" class="md-nav__link">
+        Better models, a clearer story
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -493,6 +602,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#classes-cordillera-mobile" class="md-nav__link">
+    Classes: Cordillera Mobile
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#final-project" class="md-nav__link">
     Final project
   </a>
@@ -500,8 +616,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#used-in-class" class="md-nav__link">
-    Used in class
+  <a href="#reference-notebooks" class="md-nav__link">
+    Reference notebooks
   </a>
   
 </li>
@@ -541,6 +657,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#classes-cordillera-mobile" class="md-nav__link">
+    Classes: Cordillera Mobile
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#final-project" class="md-nav__link">
     Final project
   </a>
@@ -548,8 +671,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#used-in-class" class="md-nav__link">
-    Used in class
+  <a href="#reference-notebooks" class="md-nav__link">
+    Reference notebooks
   </a>
   
 </li>
@@ -573,6 +696,121 @@
 <div class="language-python highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/hizocar/usm-course-intensivo/main/docs/datasets/loan_default.csv&quot;</span><span class="p">)</span>
 </code></pre></div>
+<h2 id="classes-cordillera-mobile">Classes: Cordillera Mobile</h2>
+<p>All five classes follow this fictional mobile carrier. The raw file is dirty on purpose; session 2 cleans it, and sessions 3 to 5 start from the clean version.</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th align="right">Rows</th>
+<th>URL for Colab</th>
+<th align="center">Download</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cordillera_mobile.csv</code></td>
+<td align="right">5,075</td>
+<td><code>https://raw.githubusercontent.com/hizocar/usm-course-intensivo/main/docs/datasets/cordillera_mobile.csv</code></td>
+<td align="center"><a href="../cordillera_mobile.csv">CSV</a></td>
+</tr>
+<tr>
+<td><code>cordillera_mobile_clean.csv</code></td>
+<td align="right">4,985</td>
+<td><code>https://raw.githubusercontent.com/hizocar/usm-course-intensivo/main/docs/datasets/cordillera_mobile_clean.csv</code></td>
+<td align="center"><a href="../cordillera_mobile_clean.csv">CSV</a></td>
+</tr>
+</tbody>
+</table>
+<details class="info">
+<summary>Data dictionary: <code>cordillera_mobile.csv</code></summary>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>customer_id</code></td>
+<td>ID</td>
+<td>Customer identifier. Not a model feature.</td>
+</tr>
+<tr>
+<td><code>signup_date</code></td>
+<td>Date</td>
+<td>Date the customer joined</td>
+</tr>
+<tr>
+<td><code>age</code></td>
+<td>Numeric</td>
+<td>Age</td>
+</tr>
+<tr>
+<td><code>region</code></td>
+<td>Categorical</td>
+<td><code>Metropolitana</code>, <code>Centro</code>, <code>Sur</code>, <code>Norte</code></td>
+</tr>
+<tr>
+<td><code>plan</code></td>
+<td>Categorical</td>
+<td><code>Prepaid</code>, <code>Basic</code>, <code>Plus</code>, <code>Unlimited</code></td>
+</tr>
+<tr>
+<td><code>contract</code></td>
+<td>Categorical</td>
+<td><code>Month-to-month</code>, <code>12 months</code>, <code>24 months</code></td>
+</tr>
+<tr>
+<td><code>tenure_months</code></td>
+<td>Numeric</td>
+<td>Months as a customer</td>
+</tr>
+<tr>
+<td><code>data_gb</code></td>
+<td>Numeric</td>
+<td>Mobile data used last month (GB)</td>
+</tr>
+<tr>
+<td><code>call_minutes</code></td>
+<td>Numeric</td>
+<td>Call minutes last month</td>
+</tr>
+<tr>
+<td><code>intl_roaming</code></td>
+<td>Binary</td>
+<td>Used international roaming last month</td>
+</tr>
+<tr>
+<td><code>support_tickets</code></td>
+<td>Numeric</td>
+<td>Complaints in the last 6 months</td>
+</tr>
+<tr>
+<td><code>autopay</code></td>
+<td>Binary</td>
+<td>Pays automatically</td>
+</tr>
+<tr>
+<td><code>payment_method</code></td>
+<td>Categorical</td>
+<td><code>Credit card</code>, <code>Debit card</code>, <code>Bank transfer</code>, <code>Cash</code></td>
+</tr>
+<tr>
+<td><code>monthly_bill</code></td>
+<td>Numeric</td>
+<td>Last bill in USD. <strong>Target in session 3.</strong></td>
+</tr>
+<tr>
+<td><code>churned</code></td>
+<td>Binary</td>
+<td>Cancelled within 3 months. <strong>Target in sessions 4 and 5.</strong></td>
+</tr>
+</tbody>
+</table>
+</details>
 <h2 id="final-project">Final project</h2>
 <table>
 <thead>
@@ -754,7 +992,7 @@
 </tbody>
 </table>
 </details>
-<h2 id="used-in-class">Used in class</h2>
+<h2 id="reference-notebooks">Reference notebooks</h2>
 <table>
 <thead>
 <tr>
@@ -862,24 +1100,6 @@
         <script src="../../javascripts/pyrunner.js"></script>
       
         <script src="../../javascripts/hz-core.js"></script>
-      
-        <script src="../../javascripts/explainers/list-index.js"></script>
-      
-        <script src="../../javascripts/explainers/ndarray-slice.js"></script>
-      
-        <script src="../../javascripts/explainers/groupby.js"></script>
-      
-        <script src="../../javascripts/explainers/least-squares.js"></script>
-      
-        <script src="../../javascripts/explainers/poly-fit.js"></script>
-      
-        <script src="../../javascripts/explainers/kfold.js"></script>
-      
-        <script src="../../javascripts/explainers/threshold.js"></script>
-      
-        <script src="../../javascripts/explainers/tree-split.js"></script>
-      
-        <script src="../../javascripts/explainers/roc.js"></script>
       
         <script src="../../javascripts/mailbox.js"></script>
       

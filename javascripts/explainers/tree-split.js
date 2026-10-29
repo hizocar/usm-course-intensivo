@@ -350,5 +350,5 @@
     requestAnimationFrame(() => (treeWrap.scrollLeft = (treeWrap.scrollWidth - treeWrap.clientWidth) / 2));
   }
 
-  HZ.register("tree-split", { kicker: "Class 12b", title: "How a decision tree splits the data", mount });
+  HZ.register("tree-split", { kicker: "Session 5", title: "How a decision tree splits the data", mount });
 })();

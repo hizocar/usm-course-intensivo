@@ -257,5 +257,5 @@
     show(false);
   }
 
-  HZ.register("poly-fit", { kicker: "Class 6a", title: "Underfitting and overfitting", mount });
+  HZ.register("poly-fit", { kicker: "Session 3", title: "Underfitting and overfitting", mount });
 })();

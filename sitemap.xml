@@ -61,6 +61,31 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://hizocar.github.io/usm-course-intensivo/classes/Session_1_Day_One/</loc>
+         <lastmod>2026-10-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hizocar.github.io/usm-course-intensivo/classes/Session_2_Cleaning/</loc>
+         <lastmod>2026-10-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hizocar.github.io/usm-course-intensivo/classes/Session_3_Monthly_Bill/</loc>
+         <lastmod>2026-10-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hizocar.github.io/usm-course-intensivo/classes/Session_4_Churn/</loc>
+         <lastmod>2026-10-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hizocar.github.io/usm-course-intensivo/classes/Session_5_Better_Models/</loc>
+         <lastmod>2026-10-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://hizocar.github.io/usm-course-intensivo/classes/Supplement_Seaborn/</loc>
          <lastmod>2026-10-29</lastmod>
          <changefreq>daily</changefreq>

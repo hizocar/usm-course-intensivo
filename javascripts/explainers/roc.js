@@ -271,5 +271,5 @@
     draw();
   }
 
-  HZ.register("roc", { kicker: "Class 12b", title: "ROC curve and AUC, built by a threshold", mount });
+  HZ.register("roc", { kicker: "Session 5", title: "ROC curve and AUC, built by a threshold", mount });
 })();

@@ -56,7 +56,7 @@
 
   HZ.register("groupby", {
     title: "Split → apply → combine",
-    kicker: "pandas groupby",
+    kicker: "Session 2",
     mount(body) {
       body.classList.add("hz-groupby");
       let agg = "mean";

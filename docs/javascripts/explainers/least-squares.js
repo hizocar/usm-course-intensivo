@@ -272,5 +272,5 @@
     draw();
   }
 
-  HZ.register("least-squares", { kicker: "Class 6", title: "Least squares, drawn as squares", mount });
+  HZ.register("least-squares", { kicker: "Session 3", title: "Least squares, drawn as squares", mount });
 })();

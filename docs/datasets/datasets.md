@@ -7,6 +7,35 @@ import pandas as pd
 df = pd.read_csv("https://raw.githubusercontent.com/hizocar/usm-course-intensivo/main/docs/datasets/loan_default.csv")
 ```
 
+## Classes: Cordillera Mobile
+
+All five classes follow this fictional mobile carrier. The raw file is dirty on purpose; session 2 cleans it, and sessions 3 to 5 start from the clean version.
+
+| File | Rows | URL for Colab | Download |
+|---|--:|---|:--:|
+| `cordillera_mobile.csv` | 5,075 | `https://raw.githubusercontent.com/hizocar/usm-course-intensivo/main/docs/datasets/cordillera_mobile.csv` | [CSV](cordillera_mobile.csv) |
+| `cordillera_mobile_clean.csv` | 4,985 | `https://raw.githubusercontent.com/hizocar/usm-course-intensivo/main/docs/datasets/cordillera_mobile_clean.csv` | [CSV](cordillera_mobile_clean.csv) |
+
+??? info "Data dictionary: `cordillera_mobile.csv`"
+
+    | Variable | Type | Description |
+    |---|---|---|
+    | `customer_id` | ID | Customer identifier. Not a model feature. |
+    | `signup_date` | Date | Date the customer joined |
+    | `age` | Numeric | Age |
+    | `region` | Categorical | `Metropolitana`, `Centro`, `Sur`, `Norte` |
+    | `plan` | Categorical | `Prepaid`, `Basic`, `Plus`, `Unlimited` |
+    | `contract` | Categorical | `Month-to-month`, `12 months`, `24 months` |
+    | `tenure_months` | Numeric | Months as a customer |
+    | `data_gb` | Numeric | Mobile data used last month (GB) |
+    | `call_minutes` | Numeric | Call minutes last month |
+    | `intl_roaming` | Binary | Used international roaming last month |
+    | `support_tickets` | Numeric | Complaints in the last 6 months |
+    | `autopay` | Binary | Pays automatically |
+    | `payment_method` | Categorical | `Credit card`, `Debit card`, `Bank transfer`, `Cash` |
+    | `monthly_bill` | Numeric | Last bill in USD. **Target in session 3.** |
+    | `churned` | Binary | Cancelled within 3 months. **Target in sessions 4 and 5.** |
+
 ## Final project
 
 | File | Case | Rows | URL for Colab | Download |
@@ -49,7 +78,7 @@ df = pd.read_csv("https://raw.githubusercontent.com/hizocar/usm-course-intensivo
     | `region` | Categorical | `North`, `South`, `East`, `West` |
     | `default` | Binary | **Target variable.** 1 = defaulted, 0 = repaid |
 
-## Used in class
+## Reference notebooks
 
 | File | Class | Download |
 |---|---|:--:|

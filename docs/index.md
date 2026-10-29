@@ -48,7 +48,7 @@ Final presentations: **Friday, December 4**
 
 <div markdown>
 <span class="hz-step">01</span>
-**Five content sessions.** Python and Colab, data analysis with pandas, regression, classification, and trees. Every class runs in your browser: edit the code, press ▶, and play with the interactive explainers.
+**Five classes, one story.** Every class follows Cordillera Mobile, a carrier that wants to know what drives its customers' bills and who is about to cancel. Each class takes that analysis one step further, from Python basics to random forests, and runs in your browser with animated explainers.
 </div>
 
 <div markdown>

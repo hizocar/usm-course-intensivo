@@ -1,6 +1,6 @@
 # Weekly progress
 
-The project moves forward **every week**. After each content session your team hands in an **advance**: the part of the project that applies what that session covered. There are four graded advances, and the fifth week ends with the final submission.
+The project moves forward **every week**. Each class takes the Cordillera Mobile analysis one step further, and your team then takes the same step with its own case and hands it in as an **advance**. There are four graded advances, and the fifth week ends with the final submission.
 
 !!! abstract "How it counts"
     - **Weekly advances: 30% of the course grade** (4 advances, 7.5% each).
@@ -41,6 +41,8 @@ Each advance is graded from 1.0 to 7.0 against its checklist. You get the grade 
 
 *Work on it in the session 1 workshop. Due **Tuesday, November 3, 23:59**.*
 
+**Modeled in class:** [Day one at Cordillera Mobile](../classes/Session_1_Day_One.ipynb) does every step below with Cordillera Mobile. Your team repeats it with its own case.
+
 - [ ] Team **registered in the [mailbox](mailbox.md)** (2 or 3 members, team name, and case). If it is your own case, include the proposal: it is approved or rejected in the feedback.
 - [ ] Project notebook created in Colab and shared with the whole team (Editor) and with hizocar@gmail.com (Commenter).
 - [ ] The data is loaded from its URL with `pd.read_csv`.
@@ -52,6 +54,8 @@ Each advance is graded from 1.0 to 7.0 against its checklist. You get the grade 
 ## Advance 2 · Cleaning and exploratory analysis
 
 *Work on it in the session 2 workshop. Due **Tuesday, November 10, 23:59**.*
+
+**Modeled in class:** [Cleaning the customer base](../classes/Session_2_Cleaning.ipynb) does every step below with Cordillera Mobile. Your team repeats it with its own case.
 
 - [ ] Duplicates removed and missing values handled, with each decision justified.
 - [ ] Inconsistent categories unified (for example, `"bachelor"`, `"Bachelor"`, and `"BACHELOR"`).
@@ -66,6 +70,8 @@ Each advance is graded from 1.0 to 7.0 against its checklist. You get the grade 
 
 *Work on it in the session 3 workshop. Due **Tuesday, November 17, 23:59**.*
 
+**Modeled in class:** [What drives the monthly bill?](../classes/Session_3_Monthly_Bill.ipynb) does every step below with Cordillera Mobile. Your team repeats it with its own case.
+
 - [ ] Categorical variables encoded (for example, with `pd.get_dummies`) and ID columns removed.
 - [ ] Data split into training and test sets **before** any model is trained. The test set is not touched until evaluation.
 - [ ] **Case A:** linear regression trained, with MAE, RMSE, and R² on the test set, and the training metrics next to them to check for overfitting.
@@ -78,6 +84,8 @@ Each advance is graded from 1.0 to 7.0 against its checklist. You get the grade 
 
 *Work on it in the session 4 workshop (modeling clinic). Due **Tuesday, November 24, 23:59**.*
 
+**Modeled in class:** [Who is about to leave?](../classes/Session_4_Churn.ipynb) does every step below with Cordillera Mobile. Your team repeats it with its own case.
+
 - [ ] **Case A:** 5-fold cross-validation for the linear regression, at least two coefficients interpreted in business terms, and a justified choice between MAE and RMSE.
 - [ ] **Case B:** logistic regression with its confusion matrix, precision, recall, F1, and AUC on the test set. A decision threshold chosen and justified with the cost of each type of error.
 - [ ] A table with the metrics so far, which will be extended in the final submission.
@@ -88,6 +96,8 @@ Each advance is graded from 1.0 to 7.0 against its checklist. You get the grade 
 ## Final submission
 
 *Work on it in the session 5 workshop. Due **Tuesday, December 1, 23:59**.*
+
+**Modeled in class:** [Better models, a clearer story](../classes/Session_5_Better_Models.ipynb) does every step below with Cordillera Mobile. Your team repeats it with its own case.
 
 - [ ] Second model (decision tree or random forest) trained and evaluated on the same split.
 - [ ] Model comparison table and a justified choice.

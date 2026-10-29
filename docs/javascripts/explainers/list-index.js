@@ -2,123 +2,168 @@
  * list-index: positive/negative indices and slices on a Python list.
  * The student types cars[...]; the matching boxes light up in the order
  * Python visits them and the result prints exactly as Python would.
+ *
+ * Optional placeholder attributes swap the example list (defaults: the cars):
+ *   data-name="bills"                           variable name
+ *   data-items='[29.4, 30.8, 30.1]'             JSON array of strings or numbers
+ *   data-noun="bill"                            singular noun (default: name without a final "s")
+ *   data-presets='["bills[-1]", "bills[-3:]"]'  example chips
+ *   data-start="bills[-3:]"                     expression shown first
  */
 (function () {
   const { el, svg } = HZ;
 
-  const CARS = ["Mercedes", "BMW", "Audi", "Ferrari", "Tesla"];
-  const N = CARS.length;
-  const PRESETS = ["cars[1]", "cars[-1]", "cars[1:4]", "cars[:3]", "cars[::2]", "cars[::-1]", "cars[7]"];
+  const DEFAULT = {
+    name: "cars",
+    items: ["Mercedes", "BMW", "Audi", "Ferrari", "Tesla"],
+    noun: "car",
+    presets: ["cars[1]", "cars[-1]", "cars[1:4]", "cars[:3]", "cars[::2]", "cars[::-1]", "cars[7]"],
+    start: "cars[1:4]",
+  };
 
-  // Geometry (SVG user units)
-  const BW = 70, GAP = 8, X0 = 14, PITCH = BW + GAP;
-  const W = X0 * 2 + N * BW + (N - 1) * GAP;
-  const POS_Y = 44, BOX_Y = 52, BH = 40, NEG_Y = BOX_Y + BH + 17, TRACK_Y = NEG_Y + 14, H = TRACK_Y + 30;
-  const cx = (i) => X0 + i * PITCH + BW / 2;
-  // x of the cut *before* item g (g = 0..N); cuts sit in the gaps between boxes
-  const gapX = (g) => (g <= 0 ? X0 - GAP / 2 : g >= N ? X0 + N * PITCH - GAP / 2 : X0 + g * PITCH - GAP / 2);
-
-  const pyRepr = (s) => "'" + s + "'";
-  const pyList = (items) => "[" + items.map(pyRepr).join(", ") + "]";
-
-  // Tiny integer evaluator: digits, + and -, and len(cars). Returns int or throws.
-  function evalInt(src) {
-    const s = src.replace(/len\s*\(\s*cars\s*\)/g, String(N)).replace(/\s+/g, "");
-    if (!/^[+-]*\d+([+-]+\d+)*$/.test(s)) {
-      if (/^[+-]?\d*\.\d*$/.test(s) && /\d/.test(s)) throw { kind: "float" };
-      if (/^(['"]).*\1$/.test(src.trim())) throw { kind: "str" };
-      if (/^[A-Za-z_]\w*$/.test(s)) throw { kind: "name", name: s };
-      throw { kind: "syntax" };
-    }
-    let total = 0;
-    s.replace(/([+-]*)(\d+)/g, (_, signs, num) => {
-      const neg = (signs.match(/-/g) || []).length % 2 === 1;
-      total += (neg ? -1 : 1) * parseInt(num, 10);
-    });
-    return total;
+  function readConfig(ds) {
+    if (!ds || !ds.items) return DEFAULT;
+    const items = JSON.parse(ds.items);
+    if (!Array.isArray(items) || !items.length) throw new Error("data-items must be a non-empty JSON array");
+    const name = /^[A-Za-z_]\w*$/.test(ds.name || "") ? ds.name : "items";
+    const n = items.length;
+    const presets = ds.presets
+      ? JSON.parse(ds.presets)
+      : [name + "[1]", name + "[-1]", name + "[1:4]", name + "[:3]", name + "[::2]", name + "[::-1]", name + "[" + (n + 2) + "]"];
+    return { name, items, noun: ds.noun || name.replace(/s$/, ""), presets, start: ds.start || presets[2] || name + "[0]" };
   }
 
-  // Python's slice.indices(n) followed by range(start, stop, step)
-  function sliceIndices(start, stop, step, n) {
-    const lower = step < 0 ? -1 : 0;
-    const upper = step < 0 ? n - 1 : n;
-    const norm = (v, dflt) => {
-      if (v === null) return dflt;
-      if (v < 0) return Math.max(v + n, lower);
-      return Math.min(v, upper);
-    };
-    const a = norm(start, step < 0 ? upper : lower);
-    const b = norm(stop, step < 0 ? lower : upper);
-    const out = [];
-    for (let i = a; step > 0 ? i < b : i > b; i += step) out.push(i);
-    return { start: a, stop: b, out };
-  }
+  // Everything that depends on the list (geometry, parser, captions) is built per widget.
+  function build(cfg) {
+    const CARS = cfg.items;
+    const N = CARS.length;
+    const NAME = cfg.name, NOUN = cfg.noun;
+    const esc = (t) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const LEN_RE = new RegExp("len\\s*\\(\\s*" + esc(NAME) + "\\s*\\)", "g");
+    const ITEM_RE = new RegExp("^" + esc(NAME) + "\\s*\\[([\\s\\S]*)\\]$");
+    // Numbers print like Python: if any item is a non-integer, integral ones are floats too (30 -> 30.0)
+    const floats = CARS.some((v) => typeof v === "number" && !Number.isInteger(v));
 
-  function parse(raw) {
-    const src = raw.trim();
-    if (src === "cars") return { kind: "all", out: CARS.map((_, i) => i), start: 0, stop: N, step: 1 };
-    const m = src.match(/^cars\s*\[([\s\S]*)\]$/);
-    if (!m) {
-      if (/^[A-Za-z_]\w*\s*\[/.test(src) && !src.startsWith("cars"))
-        return { error: "NameError: name '" + src.match(/^\w+/)[0] + "' is not defined", hint: "The list is called cars." };
-      return { error: "SyntaxError: invalid syntax", hint: "Write it like cars[2] or cars[1:4]." };
-    }
-    const inner = m[1];
-    if (!inner.trim()) return { error: "SyntaxError: invalid syntax", hint: "Put an index or a slice inside the brackets." };
-    try {
-      if (inner.includes(":")) {
-        const parts = inner.split(":");
-        if (parts.length > 3) return { error: "SyntaxError: invalid syntax", hint: "A slice has at most two colons: start:stop:step." };
-        const [a, b, c] = parts.map((p) => (p.trim() === "" ? null : evalInt(p)));
-        const step = c === undefined || c === null ? 1 : c;
-        if (step === 0) return { error: "ValueError: slice step cannot be zero", hint: "The step says how far to jump each time; 0 would never move." };
-        const r = sliceIndices(a, b, step, N);
-        return { kind: "slice", raw: { a, b, c: c === undefined ? null : c }, step, start: r.start, stop: r.stop, out: r.out };
+    // Geometry (SVG user units)
+    const BW = 70, GAP = 8, X0 = 14, PITCH = BW + GAP;
+    const W = X0 * 2 + N * BW + (N - 1) * GAP;
+    const POS_Y = 44, BOX_Y = 52, BH = 40, NEG_Y = BOX_Y + BH + 17, TRACK_Y = NEG_Y + 14, H = TRACK_Y + 30;
+    const cx = (i) => X0 + i * PITCH + BW / 2;
+    // x of the cut *before* item g (g = 0..N); cuts sit in the gaps between boxes
+    const gapX = (g) => (g <= 0 ? X0 - GAP / 2 : g >= N ? X0 + N * PITCH - GAP / 2 : X0 + g * PITCH - GAP / 2);
+
+    const pyRepr = (s) =>
+      typeof s === "number" ? (floats && Number.isInteger(s) ? s.toFixed(1) : String(s)) : typeof s === "boolean" ? (s ? "True" : "False") : "'" + s + "'";
+    const pyList = (items) => "[" + items.map(pyRepr).join(", ") + "]";
+
+    // Tiny integer evaluator: digits, + and -, and len(<list>). Returns int or throws.
+    function evalInt(src) {
+      const s = src.replace(LEN_RE, String(N)).replace(/\s+/g, "");
+      if (!/^[+-]*\d+([+-]+\d+)*$/.test(s)) {
+        if (/^[+-]?\d*\.\d*$/.test(s) && /\d/.test(s)) throw { kind: "float" };
+        if (/^(['"]).*\1$/.test(src.trim())) throw { kind: "str" };
+        if (/^[A-Za-z_]\w*$/.test(s)) throw { kind: "name", name: s };
+        throw { kind: "syntax" };
       }
-      const i = evalInt(inner);
-      if (i >= N || i < -N)
-        return {
-          error: "IndexError: list index out of range",
-          hint: "cars has " + N + " items, so valid indices are 0 to " + (N - 1) + " (or −" + N + " to −1). There is no box " + i + ".",
-          bad: i,
-        };
-      return { kind: "index", index: i, pos: i < 0 ? i + N : i };
-    } catch (e) {
-      if (e.kind === "float") return { error: "TypeError: list indices must be integers or slices, not float", hint: "Positions are whole numbers: cars[2], not cars[2.0]." };
-      if (e.kind === "str") return { error: "TypeError: list indices must be integers or slices, not str", hint: "Lists are looked up by position, not by name." };
-      if (e.kind === "name") return { error: "NameError: name '" + e.name + "' is not defined", hint: "Use a number, e.g. cars[2]." };
-      return { error: "SyntaxError: invalid syntax", hint: "Try cars[2], cars[-1] or cars[1:4]." };
+      let total = 0;
+      s.replace(/([+-]*)(\d+)/g, (_, signs, num) => {
+        const neg = (signs.match(/-/g) || []).length % 2 === 1;
+        total += (neg ? -1 : 1) * parseInt(num, 10);
+      });
+      return total;
     }
-  }
 
-  function explain(r, expr) {
-    const code = (s) => el("code", { text: s });
-    if (r.kind === "all") return ["The whole list: all ", N, " cars, in order."];
-    if (r.kind === "index") {
-      if (r.index >= 0)
-        return ["Python counts from 0, so ", code(expr), " is car number ", r.index + 1, ". The last valid positive index is ", code("len(cars) - 1"), " = ", N - 1, "."];
-      return ["Negative indices count from the end: ", code("-1"), " is the last car, ", code("-2"), " the one before. ", code(expr), " is the same box as ", code("cars[" + r.pos + "]"), " (", N, " + (", r.index, ") = ", r.pos, ")."];
+    // Python's slice.indices(n) followed by range(start, stop, step)
+    function sliceIndices(start, stop, step, n) {
+      const lower = step < 0 ? -1 : 0;
+      const upper = step < 0 ? n - 1 : n;
+      const norm = (v, dflt) => {
+        if (v === null) return dflt;
+        if (v < 0) return Math.max(v + n, lower);
+        return Math.min(v, upper);
+      };
+      const a = norm(start, step < 0 ? upper : lower);
+      const b = norm(stop, step < 0 ? lower : upper);
+      const out = [];
+      for (let i = a; step > 0 ? i < b : i > b; i += step) out.push(i);
+      return { start: a, stop: b, out };
     }
-    const parts = [];
-    const { a, b, c } = r.raw;
-    if (r.step > 0) {
-      parts.push("Think of the indices as cuts between the boxes. The slice keeps what lies between cut ", r.start, " (start) and cut ", r.stop, " (stop), so box ", r.stop, " is never included. ");
-      if (r.step === 1) parts.push("Bonus: stop − start = ", Math.max(0, r.stop - r.start), " items, and ", code("cars[:" + r.stop + "] + cars[" + r.stop + ":]"), " rebuilds the full list.");
-      else parts.push("Step ", r.step, " jumps ", r.step, " boxes at a time, starting at ", r.start, ".");
-    } else {
-      parts.push("A negative step walks right to left: start at ", r.start, ", jump ", r.step, " each time, and stop before reaching ", r.stop < 0 ? "the front" : "box " + r.stop, ". ");
-      if (a === null && b === null && r.step === -1) parts.push(code("[::-1]"), " is the classic way to reverse a list.");
+
+    function parse(raw) {
+      const src = raw.trim();
+      if (src === NAME) return { kind: "all", out: CARS.map((_, i) => i), start: 0, stop: N, step: 1 };
+      const m = src.match(ITEM_RE);
+      if (!m) {
+        if (/^[A-Za-z_]\w*\s*\[/.test(src) && !src.startsWith(NAME))
+          return { error: "NameError: name '" + src.match(/^\w+/)[0] + "' is not defined", hint: "The list is called " + NAME + "." };
+        return { error: "SyntaxError: invalid syntax", hint: "Write it like " + NAME + "[2] or " + NAME + "[1:4]." };
+      }
+      const inner = m[1];
+      if (!inner.trim()) return { error: "SyntaxError: invalid syntax", hint: "Put an index or a slice inside the brackets." };
+      try {
+        if (inner.includes(":")) {
+          const parts = inner.split(":");
+          if (parts.length > 3) return { error: "SyntaxError: invalid syntax", hint: "A slice has at most two colons: start:stop:step." };
+          const [a, b, c] = parts.map((p) => (p.trim() === "" ? null : evalInt(p)));
+          const step = c === undefined || c === null ? 1 : c;
+          if (step === 0) return { error: "ValueError: slice step cannot be zero", hint: "The step says how far to jump each time; 0 would never move." };
+          const r = sliceIndices(a, b, step, N);
+          return { kind: "slice", raw: { a, b, c: c === undefined ? null : c }, step, start: r.start, stop: r.stop, out: r.out };
+        }
+        const i = evalInt(inner);
+        if (i >= N || i < -N)
+          return {
+            error: "IndexError: list index out of range",
+            hint: NAME + " has " + N + " items, so valid indices are 0 to " + (N - 1) + " (or −" + N + " to −1). There is no box " + i + ".",
+            bad: i,
+          };
+        return { kind: "index", index: i, pos: i < 0 ? i + N : i };
+      } catch (e) {
+        if (e.kind === "float") return { error: "TypeError: list indices must be integers or slices, not float", hint: "Positions are whole numbers: " + NAME + "[2], not " + NAME + "[2.0]." };
+        if (e.kind === "str") return { error: "TypeError: list indices must be integers or slices, not str", hint: "Lists are looked up by position, not by name." };
+        if (e.kind === "name") return { error: "NameError: name '" + e.name + "' is not defined", hint: "Use a number, e.g. " + NAME + "[2]." };
+        return { error: "SyntaxError: invalid syntax", hint: "Try " + NAME + "[2], " + NAME + "[-1] or " + NAME + "[1:4]." };
+      }
     }
-    if (a === null || b === null) parts.push(" A missing start or stop means “from the edge”.");
-    if ((b !== null && (b > N || b < -N)) || (a !== null && (a > N || a < -N))) parts.push(" Slices never raise IndexError: out-of-range cuts are clipped to the ends.");
-    if (!r.out.length) parts.push(" Nothing lies between the cuts, so the result is an empty list.");
-    return parts;
+
+    function explain(r, expr) {
+      const code = (s) => el("code", { text: s });
+      if (r.kind === "all") return ["The whole list: all ", N, " " + NAME + ", in order."];
+      if (r.kind === "index") {
+        if (r.index >= 0)
+          return ["Python counts from 0, so ", code(expr), " is " + NOUN + " number ", r.index + 1, ". The last valid positive index is ", code("len(" + NAME + ") - 1"), " = ", N - 1, "."];
+        return ["Negative indices count from the end: ", code("-1"), " is the last " + NOUN + ", ", code("-2"), " the one before. ", code(expr), " is the same box as ", code(NAME + "[" + r.pos + "]"), " (", N, " + (", r.index, ") = ", r.pos, ")."];
+      }
+      const parts = [];
+      const { a, b, c } = r.raw;
+      if (r.step > 0) {
+        parts.push("Think of the indices as cuts between the boxes. The slice keeps what lies between cut ", r.start, " (start) and cut ", r.stop, " (stop), " + (r.stop < N ? "so box " + r.stop + " is never included. " : "which is the end of the list. "));
+        if (r.step === 1) parts.push("Bonus: stop − start = ", Math.max(0, r.stop - r.start), " items, and ", code(NAME + "[:" + r.stop + "] + " + NAME + "[" + r.stop + ":]"), " rebuilds the full list.");
+        else parts.push("Step ", r.step, " jumps ", r.step, " boxes at a time, starting at ", r.start, ".");
+      } else {
+        parts.push("A negative step walks right to left: start at ", r.start, ", jump ", r.step, " each time, and stop before reaching ", r.stop < 0 ? "the front" : "box " + r.stop, ". ");
+        if (a === null && b === null && r.step === -1) parts.push(code("[::-1]"), " is the classic way to reverse a list.");
+      }
+      if (a === null || b === null) parts.push(" A missing start or stop means “from the edge”.");
+      if ((b !== null && (b > N || b < -N)) || (a !== null && (a > N || a < -N))) parts.push(" Slices never raise IndexError: out-of-range cuts are clipped to the ends.");
+      if (!r.out.length) parts.push(" Nothing lies between the cuts, so the result is an empty list.");
+      return parts;
+    }
+    return { CARS, N, NAME, PRESETS: cfg.presets, W, H, BW, BOX_Y, BH, POS_Y, NEG_Y, TRACK_Y, X0, PITCH, cx, gapX, pyRepr, pyList, parse, explain };
   }
 
   HZ.register("list-index", {
     title: "Indexing and slicing a list",
-    kicker: "Python lists",
-    mount(body) {
+    kicker: "Session 1",
+    css: `
+@media (max-width: 30em) {
+  .md-typeset .hz-x svg.hz-list-index-fig.is-compact .hz-list-index-name { font-size: 19px; }
+  .md-typeset .hz-x svg.hz-list-index-fig.is-compact .hz-list-index-idx { font-size: 16px; }
+}
+`,
+    mount(body, dataset) {
+      const cfg = readConfig(dataset);
+      const { CARS, N, NAME, PRESETS, W, H, BW, BOX_Y, BH, POS_Y, NEG_Y, TRACK_Y, X0, PITCH, cx, gapX, pyRepr, pyList, parse, explain } = build(cfg);
       body.classList.add("hz-list-index");
 
       body.append(
@@ -128,14 +173,16 @@
           ") and a negative one counting from the right. Type an expression or pick one below.",
         ])
       );
-      body.append(el("pre", { class: "hz-list-index-def" }, 'cars = ["Mercedes", "BMW", "Audi", "Ferrari", "Tesla"]'));
+      body.append(el("pre", { class: "hz-list-index-def" }, NAME + " = [" + CARS.map((v) => (typeof v === "string" ? '"' + v + '"' : pyRepr(v))).join(", ") + "]"));
 
       // --- Figure
-      const fig = svg("svg", { viewBox: `0 0 ${W} ${H}`, class: "hz-list-index-fig", role: "img", "aria-label": "The cars list as five boxes with their indices" });
+      // Short items (numbers like 29.4) can use bigger type on phones; the default cars keep the shared style.
+      const compact = CARS.every((v) => (typeof v === "string" ? v : pyRepr(v)).length <= 5);
+      const fig = svg("svg", { viewBox: `0 0 ${W} ${H}`, class: "hz-list-index-fig" + (compact ? " is-compact" : ""), role: "img", "aria-label": "The " + NAME + " list as " + (N === 5 ? "five" : N) + " boxes with their indices" });
       const boxes = CARS.map((name, i) => {
         const g = svg("g", { class: "hz-list-index-box" }, [
           svg("rect", { x: X0 + i * PITCH, y: BOX_Y, width: BW, height: BH, rx: 7 }),
-          svg("text", { x: cx(i), y: BOX_Y + BH / 2 + 4.5, "text-anchor": "middle", class: "hz-list-index-name", text: name }),
+          svg("text", { x: cx(i), y: BOX_Y + BH / 2 + 4.5, "text-anchor": "middle", class: "hz-list-index-name", text: typeof name === "string" ? name : pyRepr(name) }),
         ]);
         fig.append(g);
         return g;
@@ -154,7 +201,7 @@
       // --- Expression input
       const input = el("input", {
         type: "text",
-        value: "cars[1:4]",
+        value: cfg.start,
         spellcheck: "false",
         autocomplete: "off",
         autocapitalize: "off",

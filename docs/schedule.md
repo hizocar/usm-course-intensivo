@@ -17,7 +17,7 @@ The course runs for **6 weeks**: 5 content sessions and one session for final pr
     - **Notebook and slides due:** Tuesday, **December 1**, 23:59 (both sections).
     - **Presentations:** during each section's class time, **December 2** (Casa Central) and **December 4** (Vitacura).
 
-Each session lasts 2 hours and 35 minutes and has two parts: a **first block** of concepts with live coding and, after a break, a **workshop** where teams apply what they just learned to their project.
+Each session lasts 2 hours and 35 minutes and has two parts: a **class** that moves the Cordillera Mobile analysis one step forward, with live coding and interactive explainers, and, after a break, a **workshop** where teams take the same step in their own project.
 
 ---
 
@@ -27,9 +27,8 @@ Each session lasts 2 hours and 35 minutes and has two parts: a **first block** o
 
 **By the end you can:** open and run notebooks in Colab; work with variables, data types, lists, dictionaries, conditionals, and functions; and operate on NumPy arrays.
 
+- Class: [Day one at Cordillera Mobile](classes/Session_1_Day_One.ipynb)
 - [Colab guide](colab.md): open, save a copy, run, and share.
-- [Class 1: Introduction to Python](classes/Class_1_Intro_to_Python.ipynb)
-- [Class 2: NumPy](classes/Class_2_NumPy.ipynb)
 
 **Workshop:** form teams, register them in the [mailbox](project/mailbox.md), choose a case, and load the data into a shared notebook. → [Advance 1](project/progress.md#advance-1-team-data-and-question), due Tuesday, November 3.
 
@@ -41,8 +40,7 @@ Each session lasts 2 hours and 35 minutes and has two parts: a **first block** o
 
 **By the end you can:** read CSV and Excel files; select, filter, group, and sort data; spot missing values, duplicates, and inconsistent categories; and build exploratory charts with seaborn.
 
-- [Class 3: pandas](classes/Class_3_Pandas.ipynb)
-- [Supplement: visualization with seaborn](classes/Supplement_Seaborn.ipynb)
+- Class: [Cleaning the customer base](classes/Session_2_Cleaning.ipynb)
 
 **Workshop:** feedback on Advance 1; cleaning and exploratory analysis of your case. → [Advance 2](project/progress.md#advance-2-cleaning-and-exploratory-analysis), due Tuesday, November 10.
 
@@ -54,9 +52,7 @@ Each session lasts 2 hours and 35 minutes and has two parts: a **first block** o
 
 **By the end you can:** split data into training and test sets, encode categorical variables, train a linear regression, interpret its coefficients, measure error (MAE, RMSE, R²), and recognize overfitting.
 
-- [Class 6: Linear regression](classes/Class_6_Linear_Regression.ipynb)
-- [Class 6a: Underfitting and overfitting](classes/Class_6a_Underfitting_and_Overfitting.ipynb)
-- [Supplement: cross-validation](classes/Class_7_Cross_Validation.ipynb)
+- Class: [What drives the monthly bill?](classes/Session_3_Monthly_Bill.ipynb)
 
 **Workshop:** feedback on Advance 2; prepare the data for modeling and train your first model. → [Advance 3](project/progress.md#advance-3-ready-to-model), due Tuesday, November 17.
 
@@ -68,7 +64,7 @@ Each session lasts 2 hours and 35 minutes and has two parts: a **first block** o
 
 **By the end you can:** train a logistic regression, read a confusion matrix, choose between accuracy, precision, recall, and F1 based on the cost of each error, and adjust the decision threshold.
 
-- [Class 11: Logistic regression and error metrics](classes/Class_11_Logistic_Regression_and_Error_Metrics.ipynb)
+- Class: [Who is about to leave?](classes/Session_4_Churn.ipynb)
 
 **Workshop:** feedback on Advance 3, then a modeling clinic: each team brings its baseline model and we review it together. → [Advance 4](project/progress.md#advance-4-the-right-metric), due Tuesday, November 24.
 
@@ -80,7 +76,7 @@ Each session lasts 2 hours and 35 minutes and has two parts: a **first block** o
 
 **By the end you can:** train decision trees and random forests, control their complexity, read feature importance, compare models with a ROC curve, and build a presentation using the pyramid principle.
 
-- [Class 12b: Decision trees and random forests](classes/Class_12b_Decision_Trees_and_Random_Forest.ipynb)
+- Class: [Better models, a clearer story](classes/Session_5_Better_Models.ipynb)
 - [Pyramid presentations in business](classes/Pyramid_Presentations.html){ target="_blank" }
 
 **Workshop:** feedback on Advance 4; compare models and structure the final presentation. → [Final submission](project/progress.md#final-submission), due Tuesday, December 1.

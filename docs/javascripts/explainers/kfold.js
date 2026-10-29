@@ -22,7 +22,7 @@
 
   HZ.register("kfold", {
     title: "k-fold cross-validation",
-    kicker: "Model validation",
+    kicker: "Session 3",
     mount(body) {
       body.classList.add("hz-kfold");
       const uid = Math.random().toString(36).slice(2, 8);

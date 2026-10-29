@@ -8,11 +8,14 @@
  *   </div>
  *
  * In Colab the fallback text shows; on the site the widget registered under
- * that name replaces it. Widgets register themselves with HZ.register().
+ * that name replaces it. Widgets live in explainers/<name>.js, are loaded the
+ * first time a page asks for them, and register themselves with HZ.register().
  */
 (function () {
   const SVG_NS = "http://www.w3.org/2000/svg";
+  const EXPLAINERS = new URL("explainers/", document.currentScript.src).href;
   const registry = {};
+  const requested = new Set();
 
   const reducedMotion = () =>
     window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -157,16 +160,41 @@
 
   const fmt = (v, digits = 2) => (Number.isFinite(v) ? v.toFixed(digits) : "–");
 
+  // spec.css (optional) is injected once, so a widget is a single file.
   function register(name, spec) {
     registry[name] = spec;
+    if (spec.css && !document.querySelector(`style[data-hz="${name}"]`)) {
+      document.head.append(el("style", { "data-hz": name, text: spec.css }));
+    }
     mountAll();
+  }
+
+  function load(name) {
+    if (requested.has(name) || !/^[a-z0-9-]+$/.test(name)) return;
+    requested.add(name);
+    const s = el("script", { src: EXPLAINERS + name + ".js", async: true });
+    s.onerror = () =>
+      document.querySelectorAll(`.hz-widget[data-widget="${name}"]`).forEach((h) => (h.dataset.missing = "1"));
+    document.head.append(s);
   }
 
   function mount(host) {
     const spec = registry[host.dataset.widget];
-    if (!spec || host.dataset.mounted) return;
+    if (!spec) return load(host.dataset.widget);
+    if (host.dataset.mounted) return;
     host.dataset.mounted = "1";
+    const source = [...host.childNodes]; // placeholder content, e.g. a JSON <script> with options
     const body = el("div", { class: "hz-x__body" });
+    if (spec.bare) {
+      host.replaceChildren(body);
+      body.classList.add("hz-x--bare");
+      try {
+        spec.mount(body, host.dataset, source);
+      } catch (err) {
+        console.error(err);
+      }
+      return;
+    }
     const card = el("figure", { class: "hz-x" }, [
       el("figcaption", { class: "hz-x__head" }, [
         el("span", { class: "hz-x__kicker", text: "Interactive · " + (spec.kicker || "explainer") }),
@@ -176,7 +204,7 @@
     ]);
     host.replaceChildren(card);
     try {
-      spec.mount(body, host.dataset);
+      spec.mount(body, host.dataset, source);
     } catch (err) {
       body.replaceChildren(el("p", { class: "hz-x__error", text: "This explainer failed to load: " + err.message }));
       console.error(err);
@@ -191,6 +219,14 @@
     register, mountAll, el, svg, slider, button, segmented, stats, tween, wait,
     easeInOut, easeOut, lerp, clamp, rng, scale, fmt, reducedMotion,
   };
+
+  // The notebooks' MathJax 2 reads any pair of "$" as math. Widgets talk about
+  // dollars, and each code cell keeps a plain-text copy for the copy button, so
+  // both are excluded. This runs before MathJax's first typeset: this script is
+  // at the end of <body> and MathJax starts after its own files download.
+  document
+    .querySelectorAll(".hz-widget, .clipboard-copy-txt, .hz-run-mdout")
+    .forEach((n) => n.classList.add("tex2jax_ignore"));
 
   // Material's instant navigation swaps page content without a reload.
   if (typeof document$ !== "undefined") document$.subscribe(mountAll);

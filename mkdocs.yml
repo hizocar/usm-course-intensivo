@@ -35,20 +35,12 @@ markdown_extensions:
 extra_javascript:
   - javascripts/pyrunner.js
   - javascripts/hz-core.js
-  - javascripts/explainers/list-index.js
-  - javascripts/explainers/ndarray-slice.js
-  - javascripts/explainers/groupby.js
-  - javascripts/explainers/least-squares.js
-  - javascripts/explainers/poly-fit.js
-  - javascripts/explainers/kfold.js
-  - javascripts/explainers/threshold.js
-  - javascripts/explainers/tree-split.js
-  - javascripts/explainers/roc.js
   - javascripts/mailbox.js
 extra_css:
   - stylesheets/extra.css
   - stylesheets/interactive.css
   - stylesheets/pyrunner.css
+  - stylesheets/lessons.css
 
 # Theme
 theme:
@@ -95,7 +87,13 @@ plugins:
 nav:
   - Home: index.md
   - Schedule: schedule.md
-  - Classes: classes/classes.md
+  - Classes:
+      - The five classes: classes/classes.md
+      - "1 · Day one at Cordillera Mobile": classes/Session_1_Day_One.ipynb
+      - "2 · Cleaning the customer base": classes/Session_2_Cleaning.ipynb
+      - "3 · What drives the monthly bill?": classes/Session_3_Monthly_Bill.ipynb
+      - "4 · Who is about to leave?": classes/Session_4_Churn.ipynb
+      - "5 · Better models, a clearer story": classes/Session_5_Better_Models.ipynb
   - Colab guide: colab.md
   - Final project:
       - Brief and rubric: project/project.md

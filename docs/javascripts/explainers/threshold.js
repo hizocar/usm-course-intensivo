@@ -232,5 +232,5 @@
     draw();
   }
 
-  HZ.register("threshold", { kicker: "Class 11", title: "Moving the decision threshold", mount });
+  HZ.register("threshold", { kicker: "Session 4", title: "Moving the decision threshold", mount });
 })();

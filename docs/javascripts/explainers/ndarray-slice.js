@@ -158,7 +158,7 @@
 
   HZ.register("ndarray-slice", {
     title: "Picking entries of a 2-D array",
-    kicker: "NumPy",
+    kicker: "Session 1",
     mount(body) {
       body.classList.add("hz-ndarray-slice");
       body.append(

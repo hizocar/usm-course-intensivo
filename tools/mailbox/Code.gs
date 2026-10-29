@@ -72,7 +72,7 @@ function registerTeam(d) {
 
   const flat = [];
   for (let i = 0; i < 3; i++) flat.push(members[i] ? members[i].name : "", members[i] ? members[i].email : "");
-  sheet("Teams").appendRow([new Date(), section, team, kase, proposal].concat(flat, [colab]));
+  addRow("Teams", [new Date(), section, team, kase, proposal].concat(flat, [colab]));
 
   receipt(
     members.map((m) => m.email),
@@ -95,7 +95,7 @@ function submitAdvance(d) {
   const deadline = new Date(DEADLINES[advance]);
   const onTime = now <= deadline;
   const lateBy = onTime ? "" : " (" + Math.ceil((now - deadline) / 36e5) + " h late)";
-  sheet("Advances").appendRow([now, section, team, advance, colab, note, deadline, onTime ? "Yes" : "No" + lateBy]);
+  addRow("Advances", [now, section, team, advance, colab, note, deadline, onTime ? "Yes" : "No" + lateBy]);
 
   receipt(
     membersOf(section, team),
@@ -116,6 +116,19 @@ function submitAdvance(d) {
 function sheet(name) {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   return ss.getSheetByName(name) || ss.insertSheet(name);
+}
+
+// Writes after the last row that has a timestamp in column A, and only in the
+// columns given. appendRow would count cells an ARRAYFORMULA fills (like the
+// "Days late" column in Advances) as used, and could write at the bottom of
+// the sheet instead.
+function addRow(name, values) {
+  const sh = sheet(name);
+  const colA = sh.getRange(1, 1, sh.getMaxRows(), 1).getValues();
+  let last = colA.length;
+  while (last > 1 && colA[last - 1][0] === "") last--;
+  if (last + 1 > sh.getMaxRows()) sh.insertRowsAfter(sh.getMaxRows(), 100);
+  sh.getRange(last + 1, 1, 1, values.length).setValues([values]);
 }
 
 function membersOf(section, team) {

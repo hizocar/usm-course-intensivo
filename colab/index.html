@@ -37,6 +37,10 @@
     
       <link rel="stylesheet" href="../stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../stylesheets/interactive.css">
+    
+      <link rel="stylesheet" href="../stylesheets/pyrunner.css">
+    
     <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -495,8 +499,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../project/sprints/" class="md-nav__link">
-        Sprints
+      <a href="../project/progress/" class="md-nav__link">
+        Weekly progress
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project/mailbox/" class="md-nav__link">
+        Team mailbox
       </a>
     </li>
   
@@ -647,7 +665,7 @@
 </div>
 <h2 id="3-load-data">3. Load data</h2>
 <p>The recommended way in this course is to <strong>read the file directly from its URL</strong>. It works the same for everyone and doesn't depend on your Drive:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="language-python highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/hizocar/usm-course-intensivo/main/docs/datasets/loan_default.csv&quot;</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
@@ -657,14 +675,14 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Upload a file</label><label for="__tabbed_1_2">Read from your Google Drive</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">files</span>
+<div class="language-python highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">files</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">uploaded</span> <span class="o">=</span> <span class="n">files</span><span class="o">.</span><span class="n">upload</span><span class="p">()</span>   <span class="c1"># opens a file picker</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;your_file.csv&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>The file is deleted when the Colab session ends.</p>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<div class="language-python highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s2">&quot;/content/drive&quot;</span><span class="p">)</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/content/drive/MyDrive/folder/file.csv&quot;</span><span class="p">)</span>
 </code></pre></div>
@@ -674,12 +692,12 @@
 </div>
 <h2 id="4-libraries">4. Libraries</h2>
 <p>Colab already includes pandas, NumPy, matplotlib, seaborn, scikit-learn, and statsmodels. If you need something else, install it in a cell:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">xgboost</span>
+<div class="language-python highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">xgboost</span>
 </code></pre></div>
 <h2 id="5-teamwork-and-sharing-the-project">5. Teamwork and sharing the project</h2>
 <ol>
 <li>One team member creates the project notebook and shares it with the rest of the team as <strong>Editor</strong> (the <strong>Share</strong> button, top right).</li>
-<li>Also share it with <strong>hizocar@gmail.com</strong> as <strong>Commenter</strong>. That way I can review your progress at each sprint without you having to send anything.</li>
+<li>Also share it with <strong>hizocar@gmail.com</strong> as <strong>Commenter</strong>. That way I can review each weekly advance directly in your notebook.</li>
 <li>Several people can open the same notebook in Colab, but if two people edit at the same time they can overwrite each other's changes. Split the work by section and let the team know before you run everything.</li>
 </ol>
 <h2 id="6-before-the-final-submission">6. Before the final submission</h2>
@@ -772,14 +790,34 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tabs", "navigation.top", "content.code.annotate", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.top", "content.code.annotate", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.a6c66575.min.js"></script>
       
-        <script src="../javascripts/mathjax.js"></script>
+        <script src="../javascripts/pyrunner.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="../javascripts/hz-core.js"></script>
+      
+        <script src="../javascripts/explainers/list-index.js"></script>
+      
+        <script src="../javascripts/explainers/ndarray-slice.js"></script>
+      
+        <script src="../javascripts/explainers/groupby.js"></script>
+      
+        <script src="../javascripts/explainers/least-squares.js"></script>
+      
+        <script src="../javascripts/explainers/poly-fit.js"></script>
+      
+        <script src="../javascripts/explainers/kfold.js"></script>
+      
+        <script src="../javascripts/explainers/threshold.js"></script>
+      
+        <script src="../javascripts/explainers/tree-split.js"></script>
+      
+        <script src="../javascripts/explainers/roc.js"></script>
+      
+        <script src="../javascripts/mailbox.js"></script>
       
     
   </body>

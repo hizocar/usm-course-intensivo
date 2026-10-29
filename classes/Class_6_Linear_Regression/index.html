@@ -37,6 +37,10 @@
     
       <link rel="stylesheet" href="../../stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../stylesheets/interactive.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/pyrunner.css">
+    
     <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -417,8 +421,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../../project/sprints/" class="md-nav__link">
-        Sprints
+      <a href="../../project/progress/" class="md-nav__link">
+        Weekly progress
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/mailbox/" class="md-nav__link">
+        Team mailbox
       </a>
     </li>
   
@@ -4521,13 +4539,17 @@ class="
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Compute skewness and kurtosis</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">skew</span><span class="p">,</span> <span class="n">kurtosis</span>
+
+<span class="c1"># Compute skewness and kurtosis</span>
 <span class="n">skew_val</span> <span class="o">=</span> <span class="n">skew</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Admission_Deposit&quot;</span><span class="p">],</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">kurt_val</span> <span class="o">=</span> <span class="n">kurtosis</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Admission_Deposit&quot;</span><span class="p">],</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># excess kurtosis</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Skewness:&quot;</span><span class="p">,</span> <span class="n">skew_val</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Kurtosis:&quot;</span><span class="p">,</span> <span class="n">kurt_val</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># convert to regular kurtosis</span>
 </pre></div>
-<div id="cell-24" class="clipboard-copy-txt"># Compute skewness and kurtosis
+<div id="cell-24" class="clipboard-copy-txt">from scipy.stats import skew, kurtosis
+
+# Compute skewness and kurtosis
 skew_val = skew(data["Admission_Deposit"], bias=False)
 kurt_val = kurtosis(data["Admission_Deposit"], bias=False)  # excess kurtosis
 print("Skewness:", skew_val)
@@ -5292,88 +5314,15 @@ plt.show()</div>
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
-<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[104]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> <span class="ansi-yellow-bg">sns</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">barplot</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">y</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-fg ansi-yellow-bg">&#39;</span><span class="ansi-yellow-fg ansi-yellow-bg">Ward_Facility_Code</span><span class="ansi-yellow-fg ansi-yellow-bg">&#39;</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">x</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-fg ansi-yellow-bg">&#39;</span><span class="ansi-yellow-fg ansi-yellow-bg">Stay (in days)</span><span class="ansi-yellow-fg ansi-yellow-bg">&#39;</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">data</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">data</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg">      2</span> plt.show()
 
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/dev-env/lib/python3.13/site-packages/seaborn/categorical.py:2341</span>, in <span class="ansi-cyan-fg">barplot</span><span class="ansi-blue-fg">(data, x, y, hue, order, hue_order, estimator, errorbar, n_boot, seed, units, weights, orient, color, palette, saturation, fill, hue_norm, width, dodge, gap, log_scale, native_scale, formatter, legend, capsize, err_kws, ci, errcolor, errwidth, ax, **kwargs)</span>
-<span class="ansi-green-fg">   2338</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> estimator <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span style="color: rgb(0,135,0)">len</span>:
-<span class="ansi-green-fg">   2339</span>     estimator = <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">size</span><span class="ansi-yellow-fg">&#34;</span>
-<span class="ansi-green-fg">-&gt; </span><span class="ansi-green-fg">2341</span> p = <span class="ansi-yellow-bg">_CategoricalAggPlotter</span><span class="ansi-yellow-bg">(</span>
-<span class="ansi-green-fg">   2342</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">data</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">data</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">   2343</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">variables</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">dict</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">x</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">x</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">y</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">y</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">hue</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">hue</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">units</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">units</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">weight</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">weights</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">   2344</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">order</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">order</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">   2345</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">orient</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">orient</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">   2346</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">color</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">color</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">   2347</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">legend</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">legend</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg">   2348</span> <span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg">   2350</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> ax <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
-<span class="ansi-green-fg">   2351</span>     ax = plt.gca()
 
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/dev-env/lib/python3.13/site-packages/seaborn/categorical.py:67</span>, in <span class="ansi-cyan-fg">_CategoricalPlotter.__init__</span><span class="ansi-blue-fg">(self, data, variables, order, orient, require_numeric, color, legend)</span>
-<span class="ansi-green-fg">     56</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span><span style="color: rgb(188,188,188)"> </span><span class="ansi-blue-fg">__init__</span>(
-<span class="ansi-green-fg">     57</span>     <span style="color: rgb(0,135,0)">self</span>,
-<span class="ansi-green-fg">     58</span>     data=<span class="ansi-bold" style="color: rgb(0,135,0)">None</span>,
-<span class="ansi-green-fg">   (...)</span><span class="ansi-green-fg">     64</span>     legend=<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">auto</span><span class="ansi-yellow-fg">&#34;</span>,
-<span class="ansi-green-fg">     65</span> ):
-<span class="ansi-green-fg">---&gt; </span><span class="ansi-green-fg">67</span>     <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">super</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">.</span><span class="ansi-blue-fg ansi-yellow-bg">__init__</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">data</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">data</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">variables</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">variables</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg">     69</span>     <span style="color: rgb(95,135,135)"># This method takes care of some bookkeeping that is necessary because the</span>
-<span class="ansi-green-fg">     70</span>     <span style="color: rgb(95,135,135)"># original categorical plots (prior to the 2021 refactor) had some rules that</span>
-<span class="ansi-green-fg">     71</span>     <span style="color: rgb(95,135,135)"># don&#39;t fit exactly into VectorPlotter logic. It may be wise to have a second</span>
-<span class="ansi-green-fg">   (...)</span><span class="ansi-green-fg">     76</span>     <span style="color: rgb(95,135,135)"># default VectorPlotter rules. If we do decide to make orient part of the</span>
-<span class="ansi-green-fg">     77</span>     <span style="color: rgb(95,135,135)"># _base variable assignment, we&#39;ll want to figure out how to express that.</span>
-<span class="ansi-green-fg">     78</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">self</span>.input_format == <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">wide</span><span class="ansi-yellow-fg">&#34;</span> <span class="ansi-bold" style="color: rgb(175,0,255)">and</span> orient <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> [<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">h</span><span class="ansi-yellow-fg">&#34;</span>, <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">y</span><span class="ansi-yellow-fg">&#34;</span>]:
-
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/dev-env/lib/python3.13/site-packages/seaborn/_base.py:634</span>, in <span class="ansi-cyan-fg">VectorPlotter.__init__</span><span class="ansi-blue-fg">(self, data, variables)</span>
-<span class="ansi-green-fg">    629</span> <span style="color: rgb(95,135,135)"># var_ordered is relevant only for categorical axis variables, and may</span>
-<span class="ansi-green-fg">    630</span> <span style="color: rgb(95,135,135)"># be better handled by an internal axis information object that tracks</span>
-<span class="ansi-green-fg">    631</span> <span style="color: rgb(95,135,135)"># such information and is set up by the scale_* methods. The analogous</span>
-<span class="ansi-green-fg">    632</span> <span style="color: rgb(95,135,135)"># information for numeric axes would be information about log scales.</span>
-<span class="ansi-green-fg">    633</span> <span style="color: rgb(0,135,0)">self</span>._var_ordered = {<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">x</span><span class="ansi-yellow-fg">&#34;</span>: <span class="ansi-bold" style="color: rgb(0,135,0)">False</span>, <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">y</span><span class="ansi-yellow-fg">&#34;</span>: <span class="ansi-bold" style="color: rgb(0,135,0)">False</span>}  <span style="color: rgb(95,135,135)"># alt., used DefaultDict</span>
-<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">634</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">assign_variables</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">data</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">variables</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg">    636</span> <span style="color: rgb(95,135,135)"># TODO Lots of tests assume that these are called to initialize the</span>
-<span class="ansi-green-fg">    637</span> <span style="color: rgb(95,135,135)"># mappings to default values on class initialization. I&#39;d prefer to</span>
-<span class="ansi-green-fg">    638</span> <span style="color: rgb(95,135,135)"># move away from that and only have a mapping when explicitly called.</span>
-<span class="ansi-green-fg">    639</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> var <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> [<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">hue</span><span class="ansi-yellow-fg">&#34;</span>, <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">size</span><span class="ansi-yellow-fg">&#34;</span>, <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">style</span><span class="ansi-yellow-fg">&#34;</span>]:
-
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/dev-env/lib/python3.13/site-packages/seaborn/_base.py:679</span>, in <span class="ansi-cyan-fg">VectorPlotter.assign_variables</span><span class="ansi-blue-fg">(self, data, variables)</span>
-<span class="ansi-green-fg">    674</span> <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
-<span class="ansi-green-fg">    675</span>     <span style="color: rgb(95,135,135)"># When dealing with long-form input, use the newer PlotData</span>
-<span class="ansi-green-fg">    676</span>     <span style="color: rgb(95,135,135)"># object (internal but introduced for the objects interface)</span>
-<span class="ansi-green-fg">    677</span>     <span style="color: rgb(95,135,135)"># to centralize / standardize data consumption logic.</span>
-<span class="ansi-green-fg">    678</span>     <span style="color: rgb(0,135,0)">self</span>.input_format = <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">long</span><span class="ansi-yellow-fg">&#34;</span>
-<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">679</span>     plot_data = <span class="ansi-yellow-bg">PlotData</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">data</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">variables</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg">    680</span>     frame = plot_data.frame
-<span class="ansi-green-fg">    681</span>     names = plot_data.names
-
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/dev-env/lib/python3.13/site-packages/seaborn/_core/data.py:58</span>, in <span class="ansi-cyan-fg">PlotData.__init__</span><span class="ansi-blue-fg">(self, data, variables)</span>
-<span class="ansi-green-fg">     51</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span><span style="color: rgb(188,188,188)"> </span><span class="ansi-blue-fg">__init__</span>(
-<span class="ansi-green-fg">     52</span>     <span style="color: rgb(0,135,0)">self</span>,
-<span class="ansi-green-fg">     53</span>     data: DataSource,
-<span class="ansi-green-fg">     54</span>     variables: <span style="color: rgb(0,135,0)">dict</span>[<span style="color: rgb(0,135,0)">str</span>, VariableSpec],
-<span class="ansi-green-fg">     55</span> ):
-<span class="ansi-green-fg">     57</span>     data = handle_data_source(data)
-<span class="ansi-green-fg">---&gt; </span><span class="ansi-green-fg">58</span>     frame, names, ids = <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">_assign_variables</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">data</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">variables</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg">     60</span>     <span style="color: rgb(0,135,0)">self</span>.frame = frame
-<span class="ansi-green-fg">     61</span>     <span style="color: rgb(0,135,0)">self</span>.names = names
-
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/dev-env/lib/python3.13/site-packages/seaborn/_core/data.py:232</span>, in <span class="ansi-cyan-fg">PlotData._assign_variables</span><span class="ansi-blue-fg">(self, data, variables)</span>
-<span class="ansi-green-fg">    230</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
-<span class="ansi-green-fg">    231</span>         err += <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">An entry with this name does not appear in `data`.</span><span class="ansi-yellow-fg">&#34;</span>
-<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">232</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">ValueError</span>(err)
-<span class="ansi-green-fg">    234</span> <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
-<span class="ansi-green-fg">    235</span> 
-<span class="ansi-green-fg">    236</span>     <span style="color: rgb(95,135,135)"># Otherwise, assume the value somehow represents data</span>
-<span class="ansi-green-fg">    237</span> 
-<span class="ansi-green-fg">    238</span>     <span style="color: rgb(95,135,135)"># Ignore empty data structures</span>
-<span class="ansi-green-fg">    239</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">isinstance</span>(val, Sized) <span class="ansi-bold" style="color: rgb(175,0,255)">and</span> <span style="color: rgb(0,135,0)">len</span>(val) == <span class="ansi-green-fg">0</span>:
-
-<span class="ansi-red-fg">ValueError</span>: Could not interpret value `Ward_Facility_Code` for `y`. An entry with this name does not appear in `data`.</pre>
+<div class="jp-RenderedImage jp-OutputArea-output ">
+<img src="data:image/png;base64,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MGFCu9o9E6jKykpt2bJFV111Vbv+bjmmRHD2NmzYoM2bN+utt97SvHnz9P7774c6UpvhcrnkcrlCHcOxJk+erC+++EJlZWWKj4/Xww8/HOpIjlJfX6+RI0dq9uzZ6tKly2nvtbfvlmNKpEePHtq9e7f/9Z49e9SjR48QJnK+U9snNjZWOTk5+uCDD0KcyNm6d++uqqoqSVJVVZViY2NDnMi5unfvrvDwcIWFhWnSpEl8t77j+PHjGjlypMaMGaNbb71VUvv+bjmmRK688krt2LFDFRUVOnbsmF577TVlZ2eHOpZjffvttzp06JD/97fffvu0s2vQVHZ2thYuXChJWrhwoX7605+GOJFznfoPoiQtX76c79Z/WZalu+66SykpKZoyZYp/ebv+blkOsmbNGqtv375W7969renTp4c6jqN98cUXVv/+/a3+/ftbV1xxBdvre0aPHm3FxcVZERERVo8ePay//OUvVm1trXXjjTdaffr0sbKysqyvvvoq1DEdobltNXbsWKtfv35WWlqaNWLECGvfvn2hjukI69evtyRZaWlp1oABA6wBAwZYa9asadffLa5YBwAYc8zuLABA20OJAACMUSIAAGOUCADAGCUCADBGieCc9Pvf/16pqanq37+/3G63/vWvf0mSZs+ercOHD7faOD//+c+1c+dOSdItt9yiAwcOGK+rc+fOrZTqpKFDh3K7EtiOEsE5Z9OmTVq9erU2b96srVu36p133vHfl601S2Tbtm3y+Xzq3bu3JOnNN99U165dW2XdrSE3N1cvvvhiqGPgHEeJ4JxTVVWliy++WOedd54k6eKLL1ZCQoKef/557du3T0OGDNGQIUMknbxHVGZmplJTU/Xkk09KkoqKivSzn/3Mv75169YpJyenyTgFBQWnXZmclJSk2tpaVVZWKiUlRZMmTVJqaqpuuukmNTQ0NPn7iooKXXPNNUpLS9Pjjz/uX15fX6+srCylp6crLS3NfzfrJ554QrNnz/Z/7re//a3mzJmjqqoqXXfddXK73erXr5/Wr18v6eRV1IWFhYZbEQhQqK92BFrboUOHrAEDBlh9+/a1Jk+ebL377rv+9xITE62amhr/61NXFp84ccK6/vrrrY8++shqbGy0Lr/8cuvLL7+0LMuybr/9dmvVqlVNxrnuuuusrVu3Nll3RUWFFR4ebm3ZssWyLMu67bbbrL/+9a9N/n7EiBHWwoULLcuyrLlz51qdOnWyLMuyjh8/bh08eNCyLMuqqamxLr30UquxsdGqqKiwBg4caFmWZfl8Pqt3795WbW2t9eyzz/rvWHDixAmrrq7OP0afPn2s2tras9yCQOCYieCc07lzZ5WWlsrj8SgmJkajRo3SggULmv3skiVLlJ6eroEDB2rbtm0qLy+Xy+VSbm6uFi9erAMHDmjTpk26+eabm/xtVVWVYmJiml1vr1695Ha7JUkZGRmqrKxs8pmNGzfq9ttvl3Ry19MplmXpscceU//+/TV06FDt3btX+/fvV1JSkqKjo7Vlyxa9/fbbGjhwoKKjo3XllVfqlVde0VNPPaWPP/5YUVFR/nXFxsZq3759AW454OxFhDoAYIfw8HDdcMMNuuGGG5SWlqaFCxdq/Pjxp32moqJCzz77rD788EN169ZN48eP15EjRyRJeXl5GjFihM4//3zddtttioho+q9KZGSk//Pfd2pX2qksze3OktTsLcMLCgpUU1Oj0tJSdejQQUlJSf5xJk6cqAULFqi6uloTJkyQdPKhUu+//77WrFmj8ePHa8qUKRo3bpwk6ciRI4qMjDzD1gLMMRPBOeezzz7Tjh07/K/LysqUmJgo6eTT6E7d/biurk6dOnXShRdeqP379+utt97y/01CQoISEhI0ffp05eXlNTtOSkqK/v3vfxvnHDx4sF577TVJJ4vjlIMHDyo2NlYdOnRQcXGxdu3a5X8vJydHa9eu1Ycffqgf//jHkqRdu3ape/fumjRpkiZOnKjNmzdLOjmjqa6uVlJSknFG4EyYieCcU19fr/vvv18HDhxQRESE+vTp43/yY35+voYPH66EhAQVFxdr4MCBSk5O1iWXXKLBgweftp4xY8aopqZGKSkpzY7zk5/8RO+++66GDh1qlHPOnDm64447NHPmzNMO0I8ZM0YjRoxQWlqaMjMzlZyc7H+vY8eOGjJkiLp27arw8HBJ0rvvvqtZs2apQ4cO6ty5sxYtWiRJKi0t1dVXX93sLApoLdzFF/gB9913nwYOHKi77rqr2fcbGho0ZMgQbdy40f8fdLs1NjYqPT1dS5cuVd++fVv87IMPPqjs7GxlZWUFJRvaJ3ZnAc3IyMjQ1q1bNXbs2B/8TGRkpKZNm6a9e/cGJVN5ebn69OmjrKysMxaIJPXr148Cge2YiQAAjDETAQAYo0QAAMYoEQCAMUoEAGCMEgEAGKNEAADG/g9M0BbCs8hqtQAAAABJRU5ErkJggg=="
+class="
+"
+>
 </div>
+
 </div>
 
 </div>
@@ -7167,18 +7116,6 @@ dtype: object
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><img src="image.png" alt="alt text"></p>
-
-</div>
-</div>
-</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
@@ -7580,6 +7517,19 @@ $$
 \hat{\boldsymbol{\beta}} = (\mathbf{X}^{\text{T}}\mathbf{X})^{-1}\mathbf{X}^{\text{T}}\mathbf{Y}
 $$<p>This equation calculates the estimated regression coefficients by minimizing the sum of the squared residuals.</p>
 
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="hz-widget" data-widget="least-squares">
+<p>▶ Interactive explainer: <a href="https://hizocar.github.io/usm-course-intensivo/classes/Class_6_Linear_Regression/">open this class on the course website</a> to use it.</p>
+</div>
 </div>
 </div>
 </div>
@@ -11233,14 +11183,34 @@ for i in range(len(coef)):
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.top", "content.code.annotate", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top", "content.code.annotate", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.a6c66575.min.js"></script>
       
-        <script src="../../javascripts/mathjax.js"></script>
+        <script src="../../javascripts/pyrunner.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="../../javascripts/hz-core.js"></script>
+      
+        <script src="../../javascripts/explainers/list-index.js"></script>
+      
+        <script src="../../javascripts/explainers/ndarray-slice.js"></script>
+      
+        <script src="../../javascripts/explainers/groupby.js"></script>
+      
+        <script src="../../javascripts/explainers/least-squares.js"></script>
+      
+        <script src="../../javascripts/explainers/poly-fit.js"></script>
+      
+        <script src="../../javascripts/explainers/kfold.js"></script>
+      
+        <script src="../../javascripts/explainers/threshold.js"></script>
+      
+        <script src="../../javascripts/explainers/tree-split.js"></script>
+      
+        <script src="../../javascripts/explainers/roc.js"></script>
+      
+        <script src="../../javascripts/mailbox.js"></script>
       
     
   </body>

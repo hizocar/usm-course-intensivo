@@ -37,6 +37,10 @@
     
       <link rel="stylesheet" href="stylesheets/extra.css">
     
+      <link rel="stylesheet" href="stylesheets/interactive.css">
+    
+      <link rel="stylesheet" href="stylesheets/pyrunner.css">
+    
     <script>__md_scope=new URL(".",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -509,8 +513,22 @@
   
   
     <li class="md-nav__item">
-      <a href="project/sprints/" class="md-nav__link">
-        Sprints
+      <a href="project/progress/" class="md-nav__link">
+        Weekly progress
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="project/mailbox/" class="md-nav__link">
+        Team mailbox
       </a>
     </li>
   
@@ -640,7 +658,8 @@
 <p class="hz-lede">Six weeks to learn Python in Google Colab, analyze real data, train machine learning models, and present a project that brings all of it together.</p>
 <p class="hz-dates">October 26 — December 4, 2026</p>
 <p><a class="md-button md-button--primary" href="schedule/">See the schedule</a>
-<a class="md-button" href="project/project/">Final project</a></p>
+<a class="md-button" href="project/project/">Final project</a>
+<a class="md-button" href="project/mailbox/">Team mailbox</a></p>
 </div>
 <h2 id="sections">Sections</h2>
 <div class="hz-sections">
@@ -661,7 +680,7 @@
 <div class="hz-steps">
 <div>
 <p><span class="hz-step">01</span>
-<strong>Five content sessions.</strong> Python and Colab, data analysis with pandas, regression, classification, and trees. Every session mixes explanation with live coding.</p>
+<strong>Five content sessions.</strong> Python and Colab, data analysis with pandas, regression, classification, and trees. Every class runs in your browser: edit the code, press ▶, and play with the interactive explainers.</p>
 </div>
 <div>
 <p><span class="hz-step">02</span>
@@ -669,11 +688,11 @@
 </div>
 <div>
 <p><span class="hz-step">03</span>
-<strong>Sprints to track progress, not to grade it.</strong> Three progress reviews with traffic-light feedback. They help you catch problems early and do not count toward your grade.</p>
+<strong>A weekly advance, every Tuesday.</strong> After each session your team hands in the next piece of the project through the <a href="project/mailbox/">team mailbox</a>. You get a grade and comments the following week, so problems surface early.</p>
 </div>
 <div>
 <p><span class="hz-step">04</span>
-<strong>A single assessment.</strong> The final project (notebook + presentation) is 100% of the grade. It is presented in the first week of December.</p>
+<strong>How it is graded.</strong> Weekly advances are 30% of the grade and the final project (notebook + presentation) is 70%. Teams present in the first week of December.</p>
 </div>
 </div>
 <h2 id="instructor">Instructor</h2>
@@ -753,14 +772,34 @@ Contact: <a href="mailto:hizocar@gmail.com">hizocar@gmail.com</a> · <a href="ht
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.tabs", "navigation.top", "content.code.annotate", "search.suggest", "search.highlight"], "search": "assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs", "navigation.top", "content.code.annotate", "search.suggest", "search.highlight"], "search": "assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="assets/javascripts/bundle.a6c66575.min.js"></script>
       
-        <script src="javascripts/mathjax.js"></script>
+        <script src="javascripts/pyrunner.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="javascripts/hz-core.js"></script>
+      
+        <script src="javascripts/explainers/list-index.js"></script>
+      
+        <script src="javascripts/explainers/ndarray-slice.js"></script>
+      
+        <script src="javascripts/explainers/groupby.js"></script>
+      
+        <script src="javascripts/explainers/least-squares.js"></script>
+      
+        <script src="javascripts/explainers/poly-fit.js"></script>
+      
+        <script src="javascripts/explainers/kfold.js"></script>
+      
+        <script src="javascripts/explainers/threshold.js"></script>
+      
+        <script src="javascripts/explainers/tree-split.js"></script>
+      
+        <script src="javascripts/explainers/roc.js"></script>
+      
+        <script src="javascripts/mailbox.js"></script>
       
     
   </body>

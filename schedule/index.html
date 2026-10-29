@@ -37,6 +37,10 @@
     
       <link rel="stylesheet" href="../stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../stylesheets/interactive.css">
+    
+      <link rel="stylesheet" href="../stylesheets/pyrunner.css">
+    
     <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -495,8 +499,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../project/sprints/" class="md-nav__link">
-        Sprints
+      <a href="../project/progress/" class="md-nav__link">
+        Weekly progress
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project/mailbox/" class="md-nav__link">
+        Team mailbox
       </a>
     </li>
   
@@ -615,7 +633,7 @@
 <th align="center">Casa Central<br><small>Wednesday 16:05–18:40</small></th>
 <th align="center">Vitacura<br><small>Friday 11:05–13:40</small></th>
 <th>Session</th>
-<th>Sprint</th>
+<th>Weekly advance</th>
 </tr>
 </thead>
 <tbody>
@@ -624,35 +642,35 @@
 <td align="center">Oct 28</td>
 <td align="center">Oct 30</td>
 <td><a href="#session-1-python-in-google-colab">Python in Google Colab</a></td>
-<td><strong>Sprint 1</strong> starts</td>
+<td><strong>Advance 1</strong>, due Tue Nov 3</td>
 </tr>
 <tr>
 <td align="center">2</td>
 <td align="center">Nov 4</td>
 <td align="center">Nov 6</td>
 <td><a href="#session-2-data-analysis-with-pandas">Data analysis with pandas</a></td>
-<td>Sprint 1 review · <strong>Sprint 2</strong> starts</td>
+<td>Feedback on 1 · <strong>Advance 2</strong>, due Tue Nov 10</td>
 </tr>
 <tr>
 <td align="center">3</td>
 <td align="center">Nov 11</td>
 <td align="center">Nov 13</td>
 <td><a href="#session-3-linear-regression-and-model-evaluation">Linear regression and model evaluation</a></td>
-<td>Sprint 2 review · <strong>Sprint 3</strong> starts</td>
+<td>Feedback on 2 · <strong>Advance 3</strong>, due Tue Nov 17</td>
 </tr>
 <tr>
 <td align="center">4</td>
 <td align="center">Nov 18</td>
 <td align="center">Nov 20</td>
 <td><a href="#session-4-classification-logistic-regression-and-metrics">Classification: logistic regression and metrics</a></td>
-<td>Modeling clinic</td>
+<td>Feedback on 3 · <strong>Advance 4</strong>, due Tue Nov 24</td>
 </tr>
 <tr>
 <td align="center">5</td>
 <td align="center">Nov 25</td>
 <td align="center">Nov 27</td>
 <td><a href="#session-5-trees-random-forests-and-communicating-results">Trees, random forests, and communicating results</a></td>
-<td>Sprint 3 review</td>
+<td>Feedback on 4 · <strong>Final project</strong>, due Tue Dec 1</td>
 </tr>
 <tr>
 <td align="center">6</td>
@@ -666,7 +684,8 @@
 <div class="admonition info">
 <p class="admonition-title">Key project dates</p>
 <ul>
-<li><strong>Team and case registration:</strong> at the end of session 1.</li>
+<li><strong>Team and case registration:</strong> at the end of session 1, in the <a href="../project/mailbox/">team mailbox</a>.</li>
+<li><strong>Weekly advances:</strong> every Tuesday at 23:59 (Nov 3, 10, 17, and 24), through the mailbox. They are 30% of the grade.</li>
 <li><strong>Notebook and slides due:</strong> Tuesday, <strong>December 1</strong>, 23:59 (both sections).</li>
 <li><strong>Presentations:</strong> during each section's class time, <strong>December 2</strong> (Casa Central) and <strong>December 4</strong> (Vitacura).</li>
 </ul>
@@ -681,7 +700,7 @@
 <li><a href="../classes/Class_1_Intro_to_Python/">Class 1: Introduction to Python</a></li>
 <li><a href="../classes/Class_2_NumPy/">Class 2: NumPy</a></li>
 </ul>
-<p><strong>Workshop:</strong> form teams, choose a case, and load the data into a shared notebook. → <a href="../project/sprints/#sprint-1-data-in-colab">Sprint 1</a></p>
+<p><strong>Workshop:</strong> form teams, register them in the <a href="../project/mailbox/">mailbox</a>, choose a case, and load the data into a shared notebook. → <a href="../project/progress/#advance-1-team-data-and-question">Advance 1</a>, due Tuesday, November 3.</p>
 <hr />
 <h2 id="session-2-data-analysis-with-pandas">Session 2 · Data analysis with pandas</h2>
 <p><em>Casa Central: Wednesday, November 4 · Vitacura: Friday, November 6</em></p>
@@ -690,7 +709,7 @@
 <li><a href="../classes/Class_3_Pandas/">Class 3: pandas</a></li>
 <li><a href="../classes/Supplement_Seaborn/">Supplement: visualization with seaborn</a></li>
 </ul>
-<p><strong>Workshop:</strong> Sprint 1 review; cleaning and exploratory analysis of your case. → <a href="../project/sprints/#sprint-2-data-cleaning-and-exploratory-analysis">Sprint 2</a></p>
+<p><strong>Workshop:</strong> feedback on Advance 1; cleaning and exploratory analysis of your case. → <a href="../project/progress/#advance-2-cleaning-and-exploratory-analysis">Advance 2</a>, due Tuesday, November 10.</p>
 <hr />
 <h2 id="session-3-linear-regression-and-model-evaluation">Session 3 · Linear regression and model evaluation</h2>
 <p><em>Casa Central: Wednesday, November 11 · Vitacura: Friday, November 13</em></p>
@@ -700,7 +719,7 @@
 <li><a href="../classes/Class_6a_Underfitting_and_Overfitting/">Class 6a: Underfitting and overfitting</a></li>
 <li><a href="../classes/Class_7_Cross_Validation/">Supplement: cross-validation</a></li>
 </ul>
-<p><strong>Workshop:</strong> Sprint 2 review; prepare the data for modeling and train your first model. → <a href="../project/sprints/#sprint-3-first-model">Sprint 3</a></p>
+<p><strong>Workshop:</strong> feedback on Advance 2; prepare the data for modeling and train your first model. → <a href="../project/progress/#advance-3-ready-to-model">Advance 3</a>, due Tuesday, November 17.</p>
 <hr />
 <h2 id="session-4-classification-logistic-regression-and-metrics">Session 4 · Classification: logistic regression and metrics</h2>
 <p><em>Casa Central: Wednesday, November 18 · Vitacura: Friday, November 20</em></p>
@@ -708,7 +727,7 @@
 <ul>
 <li><a href="../classes/Class_11_Logistic_Regression_and_Error_Metrics/">Class 11: Logistic regression and error metrics</a></li>
 </ul>
-<p><strong>Workshop:</strong> modeling clinic. Each team brings its baseline model and we review it together.</p>
+<p><strong>Workshop:</strong> feedback on Advance 3, then a modeling clinic: each team brings its baseline model and we review it together. → <a href="../project/progress/#advance-4-the-right-metric">Advance 4</a>, due Tuesday, November 24.</p>
 <hr />
 <h2 id="session-5-trees-random-forests-and-communicating-results">Session 5 · Trees, random forests, and communicating results</h2>
 <p><em>Casa Central: Wednesday, November 25 · Vitacura: Friday, November 27</em></p>
@@ -717,7 +736,7 @@
 <li><a href="../classes/Class_12b_Decision_Trees_and_Random_Forest/">Class 12b: Decision trees and random forests</a></li>
 <li><a href="../classes/Pyramid_Presentations.html" target="_blank">Pyramid presentations in business</a></li>
 </ul>
-<p><strong>Workshop:</strong> Sprint 3 review; compare models and structure the final presentation.</p>
+<p><strong>Workshop:</strong> feedback on Advance 4; compare models and structure the final presentation. → <a href="../project/progress/#final-submission">Final submission</a>, due Tuesday, December 1.</p>
 <hr />
 <h2 id="session-6-final-presentations">Session 6 · Final presentations</h2>
 <p><em>Casa Central: Wednesday, December 2 · Vitacura: Friday, December 4</em></p>
@@ -805,14 +824,34 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tabs", "navigation.top", "content.code.annotate", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.top", "content.code.annotate", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.a6c66575.min.js"></script>
       
-        <script src="../javascripts/mathjax.js"></script>
+        <script src="../javascripts/pyrunner.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="../javascripts/hz-core.js"></script>
+      
+        <script src="../javascripts/explainers/list-index.js"></script>
+      
+        <script src="../javascripts/explainers/ndarray-slice.js"></script>
+      
+        <script src="../javascripts/explainers/groupby.js"></script>
+      
+        <script src="../javascripts/explainers/least-squares.js"></script>
+      
+        <script src="../javascripts/explainers/poly-fit.js"></script>
+      
+        <script src="../javascripts/explainers/kfold.js"></script>
+      
+        <script src="../javascripts/explainers/threshold.js"></script>
+      
+        <script src="../javascripts/explainers/tree-split.js"></script>
+      
+        <script src="../javascripts/explainers/roc.js"></script>
+      
+        <script src="../javascripts/mailbox.js"></script>
       
     
   </body>

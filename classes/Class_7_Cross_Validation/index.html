@@ -37,6 +37,10 @@
     
       <link rel="stylesheet" href="../../stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../stylesheets/interactive.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/pyrunner.css">
+    
     <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -417,8 +421,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../../project/sprints/" class="md-nav__link">
-        Sprints
+      <a href="../../project/progress/" class="md-nav__link">
+        Weekly progress
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/mailbox/" class="md-nav__link">
+        Team mailbox
       </a>
     </li>
   
@@ -4899,6 +4917,19 @@ Instead of relying on a single train/test split, CV repeatedly splits the datase
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="hz-widget" data-widget="kfold">
+<p>▶ Interactive explainer: <a href="https://hizocar.github.io/usm-course-intensivo/classes/Class_7_Cross_Validation/">open this class on the course website</a> to use it.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="important-note-on-cross-validation-and-traintest-split">&#9888;&#65039; Important Note on Cross Validation and Train/Test Split<a class="anchor-link" href="#important-note-on-cross-validation-and-traintest-split">&#182;</a></h3><p>Cross Validation is often confused with the final <strong>train/test split</strong>. Here’s the distinction:</p>
 <ul>
 <li>🔁 <strong>Cross Validation (CV)</strong> is applied to the <strong>entire dataset</strong> to estimate how the model would perform on unseen data.  </li>
@@ -6485,14 +6516,34 @@ print(r2)</div>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.top", "content.code.annotate", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top", "content.code.annotate", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.a6c66575.min.js"></script>
       
-        <script src="../../javascripts/mathjax.js"></script>
+        <script src="../../javascripts/pyrunner.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="../../javascripts/hz-core.js"></script>
+      
+        <script src="../../javascripts/explainers/list-index.js"></script>
+      
+        <script src="../../javascripts/explainers/ndarray-slice.js"></script>
+      
+        <script src="../../javascripts/explainers/groupby.js"></script>
+      
+        <script src="../../javascripts/explainers/least-squares.js"></script>
+      
+        <script src="../../javascripts/explainers/poly-fit.js"></script>
+      
+        <script src="../../javascripts/explainers/kfold.js"></script>
+      
+        <script src="../../javascripts/explainers/threshold.js"></script>
+      
+        <script src="../../javascripts/explainers/tree-split.js"></script>
+      
+        <script src="../../javascripts/explainers/roc.js"></script>
+      
+        <script src="../../javascripts/mailbox.js"></script>
       
     
   </body>

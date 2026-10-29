@@ -37,6 +37,10 @@
     
       <link rel="stylesheet" href="../../stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../stylesheets/interactive.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/pyrunner.css">
+    
     <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -495,8 +499,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../../project/sprints/" class="md-nav__link">
-        Sprints
+      <a href="../../project/progress/" class="md-nav__link">
+        Weekly progress
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/mailbox/" class="md-nav__link">
+        Team mailbox
       </a>
     </li>
   
@@ -607,10 +625,10 @@
 
 
 <h1 id="classes">Classes</h1>
-<p>Each class is a notebook. You can read it here, or open it in Colab with the <strong>Open in Colab</strong> button to run it. If you have never used Colab, start with the <a href="../../colab/">Colab guide</a>.</p>
+<p>Each class is a notebook, and <strong>you can run it right here</strong>. Open a class, press ▶ next to any cell (or <span class="keys"><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-enter">Enter</kbd></span>), and Python runs in your browser. You can edit the code and run it again; cells share variables, as in Colab. Each class also has interactive explainers: drag, slide, and press play to see an idea in motion.</p>
 <div class="admonition tip">
-<p class="admonition-title">Before you edit a notebook</p>
-<p>When you open it from the button, Colab shows it in read-only mode. Use <strong>File › Save a copy in Drive</strong> to get your own editable version.</p>
+<p class="admonition-title">Browser or Colab?</p>
+<p>The browser is the quickest way to follow a class and experiment: nothing to install, nothing to save. The first run takes a few seconds while Python downloads. For the <strong>project</strong>, use Colab, where your work is saved and shared with your team. If you have never used it, start with the <a href="../../colab/">Colab guide</a>. Notebooks opened from <strong>Open in Colab</strong> are read-only: use <strong>File › Save a copy in Drive</strong> to get your own copy.</p>
 </div>
 <h2 id="session-1-python-in-google-colab">Session 1 · Python in Google Colab</h2>
 <table>
@@ -792,14 +810,34 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.top", "content.code.annotate", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top", "content.code.annotate", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.a6c66575.min.js"></script>
       
-        <script src="../../javascripts/mathjax.js"></script>
+        <script src="../../javascripts/pyrunner.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="../../javascripts/hz-core.js"></script>
+      
+        <script src="../../javascripts/explainers/list-index.js"></script>
+      
+        <script src="../../javascripts/explainers/ndarray-slice.js"></script>
+      
+        <script src="../../javascripts/explainers/groupby.js"></script>
+      
+        <script src="../../javascripts/explainers/least-squares.js"></script>
+      
+        <script src="../../javascripts/explainers/poly-fit.js"></script>
+      
+        <script src="../../javascripts/explainers/kfold.js"></script>
+      
+        <script src="../../javascripts/explainers/threshold.js"></script>
+      
+        <script src="../../javascripts/explainers/tree-split.js"></script>
+      
+        <script src="../../javascripts/explainers/roc.js"></script>
+      
+        <script src="../../javascripts/mailbox.js"></script>
       
     
   </body>

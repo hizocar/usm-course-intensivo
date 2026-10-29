@@ -1,0 +1,914 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Intensive course on machine learning for business, USM, October to December 2026">
+      
+      
+        <meta name="author" content="Sebastian Azocar">
+      
+      
+        <link rel="canonical" href="https://hizocar.github.io/usm-course-intensivo/project/progress/">
+      
+      <link rel="icon" href="../../images/logo_python.svg">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
+    
+    
+      
+        <title>Weekly progress - Machine Learning and Business Applications · Intensive Format</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.c382b1dc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
+        
+      
+    
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/interactive.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/pyrunner.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#weekly-progress" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Machine Learning and Business Applications · Intensive Format" class="md-header__button md-logo" aria-label="Machine Learning and Business Applications · Intensive Format" data-md-component="logo">
+      
+  <img src="../../images/logo.bmp" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Machine Learning and Business Applications · Intensive Format
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Weekly progress
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/hizocar/usm-course-intensivo" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    usm-course-intensivo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../schedule/" class="md-tabs__link">
+      Schedule
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../classes/classes/" class="md-tabs__link">
+      Classes
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../colab/" class="md-tabs__link">
+      Colab guide
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../project/" class="md-tabs__link md-tabs__link--active">
+        Final project
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../datasets/datasets/" class="md-tabs__link">
+      Datasets
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Machine Learning and Business Applications · Intensive Format" class="md-nav__button md-logo" aria-label="Machine Learning and Business Applications · Intensive Format" data-md-component="logo">
+      
+  <img src="../../images/logo.bmp" alt="logo">
+
+    </a>
+    Machine Learning and Business Applications · Intensive Format
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/hizocar/usm-course-intensivo" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    usm-course-intensivo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../schedule/" class="md-nav__link">
+        Schedule
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../classes/classes/" class="md-nav__link">
+        Classes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../colab/" class="md-nav__link">
+        Colab guide
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Final project
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Final project" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Final project
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project/" class="md-nav__link">
+        Brief and rubric
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Weekly progress
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Weekly progress
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#calendar" class="md-nav__link">
+    Calendar
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-advances-are-graded" class="md-nav__link">
+    How advances are graded
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advance-1-team-data-and-question" class="md-nav__link">
+    Advance 1 · Team, data, and question
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advance-2-cleaning-and-exploratory-analysis" class="md-nav__link">
+    Advance 2 · Cleaning and exploratory analysis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advance-3-ready-to-model" class="md-nav__link">
+    Advance 3 · Ready to model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advance-4-the-right-metric" class="md-nav__link">
+    Advance 4 · The right metric
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-submission" class="md-nav__link">
+    Final submission
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mailbox/" class="md-nav__link">
+        Team mailbox
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../datasets/datasets/" class="md-nav__link">
+        Datasets
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#calendar" class="md-nav__link">
+    Calendar
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-advances-are-graded" class="md-nav__link">
+    How advances are graded
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advance-1-team-data-and-question" class="md-nav__link">
+    Advance 1 · Team, data, and question
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advance-2-cleaning-and-exploratory-analysis" class="md-nav__link">
+    Advance 2 · Cleaning and exploratory analysis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advance-3-ready-to-model" class="md-nav__link">
+    Advance 3 · Ready to model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advance-4-the-right-metric" class="md-nav__link">
+    Advance 4 · The right metric
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-submission" class="md-nav__link">
+    Final submission
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="weekly-progress">Weekly progress</h1>
+<p>The project moves forward <strong>every week</strong>. After each content session your team hands in an <strong>advance</strong>: the part of the project that applies what that session covered. There are four graded advances, and the fifth week ends with the final submission.</p>
+<div class="admonition abstract">
+<p class="admonition-title">How it counts</p>
+<ul>
+<li><strong>Weekly advances: 30% of the course grade</strong> (4 advances, 7.5% each).</li>
+<li><strong>Final project: 70%</strong> (notebook and presentation, graded with the <a href="../project/#rubric">rubric</a>).</li>
+</ul>
+</div>
+<h2 id="calendar">Calendar</h2>
+<p>Every advance is due on <strong>Tuesday at 23:59</strong>, the same for both sections, and is submitted through the <a href="../mailbox/">team mailbox</a>.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Week</th>
+<th>Session (Wed / Fri)</th>
+<th>Advance</th>
+<th>Due</th>
+<th>Feedback in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td>Python in Colab (Oct 28 / 30)</td>
+<td><a href="#advance-1-team-data-and-question"><strong>Advance 1</strong> · Team, data, and question</a></td>
+<td>Tue <strong>Nov 3</strong></td>
+<td>Session 2</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td>pandas and seaborn (Nov 4 / 6)</td>
+<td><a href="#advance-2-cleaning-and-exploratory-analysis"><strong>Advance 2</strong> · Cleaning and exploratory analysis</a></td>
+<td>Tue <strong>Nov 10</strong></td>
+<td>Session 3</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td>Linear regression (Nov 11 / 13)</td>
+<td><a href="#advance-3-ready-to-model"><strong>Advance 3</strong> · Ready to model</a></td>
+<td>Tue <strong>Nov 17</strong></td>
+<td>Session 4</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td>Classification (Nov 18 / 20)</td>
+<td><a href="#advance-4-the-right-metric"><strong>Advance 4</strong> · The right metric</a></td>
+<td>Tue <strong>Nov 24</strong></td>
+<td>Session 5</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td>Trees and communication (Nov 25 / 27)</td>
+<td><a href="#final-submission"><strong>Final project</strong></a></td>
+<td>Tue <strong>Dec 1</strong></td>
+<td>Presentation</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td>Presentations (Dec 2 / 4)</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h2 id="how-advances-are-graded">How advances are graded</h2>
+<p>Each advance is graded from 1.0 to 7.0 against its checklist. You get the grade and a traffic light, with comments in your notebook, during the next session's workshop.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Grade</th>
+<th align="center">Traffic light</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">6.0 – 7.0</td>
+<td align="center">🟢</td>
+<td>Every item is done and correct. Keep going.</td>
+</tr>
+<tr>
+<td align="center">4.0 – 5.9</td>
+<td align="center">🟡</td>
+<td>Every item is there, but some need fixing before the next advance.</td>
+</tr>
+<tr>
+<td align="center">2.0 – 3.9</td>
+<td align="center">🔴</td>
+<td>Important items are missing. We talk during the workshop.</td>
+</tr>
+<tr>
+<td align="center">1.0</td>
+<td align="center">⚫</td>
+<td>Not submitted.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>The notebook is reviewed <strong>as it is at the deadline</strong>. Colab keeps the version history, so later changes don't count for that advance (but they do help the next one).</li>
+<li><strong>Late submissions:</strong> one point off for each day late, up to three days. After that the advance gets a 1.0.</li>
+<li>Every member of the team gets the same grade. If a member does not take part, let me know before the deadline.</li>
+<li>Each advance is a step towards the final notebook, so fixing the comments from one advance is part of the next.</li>
+</ul>
+<hr />
+<h2 id="advance-1-team-data-and-question">Advance 1 · Team, data, and question</h2>
+<p><em>Work on it in the session 1 workshop. Due </em><em>Tuesday, November 3, 23:59</em><em>.</em></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Team <strong>registered in the <a href="../mailbox/">mailbox</a></strong> (2 or 3 members, team name, and case). If it is your own case, include the proposal: it is approved or rejected in the feedback.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Project notebook created in Colab and shared with the whole team (Editor) and with hizocar@gmail.com (Commenter).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> The data is loaded from its URL with <code>pd.read_csv</code>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> First inspection: <code>shape</code>, data types, first rows, number of missing values per column, and number of duplicate rows.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> The case's business question, written in your own words in two or three lines, and who would use the answer.</li>
+</ul>
+<hr />
+<h2 id="advance-2-cleaning-and-exploratory-analysis">Advance 2 · Cleaning and exploratory analysis</h2>
+<p><em>Work on it in the session 2 workshop. Due </em><em>Tuesday, November 10, 23:59</em><em>.</em></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Duplicates removed and missing values handled, with each decision justified.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Inconsistent categories unified (for example, <code>"bachelor"</code>, <code>"Bachelor"</code>, and <code>"BACHELOR"</code>).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Impossible values (negative ages, scores out of range) detected and fixed.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Cleaning summary table: issue, decision, and rows affected.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> At least four exploratory charts, including how the variables relate to the target. One sentence under each chart saying what it shows.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Three written findings, each with what it means for the business.</li>
+</ul>
+<hr />
+<h2 id="advance-3-ready-to-model">Advance 3 · Ready to model</h2>
+<p><em>Work on it in the session 3 workshop. Due </em><em>Tuesday, November 17, 23:59</em><em>.</em></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Categorical variables encoded (for example, with <code>pd.get_dummies</code>) and ID columns removed.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Data split into training and test sets <strong>before</strong> any model is trained. The test set is not touched until evaluation.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Case A:</strong> linear regression trained, with MAE, RMSE, and R² on the test set, and the training metrics next to them to check for overfitting.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Case B:</strong> split stratified by <code>default</code>, and the baseline accuracy of a model that always predicts "repays". Explain in two lines why accuracy alone would be misleading here.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A short paragraph: what you expect the model to find, based on your exploratory analysis.</li>
+</ul>
+<hr />
+<h2 id="advance-4-the-right-metric">Advance 4 · The right metric</h2>
+<p><em>Work on it in the session 4 workshop (modeling clinic). Due </em><em>Tuesday, November 24, 23:59</em><em>.</em></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Case A:</strong> 5-fold cross-validation for the linear regression, at least two coefficients interpreted in business terms, and a justified choice between MAE and RMSE.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Case B:</strong> logistic regression with its confusion matrix, precision, recall, F1, and AUC on the test set. A decision threshold chosen and justified with the cost of each type of error.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A table with the metrics so far, which will be extended in the final submission.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> The key message of your presentation in <strong>one sentence</strong> (the top of the pyramid). It can still change.</li>
+</ul>
+<hr />
+<h2 id="final-submission">Final submission</h2>
+<p><em>Work on it in the session 5 workshop. Due </em><em>Tuesday, December 1, 23:59</em><em>.</em></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Second model (decision tree or random forest) trained and evaluated on the same split.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Model comparison table and a justified choice.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Feature importance for the chosen model, explained for the business.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Three recommendations and the limitations of the analysis.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A 10-minute presentation with a pyramid structure.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Checklist from the <a href="../../colab/#6-before-the-final-submission">Colab guide</a> completed.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Notebook submitted through the <a href="../mailbox/">mailbox</a>, and slides emailed as described in the <a href="../project/#submission">project brief</a>.</li>
+</ul>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../project/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Brief and rubric" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Brief and rubric
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../mailbox/" class="md-footer__link md-footer__link--next" aria-label="Next: Team mailbox" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Team mailbox
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/hizocar" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top", "content.code.annotate", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a6c66575.min.js"></script>
+      
+        <script src="../../javascripts/pyrunner.js"></script>
+      
+        <script src="../../javascripts/hz-core.js"></script>
+      
+        <script src="../../javascripts/explainers/list-index.js"></script>
+      
+        <script src="../../javascripts/explainers/ndarray-slice.js"></script>
+      
+        <script src="../../javascripts/explainers/groupby.js"></script>
+      
+        <script src="../../javascripts/explainers/least-squares.js"></script>
+      
+        <script src="../../javascripts/explainers/poly-fit.js"></script>
+      
+        <script src="../../javascripts/explainers/kfold.js"></script>
+      
+        <script src="../../javascripts/explainers/threshold.js"></script>
+      
+        <script src="../../javascripts/explainers/tree-split.js"></script>
+      
+        <script src="../../javascripts/explainers/roc.js"></script>
+      
+        <script src="../../javascripts/mailbox.js"></script>
+      
+    
+  </body>
+</html>

@@ -18,6 +18,7 @@ markdown_extensions:
       generic: true
   - pymdownx.highlight:
       anchor_linenums: true
+      pygments_lang_class: true   # lets pyrunner.js find the ```python blocks
   - pymdownx.inlinehilite
   - pymdownx.keys
   - pymdownx.snippets
@@ -28,11 +29,26 @@ markdown_extensions:
       alternate_style: true
 
 # Extra javascript and css
+# Math in the notebooks is typeset by the MathJax 2 that mkdocs-jupyter adds to
+# each notebook page. Loading MathJax 3 as well made the two fight over
+# window.MathJax, and instant navigation re-ran the notebook scripts.
 extra_javascript:
-  - javascripts/mathjax.js
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - javascripts/pyrunner.js
+  - javascripts/hz-core.js
+  - javascripts/explainers/list-index.js
+  - javascripts/explainers/ndarray-slice.js
+  - javascripts/explainers/groupby.js
+  - javascripts/explainers/least-squares.js
+  - javascripts/explainers/poly-fit.js
+  - javascripts/explainers/kfold.js
+  - javascripts/explainers/threshold.js
+  - javascripts/explainers/tree-split.js
+  - javascripts/explainers/roc.js
+  - javascripts/mailbox.js
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/interactive.css
+  - stylesheets/pyrunner.css
 
 # Theme
 theme:
@@ -42,7 +58,6 @@ theme:
   favicon: images/logo_python.svg
   font: false
   features:
-    - navigation.instant
     - navigation.tabs
     - navigation.top
     - content.code.annotate
@@ -84,5 +99,6 @@ nav:
   - Colab guide: colab.md
   - Final project:
       - Brief and rubric: project/project.md
-      - Sprints: project/sprints.md
+      - Weekly progress: project/progress.md
+      - Team mailbox: project/mailbox.md
   - Datasets: datasets/datasets.md

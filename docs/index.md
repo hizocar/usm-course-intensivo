@@ -16,6 +16,7 @@ hide:
 
 [See the schedule](schedule.md){ .md-button .md-button--primary }
 [Final project](project/project.md){ .md-button }
+[Team mailbox](project/mailbox.md){ .md-button }
 
 </div>
 
@@ -47,7 +48,7 @@ Final presentations: **Friday, December 4**
 
 <div markdown>
 <span class="hz-step">01</span>
-**Five content sessions.** Python and Colab, data analysis with pandas, regression, classification, and trees. Every session mixes explanation with live coding.
+**Five content sessions.** Python and Colab, data analysis with pandas, regression, classification, and trees. Every class runs in your browser: edit the code, press ▶, and play with the interactive explainers.
 </div>
 
 <div markdown>
@@ -57,12 +58,12 @@ Final presentations: **Friday, December 4**
 
 <div markdown>
 <span class="hz-step">03</span>
-**Sprints to track progress, not to grade it.** Three progress reviews with traffic-light feedback. They help you catch problems early and do not count toward your grade.
+**A weekly advance, every Tuesday.** After each session your team hands in the next piece of the project through the [team mailbox](project/mailbox.md). You get a grade and comments the following week, so problems surface early.
 </div>
 
 <div markdown>
 <span class="hz-step">04</span>
-**A single assessment.** The final project (notebook + presentation) is 100% of the grade. It is presented in the first week of December.
+**How it is graded.** Weekly advances are 30% of the grade and the final project (notebook + presentation) is 70%. Teams present in the first week of December.
 </div>
 
 </div>

@@ -1,9 +1,9 @@
 # Classes
 
-Each class is a notebook. You can read it here, or open it in Colab with the **Open in Colab** button to run it. If you have never used Colab, start with the [Colab guide](../colab.md).
+Each class is a notebook, and **you can run it right here**. Open a class, press ▶ next to any cell (or ++shift+enter++), and Python runs in your browser. You can edit the code and run it again; cells share variables, as in Colab. Each class also has interactive explainers: drag, slide, and press play to see an idea in motion.
 
-!!! tip "Before you edit a notebook"
-    When you open it from the button, Colab shows it in read-only mode. Use **File › Save a copy in Drive** to get your own editable version.
+!!! tip "Browser or Colab?"
+    The browser is the quickest way to follow a class and experiment: nothing to install, nothing to save. The first run takes a few seconds while Python downloads. For the **project**, use Colab, where your work is saved and shared with your team. If you have never used it, start with the [Colab guide](../colab.md). Notebooks opened from **Open in Colab** are read-only: use **File › Save a copy in Drive** to get your own copy.
 
 ## Session 1 · Python in Google Colab
 

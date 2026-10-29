@@ -65,7 +65,7 @@ Colab already includes pandas, NumPy, matplotlib, seaborn, scikit-learn, and sta
 ## 5. Teamwork and sharing the project
 
 1. One team member creates the project notebook and shares it with the rest of the team as **Editor** (the **Share** button, top right).
-2. Also share it with **hizocar@gmail.com** as **Commenter**. That way I can review your progress at each sprint without you having to send anything.
+2. Also share it with **hizocar@gmail.com** as **Commenter**. That way I can review each weekly advance directly in your notebook.
 3. Several people can open the same notebook in Colab, but if two people edit at the same time they can overwrite each other's changes. Split the work by section and let the team know before you run everything.
 
 ## 6. Before the final submission

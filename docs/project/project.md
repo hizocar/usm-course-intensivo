@@ -1,7 +1,12 @@
 # Final project
 
-!!! abstract "The only assessment in the course"
-    The final project is **100% of the grade**. You work on it throughout the course, and progress is tracked through three [sprints](sprints.md) that are not graded.
+!!! abstract "How the course is graded"
+    You work on one project for the whole course. It is graded in two parts:
+
+    - **Weekly advances, 30%:** four advances, one after each content session. See [weekly progress](progress.md).
+    - **Final project, 70%:** the finished notebook and the presentation, graded with the rubric below.
+
+    Course grade = 0.3 × average of the advances + 0.7 × final project.
 
 ## Goal
 
@@ -17,7 +22,7 @@ Solve a business problem with data, end to end, in a Google Colab notebook. The 
 ## Teams
 
 - **2 or 3 members**, from the same section.
-- Teams and cases are registered at the end of **session 1** (October 28 or 30).
+- Teams and cases are registered in the [team mailbox](mailbox.md) at the end of **session 1** (October 28 or 30).
 
 ## Cases
 
@@ -53,7 +58,7 @@ Each team chooses **one** of these cases. The data is "dirty" on purpose: cleani
     - A business question that a model can answer.
     - The data can be read from a public URL.
 
-    Your own case must be **approved in Sprint 1**.
+    Your own case must be **approved in Advance 1**.
 
 ## What the notebook must contain
 
@@ -71,14 +76,16 @@ Each team chooses **one** of these cases. The data is "dirty" on purpose: cleani
 
 | What | When | How |
 |---|---|---|
-| Notebook (`.ipynb`) and Colab link | **Tuesday, December 1, 23:59** | Email to hizocar@gmail.com with the subject `[ML Intensive] Final project – Section – Last names` |
-| Slides (PDF) | **Tuesday, December 1, 23:59** | In the same email |
+| Colab notebook | **Tuesday, December 1, 23:59** | [Team mailbox](mailbox.md), choosing *Final project* |
+| Notebook (`.ipynb`) and slides (PDF) | **Tuesday, December 1, 23:59** | Email to hizocar@gmail.com with the subject `[ML Intensive] Final project – Section – Team name` |
 | Presentation, Casa Central | **Wednesday, December 2, 16:05** | In the classroom |
 | Presentation, Vitacura | **Friday, December 4, 11:05** | In the classroom |
 
 The presentation lasts **10 minutes plus 5 for questions**, and every team member must take part. The presentation order is published on Monday, November 30.
 
 ## Rubric
+
+This rubric gives the final project grade (70% of the course). The weights below add up to 100% of that grade.
 
 | Criterion | Weight | Full marks (7.0) |
 |---|:--:|---|
@@ -90,5 +97,5 @@ The presentation lasts **10 minutes plus 5 for questions**, and every team membe
 
 Grades use the Chilean scale from 1.0 to 7.0, where 4.0 is a pass.
 
-!!! note "About the sprints"
-    Sprints neither add nor subtract points. Their purpose is that you reach December without surprises: at each review you get a traffic-light rating and comments on what to adjust.
+!!! note "Advances and the final grade are connected"
+    Each advance is a piece of the final notebook. The comments you get on an advance are the fastest way to raise the final grade: fix them before the next one, and you reach December without surprises.

@@ -72,3 +72,6 @@ target/
 *ipynb_checkpoints
 public
 sitesite/
+
+# Playwright MCP scratch output
+.playwright-mcp/

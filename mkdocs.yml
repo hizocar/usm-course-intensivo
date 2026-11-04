@@ -36,6 +36,7 @@ extra_javascript:
   - javascripts/pyrunner.js
   - javascripts/hz-core.js
   - javascripts/mailbox.js
+  - javascripts/reveal.js
 extra_css:
   - stylesheets/extra.css
   - stylesheets/interactive.css
@@ -99,4 +100,5 @@ nav:
       - Brief and rubric: project/project.md
       - Weekly progress: project/progress.md
       - Team mailbox: project/mailbox.md
+      - Grades: project/grades.md
   - Datasets: datasets/datasets.md

@@ -144,3 +144,24 @@
 .md-typeset .hz-mb-result[data-tone="bad"] { color: #c0392b; }
 [data-md-color-scheme="slate"] .md-typeset .hz-mb-result[data-tone="good"] { color: #8cc784; }
 [data-md-color-scheme="slate"] .md-typeset .hz-mb-result[data-tone="bad"] { color: #ff8a73; }
+
+/* Grades page: results hidden behind a Reveal button (reveal.js) */
+.md-typeset .hz-reveal {
+  font: inherit;
+  font-size: 0.66rem;
+  font-weight: 600;
+  padding: 0.3em 0.9em;
+  border-radius: 999px;
+  border: 1px solid var(--md-primary-fg-color);
+  background: transparent;
+  color: var(--md-primary-fg-color);
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+.md-typeset .hz-reveal:hover, .md-typeset .hz-reveal[aria-expanded="true"] { background: var(--md-primary-fg-color); color: #fff8f0; }
+.md-typeset .hz-reveal:focus-visible { outline: 2px solid var(--md-primary-fg-color); outline-offset: 2px; }
+.md-typeset .hz-revealed { display: block; margin-top: 0.45em; animation: hz-reveal-in 220ms ease-out; }
+.md-typeset .hz-revealed[hidden] { display: none; }
+.md-typeset .hz-revealed strong { font-family: var(--md-code-font); font-size: 1.1em; }
+@keyframes hz-reveal-in { from { opacity: 0; transform: translateY(-3px); } }
+@media (prefers-reduced-motion: reduce) { .md-typeset .hz-revealed { animation: none; } }

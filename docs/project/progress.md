@@ -21,17 +21,17 @@ Every advance is due on **Tuesday at 23:59**, the same for both sections, and is
 
 ## How advances are graded
 
-Each advance is graded from 1.0 to 7.0 against its checklist. You get the grade and a traffic light, with comments in your notebook, during the next session's workshop.
+Each advance is graded on USM's 0–100 scale (55 is a pass) against its checklist. You get the grade and a traffic light, with comments in your notebook, during the next session's workshop.
 
 | Grade | Traffic light | What it means |
 |:--:|:--:|---|
-| 6.0 – 7.0 | 🟢 | Every item is done and correct. Keep going. |
-| 4.0 – 5.9 | 🟡 | Every item is there, but some need fixing before the next advance. |
-| 2.0 – 3.9 | 🔴 | Important items are missing. We talk during the workshop. |
-| 1.0 | ⚫ | Not submitted. |
+| 85 – 100 | 🟢 | Every item is done and correct. Keep going. |
+| 55 – 84 | 🟡 | Every item is there, but some need fixing before the next advance. |
+| 1 – 54 | 🔴 | Important items are missing. We talk during the workshop. |
+| 0 | ⚫ | Not submitted. |
 
 - The notebook is reviewed **as it is at the deadline**. Colab keeps the version history, so later changes don't count for that advance (but they do help the next one).
-- **Late submissions:** one point off for each day late, up to three days. After that the advance gets a 1.0.
+- **Late submissions:** 15 points off for each day late, up to three days. After that the advance gets a 0.
 - Every member of the team gets the same grade. If a member does not take part, let me know before the deadline.
 - Each advance is a step towards the final notebook, so fixing the comments from one advance is part of the next.
 

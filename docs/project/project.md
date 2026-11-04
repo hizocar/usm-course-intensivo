@@ -87,7 +87,7 @@ The presentation lasts **10 minutes plus 5 for questions**, and every team membe
 
 This rubric gives the final project grade (70% of the course). The weights below add up to 100% of that grade.
 
-| Criterion | Weight | Full marks (7.0) |
+| Criterion | Weight | Full marks (100) |
 |---|:--:|---|
 | **Python and reproducibility** | 15% | The notebook runs end to end with *Restart session and run all*. The code is tidy, with headings and text explaining each step. The data is read from a URL. |
 | **Cleaning and exploratory analysis** | 25% | Data quality issues are found and fixed, and each decision is justified. Charts are relevant and each one has a conclusion. Findings connect to the business question. |
@@ -95,7 +95,7 @@ This rubric gives the final project grade (70% of the course). The weights below
 | **Interpretation and recommendations** | 15% | You explain which variables matter and how. Recommendations are concrete, follow from the results, and acknowledge limitations. |
 | **Oral presentation** | 15% | Pyramid structure: the conclusion comes first. Clear charts, stays within 10 minutes, everyone takes part, and questions are answered well. |
 
-Grades use the Chilean scale from 1.0 to 7.0, where 4.0 is a pass.
+Grades use USM's scale from 0 to 100, where 55 is a pass.
 
 !!! note "Advances and the final grade are connected"
     Each advance is a piece of the final notebook. The comments you get on an advance are the fastest way to raise the final grade: fix them before the next one, and you reach December without surprises.

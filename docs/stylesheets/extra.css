@@ -162,6 +162,20 @@
 .md-typeset .hz-reveal:focus-visible { outline: 2px solid var(--md-primary-fg-color); outline-offset: 2px; }
 .md-typeset .hz-revealed { display: block; margin-top: 0.45em; animation: hz-reveal-in 220ms ease-out; }
 .md-typeset .hz-revealed[hidden] { display: none; }
-.md-typeset .hz-revealed strong { font-family: var(--md-code-font); font-size: 1.1em; }
 @keyframes hz-reveal-in { from { opacity: 0; transform: translateY(-3px); } }
 @media (prefers-reduced-motion: reduce) { .md-typeset .hz-revealed { animation: none; } }
+.md-typeset .hz-teams { display: flex; flex-direction: column; gap: 0.6rem; margin: 0.6rem 0 1.6rem; }
+.md-typeset .hz-team { border: 1px solid var(--hz-line); border-radius: 14px; background: var(--hz-surface); padding: 0.7rem 1rem; }
+.md-typeset .hz-team-head { display: flex; flex-wrap: wrap; align-items: center; gap: 0.3rem 0.8rem; }
+.md-typeset .hz-team-name { font-weight: 600; font-size: 0.82rem; }
+.md-typeset .hz-team-meta { flex: 1 1 12rem; font-size: 0.68rem; color: var(--hz-muted); }
+.md-typeset .hz-team-note { margin-top: 0.4rem; font-size: 0.7rem; color: var(--hz-muted); }
+.md-typeset .hz-grade { margin: 0.2em 0 0.5em; }
+.md-typeset .hz-grade strong { font-family: var(--md-code-font); font-size: 1.4em; }
+.md-typeset ul.hz-checks, .md-typeset ul.hz-tips { margin: 0.2em 0 0.6em; padding: 0; list-style: none; font-size: 0.72rem; }
+.md-typeset ul.hz-checks li { display: flex; gap: 0.5em; margin: 0 0 0.45em; }
+.md-typeset ul.hz-checks li::before, .md-typeset ul.hz-tips li::before { content: none; }
+.md-typeset .hz-mark { flex: none; }
+.md-typeset .hz-tips-title { margin: 0.4em 0 0.2em; font-size: 0.68rem; font-weight: 600; color: var(--md-primary-fg-color); }
+.md-typeset ul.hz-tips li { margin: 0 0 0.35em; padding-left: 1.1em; position: relative; }
+.md-typeset ul.hz-tips li::after { content: "→"; position: absolute; left: 0; top: 0; color: var(--md-primary-fg-color); }

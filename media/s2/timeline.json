@@ -1,0 +1,1189 @@
+{
+ "kicker": "Video de la clase · 10 min",
+ "title": "La Sesión 2 en dos partes",
+ "lede": "Mira el video antes de trabajar el notebook: recorre las diez ideas de la clase con el mismo código, las mismas tablas y los mismos gráficos que vas a ejecutar.",
+ "parts": [
+  {
+   "id": "p1",
+   "label": "Parte 1",
+   "title": "Mirar y auditar",
+   "scenes": [
+    {
+     "id": "intro",
+     "title": "01 · El problema",
+     "start": 0.5,
+     "dur": 44.661,
+     "beats": {
+      "company": 4.34,
+      "q1": 10.8,
+      "q2": 17.31,
+      "dirty": 22.98,
+      "plan": 33.96
+     },
+     "cues": [
+      [
+       0.0,
+       "Hola a todos, bienvenidos a la sesión dos:"
+      ],
+      [
+       2.59,
+       "limpiar la base de clientes."
+      ],
+      [
+       4.34,
+       "La semana pasada se unieron al equipo de analítica de Cordillera Mobile y abrieron el"
+      ],
+      [
+       9.53,
+       "archivo de clientes."
+      ],
+      [
+       10.8,
+       "Dos equipos esperan respuestas."
+      ],
+      [
+       12.73,
+       "El equipo comercial pregunta:"
+      ],
+      [
+       14.54,
+       "¿qué explica la cuenta mensual de un cliente?"
+      ],
+      [
+       17.31,
+       "Y el equipo de retención pregunta:"
+      ],
+      [
+       19.42,
+       "¿qué clientes están por irse, y a quién deberíamos llamar?"
+      ],
+      [
+       22.98,
+       "Ninguna de las dos se puede responder con datos sucios."
+      ],
+      [
+       26.36,
+       "Un cliente guardado dos veces cuenta doble,"
+      ],
+      [
+       29.01,
+       "y una sola cuenta de cuatro mil seiscientos dólares arrastra todos los promedios."
+      ],
+      [
+       33.96,
+       "Hoy vamos a hacer tres cosas:"
+      ],
+      [
+       35.77,
+       "mirar por dentro un DataFrame, auditar y limpiar los datos, y encontrar los primeros patrones."
+      ],
+      [
+       41.5,
+       "Eso es exactamente lo que pide el Avance dos."
+      ]
+     ]
+    },
+    {
+     "id": "load",
+     "title": "01 · Cargar el archivo",
+     "start": 45.161,
+     "dur": 19.212,
+     "beats": {
+      "code": 2.2,
+      "shape": 10.55
+     },
+     "cues": [
+      [
+       0.0,
+       "Partimos cargando el archivo."
+      ],
+      [
+       2.2,
+       "Importamos pandas, y con pe de punto read csv leemos el archivo crudo,"
+      ],
+      [
+       7.4,
+       "que guardamos en una variable llamada raw."
+      ],
+      [
+       10.55,
+       "Con raw punto shape vemos su tamaño:"
+      ],
+      [
+       13.27,
+       "cinco mil setenta y cinco filas y quince columnas."
+      ],
+      [
+       17.0,
+       "Cada fila es un cliente."
+      ]
+     ]
+    },
+    {
+     "id": "anatomy",
+     "title": "02 · Anatomía de un DataFrame",
+     "start": 64.373,
+     "dur": 29.01,
+     "beats": {
+      "rows": 3.62,
+      "cols": 9.56,
+      "dtypes": 11.69,
+      "series": 19.94
+     },
+     "cues": [
+      [
+       0.0,
+       "Antes de limpiar, hay que saber qué tenemos en las manos."
+      ],
+      [
+       3.62,
+       "Un DataFrame tiene filas, una por cliente, identificadas por el índice:"
+      ],
+      [
+       8.12,
+       "cero, uno, dos, y así."
+      ],
+      [
+       9.56,
+       "Tiene columnas, una por variable, y cada columna tiene un tipo de dato:"
+      ],
+      [
+       14.06,
+       "object para texto, int sesenta y cuatro para enteros y float sesenta y cuatro para decimales."
+      ],
+      [
+       19.94,
+       "Si sacamos una sola columna, por ejemplo monthly bill, obtenemos una Series:"
+      ],
+      [
+       24.75,
+       "una variable para cada cliente, con el índice todavía pegado."
+      ]
+     ]
+    },
+    {
+     "id": "describe",
+     "title": "02 · head, info y describe",
+     "start": 93.383,
+     "dur": 41.782,
+     "beats": {
+      "head": 3.33,
+      "info": 5.36,
+      "describe": 14.91,
+      "age": 19.59,
+      "bill": 24.76,
+      "tip": 35.54
+     },
+     "cues": [
+      [
+       0.0,
+       "Tres métodos son su primera mirada a cualquier tabla."
+      ],
+      [
+       3.33,
+       "Head muestra las primeras filas."
+      ],
+      [
+       5.36,
+       "Info lista las columnas, sus tipos y cuántos valores no faltan:"
+      ],
+      [
+       9.3,
+       "todas tienen cinco mil setenta y cinco, salvo data gb y payment method, que tienen vacíos."
+      ],
+      [
+       14.91,
+       "Y describe resume las columnas numéricas."
+      ],
+      [
+       17.49,
+       "Fíjense que ya se ve la suciedad:"
+      ],
+      [
+       19.59,
+       "el cliente más joven tiene menos uno años, y el mayor, novecientos noventa y nueve."
+      ],
+      [
+       24.76,
+       "La cuenta más baja es de menos treinta y seis dólares, y la más alta,"
+      ],
+      [
+       29.07,
+       "de cuatro mil seiscientos ochenta y nueve,"
+      ],
+      [
+       31.72,
+       "cuando tres de cada cuatro cuentas están bajo cuarenta y dos."
+      ],
+      [
+       35.54,
+       "Una tabla resumen es el control de calidad más barato que existe:"
+      ],
+      [
+       39.61,
+       "córranla en cada base nueva."
+      ]
+     ]
+    },
+    {
+     "id": "select",
+     "title": "03 · Seleccionar: loc e iloc",
+     "start": 135.165,
+     "dur": 42.338,
+     "beats": {
+      "cols": 1.29,
+      "two": 11.08,
+      "loc": 17.53,
+      "iloc": 22.49,
+      "same": 29.26,
+      "err": 37.51
+     },
+     "cues": [
+      [
+       0.0,
+       "Ahora, seleccionar."
+      ],
+      [
+       1.29,
+       "Los corchetes eligen columnas por nombre:"
+      ],
+      [
+       4.0,
+       "un nombre entre corchetes simples da una Series, y una lista de nombres,"
+      ],
+      [
+       8.7,
+       "con doble corchete, da un DataFrame."
+      ],
+      [
+       11.08,
+       "Para las filas, pandas tiene dos herramientas,"
+      ],
+      [
+       14.11,
+       "y confundirlas es el error clásico del principiante."
+      ],
+      [
+       17.53,
+       "Punto loc selecciona por etiqueta, y al cortar con loc, el final se incluye."
+      ],
+      [
+       22.49,
+       "Punto iloc selecciona por posición, como una lista de Python, y al cortar con iloc,"
+      ],
+      [
+       27.9,
+       "el final se excluye."
+      ],
+      [
+       29.26,
+       "Con customer id como índice, iloc cero a tres,"
+      ],
+      [
+       32.29,
+       "y loc desde el primer cliente hasta el tercero, devuelven las mismas tres filas."
+      ],
+      [
+       37.51,
+       "Y loc dos falla con un KeyError, porque ningún cliente se llama dos."
+      ]
+     ]
+    },
+    {
+     "id": "mask",
+     "title": "04 · Filtrar con máscaras",
+     "start": 177.503,
+     "dur": 51.349,
+     "beats": {
+      "maskA": 6.56,
+      "maskB": 14.97,
+      "and": 18.25,
+      "filter": 24.49,
+      "parens": 29.18,
+      "trick": 36.44
+     },
+     "cues": [
+      [
+       0.0,
+       "Ahora, filtrar."
+      ],
+      [
+       1.03,
+       "El equipo de retención pide los clientes mes a mes con tres o más tickets de soporte."
+      ],
+      [
+       6.56,
+       "Una comparación, como contract igual a Month to month, entrega una máscara booleana:"
+      ],
+      [
+       12.02,
+       "una columna de True y False, una por cliente."
+      ],
+      [
+       14.97,
+       "Lo mismo con support tickets mayor o igual a tres."
+      ],
+      [
+       18.25,
+       "Las combinamos con el ampersand, que significa y."
+      ],
+      [
+       21.46,
+       "La barra vertical significa o, y la tilde, no."
+      ],
+      [
+       24.49,
+       "Al poner la máscara dentro de corchetes, sólo sobreviven las filas True."
+      ],
+      [
+       29.18,
+       "Ojo:"
+      ],
+      [
+       29.5,
+       "cada condición va entre paréntesis."
+      ],
+      [
+       31.81,
+       "Sin ellos, Python evalúa el ampersand primero y obtenemos un TypeError."
+      ],
+      [
+       36.44,
+       "Un truco:"
+      ],
+      [
+       37.08,
+       "True vale uno, así que la suma de una máscara cuenta coincidencias y el promedio da la"
+      ],
+      [
+       42.67,
+       "proporción."
+      ],
+      [
+       43.44,
+       "Estos ciento cincuenta y un clientes se van en un sesenta y ocho por ciento,"
+      ],
+      [
+       48.39,
+       "contra un dieciséis por ciento general."
+      ]
+     ]
+    },
+    {
+     "id": "isin",
+     "title": "04 · isin y between",
+     "start": 228.852,
+     "dur": 28.36,
+     "beats": {
+      "count": 8.62,
+      "lower": 15.47,
+      "why": 20.27
+     },
+     "cues": [
+      [
+       0.0,
+       "Dos ayudantes ahorran trabajo:"
+      ],
+      [
+       2.04,
+       "isin revisa si un valor está en una lista, y between revisa un rango,"
+      ],
+      [
+       6.65,
+       "con ambos extremos incluidos."
+      ],
+      [
+       8.62,
+       "Pero miren esto."
+      ],
+      [
+       9.74,
+       "Si contamos los planes Plus y Unlimited con isin, salen dos mil ciento ochenta y seis."
+      ],
+      [
+       15.47,
+       "Si antes pasamos el texto a minúsculas, salen dos mil trescientos nueve."
+      ],
+      [
+       20.27,
+       "Isin compara el texto exacto, así que PLUS en mayúsculas se escapa."
+      ],
+      [
+       24.75,
+       "Los datos le están mintiendo a nuestros filtros."
+      ]
+     ]
+    },
+    {
+     "id": "audit",
+     "title": "05 · La auditoría",
+     "start": 257.212,
+     "dur": 22.695,
+     "beats": {
+      "q": 1.88,
+      "list": 8.43,
+      "rule": 16.28
+     },
+     "cues": [
+      [
+       0.0,
+       "Así que auditemos los datos."
+      ],
+      [
+       1.88,
+       "Una auditoría hace una pregunta por cada tipo de problema,"
+      ],
+      [
+       5.71,
+       "la responde con código y anota el conteo."
+      ],
+      [
+       8.43,
+       "Son cuatro preguntas:"
+      ],
+      [
+       9.86,
+       "¿hay filas duplicadas?"
+      ],
+      [
+       11.35,
+       "¿Las categorías están bien escritas?"
+      ],
+      [
+       13.75,
+       "¿Hay valores imposibles?"
+      ],
+      [
+       15.37,
+       "¿Y qué falta?"
+      ],
+      [
+       16.28,
+       "La regla de oro:"
+      ],
+      [
+       17.38,
+       "todos los chequeos se corren sobre el archivo crudo, antes de cambiar nada."
+      ]
+     ]
+    },
+    {
+     "id": "dupcat",
+     "title": "05 · Duplicados y categorías",
+     "start": 279.907,
+     "dur": 35.14,
+     "beats": {
+      "dup": 1.69,
+      "cat": 12.96,
+      "eleven": 20.65,
+      "space": 26.52
+     },
+     "cues": [
+      [
+       0.0,
+       "Chequeo uno, duplicados."
+      ],
+      [
+       1.69,
+       "Raw punto duplicated, punto sum, encuentra setenta y cinco filas idénticas,"
+      ],
+      [
+       6.82,
+       "columna por columna, a una anterior."
+      ],
+      [
+       9.31,
+       "Con keep igual a False, ven ambas copias lado a lado."
+      ],
+      [
+       12.96,
+       "Chequeo dos, categorías."
+      ],
+      [
+       14.65,
+       "Value counts lista cada texto distinto."
+      ],
+      [
+       17.35,
+       "En realidad hay cuatro regiones y cuatro planes,"
+      ],
+      [
+       20.65,
+       "pero pandas ve once formas de escribir región, y diez de plan:"
+      ],
+      [
+       24.9,
+       "mayúsculas, minúsculas, y hasta espacios al final, que sólo se ven con unique."
+      ],
+      [
+       30.24,
+       "Si agrupáramos por región ahora, el reporte tendría once regiones."
+      ]
+     ]
+    },
+    {
+     "id": "impmiss",
+     "title": "05 · Imposibles y faltantes",
+     "start": 315.047,
+     "dur": 38.577,
+     "beats": {
+      "age": 2.29,
+      "bill": 11.52,
+      "decimal": 19.87,
+      "miss": 30.85
+     },
+     "cues": [
+      [
+       0.0,
+       "Chequeo tres, valores imposibles."
+      ],
+      [
+       2.29,
+       "Una edad debe estar entre dieciocho y cien años."
+      ],
+      [
+       5.59,
+       "Encontramos quince edades imposibles:"
+      ],
+      [
+       8.15,
+       "ceros, menos unos y novecientos noventa y nueves."
+      ],
+      [
+       11.52,
+       "Una cuenta debe estar entre cero y trescientos dólares."
+      ],
+      [
+       15.29,
+       "Hay quince imposibles:"
+      ],
+      [
+       16.84,
+       "diez negativas, y cinco de miles de dólares."
+      ],
+      [
+       19.87,
+       "Un cliente Plus con una cuenta de cuatro mil seiscientos ochenta y nueve dólares casi"
+      ],
+      [
+       25.67,
+       "seguro es cuarenta y seis con ochenta y nueve, con un punto decimal perdido."
+      ],
+      [
+       30.85,
+       "Chequeo cuatro, valores faltantes:"
+      ],
+      [
+       33.21,
+       "doscientos uno en data gb, y ciento cincuenta y cuatro en payment method."
+      ]
+     ]
+    },
+    {
+     "id": "table",
+     "title": "05 · La tabla de auditoría",
+     "start": 353.624,
+     "dur": 22.702,
+     "beats": {
+      "evidence": 5.13,
+      "next": 11.91
+     },
+     "cues": [
+      [
+       0.0,
+       "Todo junto, nuestra tabla de auditoría suma novecientos veinticinco valores sucios."
+      ],
+      [
+       5.13,
+       "Esa tabla es su evidencia:"
+      ],
+      [
+       6.78,
+       "les dice a ustedes, y a su jefatura, exactamente qué está mal, antes de tocar nada."
+      ],
+      [
+       11.91,
+       "En la segunda parte, tomaremos una decisión para cada problema, limpiaremos los datos,"
+      ],
+      [
+       17.23,
+       "y encontraremos qué explica de verdad la cuenta y la fuga de clientes."
+      ]
+     ]
+    }
+   ],
+   "duration": 376.326,
+   "audio": "part1.mp3"
+  },
+  {
+   "id": "p2",
+   "label": "Parte 2",
+   "title": "Limpiar y encontrar patrones",
+   "scenes": [
+    {
+     "id": "decisions",
+     "title": "06 · Decisiones defendibles",
+     "start": 0.5,
+     "dur": 49.165,
+     "beats": {
+      "d1": 9.4,
+      "d2": 15.58,
+      "d3": 21.33,
+      "d4": 30.97,
+      "d5": 34.13,
+      "d6": 40.18
+     },
+     "cues": [
+      [
+       0.0,
+       "Segunda parte:"
+      ],
+      [
+       0.93,
+       "limpiar, con decisiones que puedan defender."
+      ],
+      [
+       3.71,
+       "Cada problema necesita una decisión, y cada decisión, una razón que una jefatura aceptaría."
+      ],
+      [
+       9.4,
+       "Duplicados:"
+      ],
+      [
+       10.14,
+       "eliminamos las copias, porque un cliente contado dos veces pesa doble en cada promedio."
+      ],
+      [
+       15.58,
+       "Escritura inconsistente:"
+      ],
+      [
+       17.12,
+       "strip y title, para que la misma región sea siempre el mismo texto."
+      ],
+      [
+       21.33,
+       "Edades imposibles:"
+      ],
+      [
+       22.5,
+       "las dejamos como faltantes y las rellenamos con la mediana,"
+      ],
+      [
+       26.21,
+       "porque la edad real es imposible de saber, y la mediana ignora los extremos."
+      ],
+      [
+       30.97,
+       "Data gb faltante:"
+      ],
+      [
+       32.09,
+       "la mediana del plan del cliente."
+      ],
+      [
+       34.13,
+       "Medio de pago faltante:"
+      ],
+      [
+       35.61,
+       "una categoría nueva, Unknown."
+      ],
+      [
+       37.46,
+       "Es honesto:"
+      ],
+      [
+       38.21,
+       "no inventamos un medio de pago."
+      ],
+      [
+       40.18,
+       "Y cuentas imposibles:"
+      ],
+      [
+       41.54,
+       "eliminamos la fila."
+      ],
+      [
+       42.78,
+       "La cuenta es lo que el equipo comercial quiere explicar;"
+      ],
+      [
+       46.3,
+       "adivinarla sería inventar la respuesta."
+      ]
+     ]
+    },
+    {
+     "id": "order",
+     "title": "06 · Orden y registro",
+     "start": 49.665,
+     "dur": 23.949,
+     "beats": {
+      "o1": 1.05,
+      "o2": 5.92,
+      "log": 9.49,
+      "table": 17.17
+     },
+     "cues": [
+      [
+       0.0,
+       "El orden importa."
+      ],
+      [
+       1.05,
+       "Primero eliminen duplicados, para que las copias no cuenten doble en las medianas."
+      ],
+      [
+       5.92,
+       "Y arreglen la escritura antes de calcular medianas por plan."
+      ],
+      [
+       9.49,
+       "Mientras avanzan, anoten cada decisión con una pequeña función, record,"
+      ],
+      [
+       13.71,
+       "que guarda el problema, la decisión y las filas afectadas."
+      ],
+      [
+       17.17,
+       "Al final, ese registro se convierte en su tabla resumen de limpieza,"
+      ],
+      [
+       21.21,
+       "que es justo lo que pide el Avance dos."
+      ]
+     ]
+    },
+    {
+     "id": "steps",
+     "title": "06 · Limpieza paso a paso",
+     "start": 73.614,
+     "dur": 33.84,
+     "beats": {
+      "s1": 2.11,
+      "s2": 5.13,
+      "s3": 12.05,
+      "s4": 17.05,
+      "end": 19.93
+     },
+     "cues": [
+      [
+       0.0,
+       "Veamos el resultado paso a paso."
+      ],
+      [
+       2.11,
+       "Drop duplicates elimina setenta y cinco filas."
+      ],
+      [
+       5.13,
+       "Strip y title corrigen unas doscientas treinta filas en cada columna,"
+      ],
+      [
+       9.61,
+       "y quedan exactamente cuatro regiones."
+      ],
+      [
+       12.05,
+       "Las quince edades imposibles se rellenan con la mediana, treinta y ocho años."
+      ],
+      [
+       17.05,
+       "Y las quince cuentas imposibles se eliminan."
+      ],
+      [
+       19.93,
+       "Pasamos de cinco mil setenta y cinco filas a cuatro mil novecientas ochenta y cinco,"
+      ],
+      [
+       25.38,
+       "con cero valores faltantes."
+      ],
+      [
+       27.17,
+       "Un assert frame equal final confirma que coincidimos exactamente con el archivo limpio"
+      ],
+      [
+       32.75,
+       "publicado."
+      ]
+     ]
+    },
+    {
+     "id": "transform",
+     "title": "06 · Mediana por plan",
+     "start": 107.454,
+     "dur": 23.159,
+     "beats": {
+      "medians": 2.15,
+      "code": 10.58,
+      "fill": 13.8
+     },
+     "cues": [
+      [
+       0.0,
+       "El paso más interesante es data gb."
+      ],
+      [
+       2.15,
+       "Un cliente Prepaid usa unos tres coma siete gigas;"
+      ],
+      [
+       5.2,
+       "uno Unlimited, unos veintisiete y medio."
+      ],
+      [
+       7.65,
+       "Una sola mediana general estaría mal para ambos."
+      ],
+      [
+       10.58,
+       "Por eso agrupamos por plan y usamos transform median,"
+      ],
+      [
+       13.8,
+       "que pone al lado de cada fila la mediana de su propio plan, lista para fillna."
+      ],
+      [
+       18.53,
+       "Así, el valor que rellenamos se parece lo más posible al cliente real."
+      ]
+     ]
+    },
+    {
+     "id": "groupby",
+     "title": "07 · groupby",
+     "start": 130.613,
+     "dur": 33.144,
+     "beats": {
+      "split": 5.91,
+      "apply": 8.31,
+      "combine": 10.53,
+      "rate": 13.61,
+      "result": 18.16,
+      "norte": 28.63
+     },
+     "cues": [
+      [
+       0.0,
+       "Con los datos limpios, los primeros patrones."
+      ],
+      [
+       2.83,
+       "¿La fuga depende del contrato?"
+      ],
+      [
+       4.74,
+       "Eso es un groupby."
+      ],
+      [
+       5.91,
+       "Separamos a los clientes por contrato, aplicamos un cálculo en cada grupo,"
+      ],
+      [
+       10.53,
+       "y combinamos las respuestas en una tabla pequeña."
+      ],
+      [
+       13.61,
+       "Como churned vale cero o uno, su promedio en un grupo es la tasa de fuga."
+      ],
+      [
+       18.16,
+       "La fuga general es dieciséis coma cuatro por ciento."
+      ],
+      [
+       21.43,
+       "Los clientes mes a mes se van en un veintidós por ciento,"
+      ],
+      [
+       25.0,
+       "contra siete coma ocho con contrato de veinticuatro meses."
+      ],
+      [
+       28.63,
+       "Y por región, Norte destaca, con veintisiete coma seis por ciento."
+      ]
+     ]
+    },
+    {
+     "id": "more",
+     "title": "07 · agg y lista de llamadas",
+     "start": 163.757,
+     "dur": 30.543,
+     "beats": {
+      "plan": 2.54,
+      "tickets": 8.51,
+      "call": 20.95
+     },
+     "cues": [
+      [
+       0.0,
+       "Con agg pedimos varias cifras a la vez."
+      ],
+      [
+       2.54,
+       "La mediana de la cuenta va de unos catorce dólares en Prepaid a cuarenta y seis en Unlimited."
+      ],
+      [
+       8.51,
+       "Y la fuga salta sobre el cincuenta por ciento a partir de tres tickets."
+      ],
+      [
+       13.08,
+       "Cuidado:"
+      ],
+      [
+       13.65,
+       "los grupos con cinco o seis tickets tienen muy poca gente."
+      ],
+      [
+       17.4,
+       "Nunca confíen en una tasa calculada sobre dos personas."
+      ],
+      [
+       20.95,
+       "Recontada con datos limpios, la lista de llamadas tiene ciento cuarenta y siete clientes,"
+      ],
+      [
+       26.66,
+       "que se van en un sesenta y ocho coma siete por ciento."
+      ]
+     ]
+    },
+    {
+     "id": "charts",
+     "title": "08 · Histograma y boxplot",
+     "start": 194.3,
+     "dur": 28.082,
+     "beats": {
+      "hist": 7.99,
+      "box": 20.31
+     },
+     "cues": [
+      [
+       0.0,
+       "Una tabla convence a un analista;"
+      ],
+      [
+       2.07,
+       "un gráfico convence a una reunión."
+      ],
+      [
+       4.21,
+       "La regla:"
+      ],
+      [
+       4.82,
+       "partan de la pregunta, y después elijan el gráfico."
+      ],
+      [
+       7.99,
+       "Un histograma muestra cómo se reparte un número."
+      ],
+      [
+       10.98,
+       "Las cuentas tienen dos jorobas, una cerca de veinte a veinticinco dólares,"
+      ],
+      [
+       15.55,
+       "y otra cerca de cuarenta a cuarenta y cinco:"
+      ],
+      [
+       18.3,
+       "dos tipos de clientes mezclados."
+      ],
+      [
+       20.31,
+       "Un boxplot compara un número entre categorías:"
+      ],
+      [
+       23.18,
+       "el plan fija el nivel de la cuenta, y las cajas vecinas casi no se tocan."
+      ]
+     ]
+    },
+    {
+     "id": "charts2",
+     "title": "08 · Barras y dispersión",
+     "start": 222.382,
+     "dur": 27.292,
+     "beats": {
+      "bar": 0.0,
+      "scatter": 8.16,
+      "rule": 21.73
+     },
+     "cues": [
+      [
+       0.0,
+       "Un gráfico de barras muestra una tasa por categoría:"
+      ],
+      [
+       3.23,
+       "los clientes mes a mes se van casi tres veces más que los de veinticuatro meses."
+      ],
+      [
+       8.16,
+       "Y un gráfico de dispersión muestra si dos números se mueven juntos."
+      ],
+      [
+       12.3,
+       "El uso de datos y la cuenta tienen una correlación de cero coma setenta y cinco,"
+      ],
+      [
+       17.23,
+       "pero cada plan forma su propia banda, salvo Unlimited, que es casi plana."
+      ],
+      [
+       21.73,
+       "Cada gráfico lleva título, ejes con nombre, y una frase debajo que diga qué muestra."
+      ]
+     ]
+    },
+    {
+     "id": "findings",
+     "title": "09 · Hallazgos",
+     "start": 249.674,
+     "dur": 40.992,
+     "beats": {
+      "f1": 7.89,
+      "f2": 15.15,
+      "f3": 24.76,
+      "caution": 34.18
+     },
+     "cues": [
+      [
+       0.0,
+       "Un hallazgo es un número, más lo que significa para alguien:"
+      ],
+      [
+       3.88,
+       "qué vemos, qué significa para el negocio, y qué mirar después."
+      ],
+      [
+       7.89,
+       "Hallazgo uno:"
+      ],
+      [
+       8.78,
+       "los contratos retienen clientes."
+      ],
+      [
+       10.88,
+       "Vale la pena probar un pequeño descuento por cambiarse a contrato."
+      ],
+      [
+       15.15,
+       "Hallazgo dos:"
+      ],
+      [
+       16.04,
+       "los reclamos llegan antes de las bajas, sobre todo en el norte."
+      ],
+      [
+       20.11,
+       "Esos ciento cuarenta y siete clientes son los primeros a quienes llamar."
+      ],
+      [
+       24.76,
+       "Hallazgo tres:"
+      ],
+      [
+       25.71,
+       "el plan fija la cuenta, y el uso de datos la mueve dentro del plan."
+      ],
+      [
+       30.04,
+       "Cuánto suma cada giga necesita un modelo:"
+      ],
+      [
+       32.71,
+       "eso es la sesión tres."
+      ],
+      [
+       34.18,
+       "Y recuerden:"
+      ],
+      [
+       35.0,
+       "esto no prueba que el contrato cause la permanencia."
+      ],
+      [
+       38.38,
+       "Los hallazgos indican dónde mirar."
+      ]
+     ]
+    },
+    {
+     "id": "advance",
+     "title": "10 · Tu Avance 2",
+     "start": 290.666,
+     "dur": 42.81,
+     "beats": {
+      "c1": 11.84,
+      "c2": 16.78,
+      "c3": 22.82,
+      "c4": 32.58,
+      "c5": 35.75
+     },
+     "cues": [
+      [
+       0.0,
+       "Ahora les toca."
+      ],
+      [
+       0.98,
+       "El Avance dos vence el martes diez de noviembre, a las veintitrés cincuenta y nueve."
+      ],
+      [
+       6.16,
+       "Hagan la clase de hoy con los datos de su equipo:"
+      ],
+      [
+       9.21,
+       "Salary en TalentCo, o default en FinTrust."
+      ],
+      [
+       11.84,
+       "Corran la auditoría primero, y dejen su resultado en el notebook como evidencia."
+      ],
+      [
+       16.78,
+       "Registren una decisión justificada por problema:"
+      ],
+      [
+       19.77,
+       "decir que las eliminamos no es una justificación."
+      ],
+      [
+       22.82,
+       "Armen la tabla resumen de limpieza, agrupen por su variable objetivo,"
+      ],
+      [
+       27.09,
+       "y hagan cuatro gráficos con una frase cada uno, al menos uno relacionado con el objetivo."
+      ],
+      [
+       32.58,
+       "Escriban tres hallazgos con significado de negocio."
+      ],
+      [
+       35.75,
+       "Y antes de entregar, reinicien y ejecuten todo."
+      ],
+      [
+       38.68,
+       "¡Buen trabajo, y nos vemos en la próxima sesión!"
+      ]
+     ]
+    }
+   ],
+   "duration": 333.476,
+   "audio": "part2.mp3"
+  }
+ ]
+}

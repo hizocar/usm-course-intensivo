@@ -81,7 +81,7 @@ Each team chooses **one** of these cases. The data is "dirty" on purpose: cleani
 | Presentation, Casa Central | **Wednesday, December 2, 16:05** | In the classroom |
 | Presentation, Vitacura | **Friday, December 4, 11:05** | In the classroom |
 
-The presentation lasts **10 minutes plus 5 for questions**, and every team member must take part. The presentation order is published on Monday, November 30.
+The presentation lasts **10 minutes plus 5 for questions**, and every team member must take part. The presentation order is published on Monday, November 30. What to present, how to structure it with the pyramid principle, and its detailed rubric are on the [final presentation](presentation.md) page.
 
 ## Rubric
 
@@ -93,7 +93,7 @@ This rubric gives the final project grade (70% of the course). The weights below
 | **Cleaning and exploratory analysis** | 25% | Data quality issues are found and fixed, and each decision is justified. Charts are relevant and each one has a conclusion. Findings connect to the business question. |
 | **Modeling and evaluation** | 30% | At least two models with a training and test split and no data leakage. The chosen metric fits the problem. The comparison is fair and the choice is well argued. |
 | **Interpretation and recommendations** | 15% | You explain which variables matter and how. Recommendations are concrete, follow from the results, and acknowledge limitations. |
-| **Oral presentation** | 15% | Pyramid structure: the conclusion comes first. Clear charts, stays within 10 minutes, everyone takes part, and questions are answered well. |
+| **Oral presentation** | 15% | Pyramid structure: the conclusion comes first. Clear charts, stays within 10 minutes, everyone takes part, and questions are answered well. Scored with the [presentation rubric](presentation.md#rubric). |
 
 Grades use USM's scale from 0 to 100, where 55 is a pass.
 

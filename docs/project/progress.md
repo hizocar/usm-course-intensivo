@@ -103,6 +103,6 @@ Each advance is graded on USM's 0–100 scale (55 is a pass) against its checkli
 - [ ] Model comparison table and a justified choice.
 - [ ] Feature importance for the chosen model, explained for the business.
 - [ ] Three recommendations and the limitations of the analysis.
-- [ ] A 10-minute presentation with a pyramid structure.
+- [ ] A 10-minute presentation with a pyramid structure, following the [final presentation](presentation.md) guide.
 - [ ] Checklist from the [Colab guide](../colab.md#6-before-the-final-submission) completed.
 - [ ] Notebook submitted through the [mailbox](mailbox.md), and slides emailed as described in the [project brief](project.md#submission).

@@ -811,21 +811,21 @@
 </div>
 </div>
 <div class="hz-team">
-<div class="hz-team-head"><span class="hz-team-name">PJMC</span><span class="hz-team-meta">Case B · FinTrust Bank · not submitted</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-team-head"><span class="hz-team-name">PJMC</span><span class="hz-team-meta">Case B · FinTrust Bank · submitted by email after the deadline, accepted without penalty</span><button type="button" class="hz-reveal">Reveal</button></div>
 <div class="hz-revealed" hidden>
-<p class="hz-grade"><strong>0</strong> ⚫</p>
-<ul class="hz-checks"><li><span class="hz-mark">❌</span><span><strong>Advance 1.</strong> Nothing was received in the mailbox, and the three-day late window closed on Friday, November 6.</span></li></ul>
+<p class="hz-grade"><strong>85</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>Registered in the mailbox.</strong> Team and case registered.</span></li><li><span class="hz-mark">⚠️</span><span><strong>Notebook in Colab, shared.</strong> Shared, but there is no title cell with the team, members, and case, and Advance 1 and Advance 2 live in one single cell. Give each step its own cells, with a text heading.</span></li><li><span class="hz-mark">✅</span><span><strong>Data loaded from its URL.</strong> <code>loan_default.csv</code> read from the course URL.</span></li><li><span class="hz-mark">⚠️</span><span><strong>First inspection.</strong> Shape (10,060 × 16), types, first rows, missing values with their percentage, and 60 duplicates, shown side by side: good. But there is no written reading of what they show.</span></li><li><span class="hz-mark">✅</span><span><strong>Business question and its user.</strong> What defaulters have in common and how to spot them in advance, for collections and recovery, to reduce losses. Write it in a text cell, not as a code comment.</span></li></ul>
 <p class="hz-tips-title">How to improve</p>
-<ul class="hz-tips"><li>Advance 2 is due Tuesday, November 10, and it builds on Advance 1: load your case's data from its URL and run the first inspection before you start cleaning. If something is blocking your team, write to hizocar@gmail.com today.</li></ul>
+<ul class="hz-tips"><li>Add a short “What we see” cell after the inspection: 60 duplicates, <code>credit_score</code> with the most gaps (501), <code>interest_rate</code> stored as text, and labels written in several ways (<code>full_time</code>/<code>Full Time</code>, <code>Auto</code>/<code>car</code>).</li><li>Your notebook tries to read a <code>loan_default_clean.csv</code> that does not exist (404). Work only from the raw file and your own cleaning.</li></ul>
 </div>
 </div>
 <div class="hz-team">
-<div class="hz-team-head"><span class="hz-team-name">The Boys</span><span class="hz-team-meta">Case B · FinTrust Bank · not submitted</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-team-head"><span class="hz-team-name">The Boys</span><span class="hz-team-meta">Case B · FinTrust Bank · submitted by email after the deadline, accepted without penalty</span><button type="button" class="hz-reveal">Reveal</button></div>
 <div class="hz-revealed" hidden>
-<p class="hz-grade"><strong>0</strong> ⚫</p>
-<ul class="hz-checks"><li><span class="hz-mark">❌</span><span><strong>Advance 1.</strong> Nothing was received in the mailbox, and the three-day late window closed on Friday, November 6.</span></li></ul>
+<p class="hz-grade"><strong>95</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>Registered in the mailbox.</strong> Team and case registered.</span></li><li><span class="hz-mark">⚠️</span><span><strong>Notebook in Colab, shared.</strong> Shared, but there is no title cell with the team, members, and case.</span></li><li><span class="hz-mark">✅</span><span><strong>Data loaded from its URL.</strong> <code>loan_default.csv</code> read from the course URL.</span></li><li><span class="hz-mark">✅</span><span><strong>First inspection.</strong> Shape, types, first rows, missing values per column, and 60 duplicates, followed by a written reading: you already spotted <code>Auto</code> vs <code>car</code> and suggested a reason for the gaps in each column.</span></li><li><span class="hz-mark">✅</span><span><strong>Business question and its user.</strong> In your own words: the safest customer profile, for the commercial manager to target pre-approved loan campaigns.</span></li></ul>
 <p class="hz-tips-title">How to improve</p>
-<ul class="hz-tips"><li>Advance 2 is due Tuesday, November 10, and it builds on Advance 1: load your case's data from its URL and run the first inspection before you start cleaning. If something is blocking your team, write to hizocar@gmail.com today.</li></ul>
+<ul class="hz-tips"><li>Your explanations for the gaps (“probably unemployed”, “young people with no history”) are hypotheses: say so, and check them in Advance 2 (for example, are missing <code>years_employed</code> really <code>unemployed</code>?).</li><li>To find misspelled labels, list each text column with <code>df["loan_purpose"].value_counts()</code>, then normalize with <code>.str.strip().str.lower()</code> and count again: if the count of distinct labels drops, some were written in several ways.</li></ul>
 </div>
 </div>
 </div>

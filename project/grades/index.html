@@ -969,6 +969,15 @@
 </div>
 </div>
 <div class="hz-team">
+<div class="hz-team-head"><span class="hz-team-name">JC &amp; PF</span><span class="hz-team-meta">Case A · TalentCo · submitted after the deadline, accepted without penalty</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>100</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>Registered in the mailbox.</strong> Team and case registered.</span></li><li><span class="hz-mark">✅</span><span><strong>Notebook in Colab, shared.</strong> Shared, with the case, members, and section in the first cell, and a heading for every step.</span></li><li><span class="hz-mark">✅</span><span><strong>Data loaded from its URL.</strong> <code>employee_compensation.csv</code> read from the course URL through a <code>DATA_URL</code> variable.</span></li><li><span class="hz-mark">✅</span><span><strong>First inspection.</strong> Shape, types, first rows, missing values with their percentage, and 97 duplicates, plus <code>describe()</code> and the list of labels per text column. Your “Qué vemos” cell already names the inconsistent labels, the <code>'nan'</code> written as text, and the impossible values (Age 1 to 119, Performance_Score −1 to 99).</span></li><li><span class="hz-mark">✅</span><span><strong>Business question and its user.</strong> What explains <code>Salary</code> and which gaps are unjustified, for HR and the compensation team to adjust salary bands, with the target and the type of problem (regression) named.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>The cells have no run recorded in Colab. Before submitting, use <em>Runtime › Restart session and run all</em> in Colab itself.</li><li>Submit each advance through the mailbox by its deadline: this one arrived a week late.</li></ul>
+</div>
+</div>
+<div class="hz-team">
 <div class="hz-team-head"><span class="hz-team-name">Ignachelo</span><span class="hz-team-meta">Case B · FinTrust Bank · registered on November 8, after the deadline</span></div>
 <div class="hz-team-note">Advance 1 pending: write to hizocar@gmail.com to agree how your team catches up.</div>
 </div>
@@ -986,12 +995,12 @@
 </div>
 </div>
 <div class="hz-team">
-<div class="hz-team-head"><span class="hz-team-name">Mafilia</span><span class="hz-team-meta">Case A · TalentCo · not submitted</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-team-head"><span class="hz-team-name">Mafilia</span><span class="hz-team-meta">Case A · TalentCo · not sent to the mailbox; graded from the notebook, without penalty</span><button type="button" class="hz-reveal">Reveal</button></div>
 <div class="hz-revealed" hidden>
-<p class="hz-grade"><strong>0</strong> ⚫</p>
-<ul class="hz-checks"><li><span class="hz-mark">❌</span><span><strong>Advance 1.</strong> Nothing was received in the mailbox, and the three-day late window closed on Friday, November 6.</span></li></ul>
+<p class="hz-grade"><strong>90</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>Registered in the mailbox.</strong> Team and case registered.</span></li><li><span class="hz-mark">⚠️</span><span><strong>Notebook in Colab, shared.</strong> Shared, with a clear title and the case, but without the team name and members.</span></li><li><span class="hz-mark">✅</span><span><strong>Data loaded from its URL.</strong> <code>employee_compensation.csv</code> read from the course URL.</span></li><li><span class="hz-mark">⚠️</span><span><strong>First inspection.</strong> Shape, types (<code>info()</code>), first rows, and 97 duplicates are there, and a short data dictionary too. But missing values appear only as one total (3,227) instead of per column, and the notebook goes straight into cleaning without saying what the inspection shows.</span></li><li><span class="hz-mark">✅</span><span><strong>Business question and its user.</strong> Which variables explain salary and which gaps the company should fix, for TalentCo's people team.</span></li></ul>
 <p class="hz-tips-title">How to improve</p>
-<ul class="hz-tips"><li>Advance 2 is due Tuesday, November 10, and it builds on Advance 1: load your case's data from its URL and run the first inspection before you start cleaning. If something is blocking your team, write to hizocar@gmail.com today.</li></ul>
+<ul class="hz-tips"><li>This work was ready on November 3 but never reached the mailbox. Submit every advance through the mailbox, even if it is not perfect.</li><li>Your Advance 2 already fixed the cleaning of this first version (no more <code>dropna()</code>): good progress.</li></ul>
 </div>
 </div>
 <div class="hz-team">
@@ -1010,6 +1019,15 @@
 <ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>Registered in the mailbox.</strong> Team and case registered.</span></li><li><span class="hz-mark">⚠️</span><span><strong>Notebook in Colab, shared.</strong> Shared, but there is no title cell with the team, members, and case.</span></li><li><span class="hz-mark">✅</span><span><strong>Data loaded from its URL.</strong> <code>loan_default.csv</code> read from the course URL.</span></li><li><span class="hz-mark">✅</span><span><strong>First inspection.</strong> Shape, types, first rows, missing values per column, and 60 duplicates, followed by a written reading: you already spotted <code>Auto</code> vs <code>car</code> and suggested a reason for the gaps in each column.</span></li><li><span class="hz-mark">✅</span><span><strong>Business question and its user.</strong> In your own words: the safest customer profile, for the commercial manager to target pre-approved loan campaigns.</span></li></ul>
 <p class="hz-tips-title">How to improve</p>
 <ul class="hz-tips"><li>Your explanations for the gaps (“probably unemployed”, “young people with no history”) are hypotheses: say so, and check them in Advance 2 (for example, are missing <code>years_employed</code> really <code>unemployed</code>?).</li><li>To find misspelled labels, list each text column with <code>df["loan_purpose"].value_counts()</code>, then normalize with <code>.str.strip().str.lower()</code> and count again: if the count of distinct labels drops, some were written in several ways.</li></ul>
+</div>
+</div>
+<div class="hz-team">
+<div class="hz-team-head"><span class="hz-team-name">zipzip</span><span class="hz-team-meta">Case A · TalentCo · submitted after the deadline, accepted without penalty</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>100</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>Registered in the mailbox.</strong> Team and case registered.</span></li><li><span class="hz-mark">✅</span><span><strong>Notebook in Colab, shared.</strong> Shared, with the team, section, and member at the top.</span></li><li><span class="hz-mark">✅</span><span><strong>Data loaded from its URL.</strong> <code>employee_compensation.csv</code> read from the course URL through a <code>DATA_URL</code> variable, kept untouched in <code>raw</code>.</span></li><li><span class="hz-mark">✅</span><span><strong>First inspection.</strong> First rows, types, missing values per column, 97 duplicates, and <code>describe()</code>, followed by a clear reading: ages of 1 and 119, experience from −10 to 78, scores of −1 and 99, and salaries from 5,342 to 394,249.</span></li><li><span class="hz-mark">✅</span><span><strong>Business question and its user.</strong> What explains salary and which differences experience does not justify, for HR to decide whether to adjust salary bands, with <code>Salary</code> as the target of a regression.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>Submit each advance through the mailbox by its deadline: this one arrived a week late.</li></ul>
 </div>
 </div>
 </div>

@@ -2,6 +2,117 @@
 
 Grades of the weekly advances, on USM's 0–100 scale (55 is a pass). Press **Reveal** on your team to see its grade and point-by-point feedback against the checklist on the [weekly progress](progress.md) page, with advice for the next advance. If your team is missing or something looks wrong, write to hizocar@gmail.com.
 
+## Advance 2 · Cleaning and exploratory analysis
+
+*Due Tuesday, November 10, 23:59. The checklist has six items: duplicates and missing values, inconsistent categories, impossible values, cleaning summary table, exploratory charts, and three findings.*
+
+### Casa Central
+
+<div class="hz-teams">
+<div class="hz-team">
+<div class="hz-team-head"><span class="hz-team-name">Cuando pagan</span><span class="hz-team-meta">Case A · TalentCo · submitted on time</span></div>
+<div class="hz-team-note">Review in progress: the grade will be published here shortly.</div>
+</div>
+<div class="hz-team">
+<div class="hz-team-head"><span class="hz-team-name">Los Alemanes</span><span class="hz-team-meta">Case A · TalentCo · submitted on time</span></div>
+<div class="hz-team-note">Review in progress: the grade will be published here shortly.</div>
+</div>
+<div class="hz-team">
+<div class="hz-team-head"><span class="hz-team-name">búsqueda inusual</span><span class="hz-team-meta">Case A · TalentCo · submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>65</strong> 🟡</p>
+<ul class="hz-checks"><li><span class="hz-mark">⚠️</span><span><strong>Duplicates and missing values.</strong> The 97 duplicates are gone and rows without <code>Salary</code> are dropped, which is right for the target. But the filter <code>df[(df['Age'] &lt; 100) &amp; (df['Performance_Score'] &lt; 99) &amp; …]</code> also drops every row where <code>Age</code> or <code>Performance_Score</code> is empty, because a comparison with <code>NaN</code> is always <code>False</code>. That is why it removed 892 rows: almost all of them were missing values, not impossible ones, and they were lost without a decision.</span></li><li><span class="hz-mark">⚠️</span><span><strong>Inconsistent categories.</strong> <code>Education_Level</code> and <code>Department</code> are unified, but <code>title()</code> turns <code>HR</code> into <code>Hr</code> and <code>PhD</code> into <code>Phd</code>. <code>Region</code>, <code>Gender</code>, and <code>Job_Level</code> still have extra spaces (<code>" South"</code>, <code>"Male "</code>, <code>"Senior "</code>) and a <code>" nan"</code> written as text.</span></li><li><span class="hz-mark">⚠️</span><span><strong>Impossible values.</strong> Ages of 119 and a score of 99 are removed, but ages from 1 to 17 and scores of −1, 0, 6, and 7.5 stay: the score scale is 1 to 5. Define a valid range for each column (for example <code>between(18, 70)</code> and <code>between(1, 5)</code>).</span></li><li><span class="hz-mark">❌</span><span><strong>Cleaning summary table.</strong> There is no table with issue, decision, and rows affected.</span></li><li><span class="hz-mark">✅</span><span><strong>Exploratory charts.</strong> Four charts on salary, each with a sentence. The box plot by <code>Performance_Score</code> has one box per decimal value and is hard to read: group the scores into bands or use a scatter plot.</span></li><li><span class="hz-mark">⚠️</span><span><strong>Three findings.</strong> Each one has a business meaning, but none has a number (how much more does a PhD earn? what is the correlation with experience?), and “higher degrees ensure higher pay” states a cause that a chart cannot prove.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>Your mailbox note mentions a <code>describe()</code> cell and the inspection conclusions, but they are not in the shared notebook. Check that you saved them.</li><li>Rebuild the cleaning one step per cell, with a <code>log</code> of every decision, and turn it into the summary table (as in the Session 2 notebook). Then rerun the charts on the corrected data.</li></ul>
+</div>
+</div>
+<div class="hz-team">
+<div class="hz-team-head"><span class="hz-team-name">Ana y Cléo</span><span class="hz-team-meta">Case A · TalentCo · submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>65</strong> 🟡</p>
+<ul class="hz-checks"><li><span class="hz-mark">⚠️</span><span><strong>Duplicates and missing values.</strong> The 97 duplicates are removed and the median choice is well justified. But <code>Salary</code> is the target: filling 203 salaries with the median invents the answer the model has to learn. Drop those rows instead.</span></li><li><span class="hz-mark">⚠️</span><span><strong>Inconsistent categories.</strong> <code>strip().lower().title()</code> unifies the spellings, but it ran after filling the gaps, so the text <code>" nan"</code> became a <code>Nan</code> category in <code>Region</code> and <code>Gender</code> (your own <code>unique()</code> output shows it). Clean the spelling first, turn <code>"nan"</code> into a real missing value, then fill.</span></li><li><span class="hz-mark">❌</span><span><strong>Impossible values.</strong> The ranges are well reasoned, but the cell that applies them ends in <code>NameError: name 'numeric_cols' is not defined</code>, so the fix never reached the data. The rule <code>Years_Experience &lt; 1</code> would also erase every junior with 0 years, which is a valid value.</span></li><li><span class="hz-mark">⚠️</span><span><strong>Cleaning summary table.</strong> It has the right columns, but the counts are wrong: it shows 2 duplicates instead of 97 (it counts after removing them), 1,168 “negative values” (there are 15), and “Standardized” instead of a number.</span></li><li><span class="hz-mark">✅</span><span><strong>Exploratory charts.</strong> Five charts on salary (distribution, education, department, region, job level, gender), each with a sentence, and now everything is in one language.</span></li><li><span class="hz-mark">⚠️</span><span><strong>Three findings.</strong> They are about gender, department, and region, but not about the strongest pattern in your own charts: job level. They have no numbers, and “no discrimination” is a stronger claim than a box plot can support.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>The cells were run out of order again (some at 18:17, others at 23:07, one with an error). Before submitting, use <em>Runtime › Restart session and run all</em> and check that no cell fails.</li><li>Rewrite the findings with numbers: “a Senior earns X% more than a Junior”, and compare departments within the same job level.</li></ul>
+</div>
+</div>
+<div class="hz-team">
+<div class="hz-team-head"><span class="hz-team-name">Grupito</span><span class="hz-team-meta">Case A · TalentCo · submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>100</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>Duplicates and missing values.</strong> 97 duplicates removed; rows without salary dropped because filling the target “would give the model false answers”; experience filled with the median of its job level; missing categories become <code>Unknown</code>.</span></li><li><span class="hz-mark">✅</span><span><strong>Inconsistent categories.</strong> <code>strip()</code> and <code>title()</code>, then <code>HR</code> and <code>PhD</code> restored, and the text <code>" nan"</code> turned into a real missing value. You printed the final categories to check.</span></li><li><span class="hz-mark">✅</span><span><strong>Impossible values.</strong> A range for each column, and the salary range chosen from the gaps in the data (nobody earns between 18,000 and 43,000). Impossible values become missing and are filled, so no employee is lost for one bad value.</span></li><li><span class="hz-mark">✅</span><span><strong>Cleaning summary table.</strong> Built from the <code>registrar()</code> log: 20 rows, and the before/after counts (10,100 → 9,657 rows, 3,227 → 0 missing values).</span></li><li><span class="hz-mark">✅</span><span><strong>Exploratory charts.</strong> Six charts, each with a “Qué muestra” sentence that has numbers (a Senior earns about 73% more than a Junior).</span></li><li><span class="hz-mark">✅</span><span><strong>Three findings.</strong> Clear, with numbers and a business meaning, and a note that they show associations, not causes. Finding 2 (performance is barely paid) is a sharp insight.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>You moved to your case's data after Advance 1: well done.</li><li>Department and education may differ partly because of job level. Compare them within the same level (<code>pivot_table</code> by department and job level) before drawing conclusions.</li><li>Age and experience are strongly related (0.80). Keep that in mind when you interpret the regression coefficients in Advance 3.</li></ul>
+</div>
+</div>
+<div class="hz-team">
+<div class="hz-team-head"><span class="hz-team-name">JC &amp; PF</span><span class="hz-team-meta">Case A · TalentCo · submitted on time</span></div>
+<div class="hz-team-note">Review in progress: the grade will be published here shortly.</div>
+</div>
+<div class="hz-team">
+<div class="hz-team-head"><span class="hz-team-name">Ignachelo</span><span class="hz-team-meta">Case B · FinTrust Bank · not submitted yet</span></div>
+<div class="hz-team-note">Nothing received in the mailbox. The three-day late window closes on Friday, November 13, at 23:59 (−15 points per day late).</div>
+</div>
+</div>
+
+### Vitacura
+
+<div class="hz-teams">
+<div class="hz-team">
+<div class="hz-team-head"><span class="hz-team-name">FinTrust Bank Vicente Célia</span><span class="hz-team-meta">Case B · FinTrust Bank · submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>100</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>Duplicates and missing values.</strong> 60 duplicates removed; income filled with the median of each employment type, the rest with the overall median, and no rows dropped. You checked that loans with a missing <code>credit_score</code> default at the same rate (27.9% vs 28.3%) before filling them: an excellent check.</span></li><li><span class="hz-mark">✅</span><span><strong>Inconsistent categories.</strong> <code>employment_type</code> goes from 19 spellings to 4 categories and <code>loan_purpose</code> from 21 to 6, with the typos fixed (<code>Eduaction</code>, <code>educat</code>, <code>Bussiness</code>) and an <code>assert</code> that every spelling was recognized.</span></li><li><span class="hz-mark">✅</span><span><strong>Impossible values.</strong> A table of valid ranges with the reason for each, including the filler incomes (5,555,555, 8,888,888, and 9,999,999) that most teams missed.</span></li><li><span class="hz-mark">✅</span><span><strong>Cleaning summary table.</strong> Built from the <code>record()</code> log, with assertions that check the clean data.</span></li><li><span class="hz-mark">✅</span><span><strong>Exploratory charts.</strong> A <code>groupby</code> on <code>default</code> first, then five charts, each titled with the question it answers and followed by a sentence.</span></li><li><span class="hz-mark">✅</span><span><strong>Three findings.</strong> Each with what we see, what it means for the bank, and what to look at next. You also said which variables do not matter (region, term, purpose), which is a finding too.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>Keep the 28.3% default rate in mind: it is the key to the baseline you have to explain in Advance 3.</li><li>Pick one language for the notebook (titles and code comments are in English, the text in Spanish), and use <em>Restart session and run all</em> before submitting.</li></ul>
+</div>
+</div>
+<div class="hz-team">
+<div class="hz-team-head"><span class="hz-team-name">Mafilia</span><span class="hz-team-meta">Case A · TalentCo · submitted 3 hours late</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>85</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>Duplicates and missing values.</strong> You saw that <code>dropna()</code> lost 29% of the data and changed it: now only duplicates and rows with a missing or impossible salary are dropped, and everything else is filled, each decision with its reason (9,657 rows kept).</span></li><li><span class="hz-mark">✅</span><span><strong>Inconsistent categories.</strong> <code>strip()</code> and <code>title()</code>, with fixes for <code>HR</code>, <code>PhD</code>, and the text <code>"nan "</code>.</span></li><li><span class="hz-mark">✅</span><span><strong>Impossible values.</strong> Ranges based on where the real values stop (ages 21 to 47 against 1–9 and 90–119).</span></li><li><span class="hz-mark">✅</span><span><strong>Cleaning summary table.</strong> From the log, with a justification column.</span></li><li><span class="hz-mark">✅</span><span><strong>Exploratory charts.</strong> Four charts whose titles state the answer. The one comparing departments within the same job level is the best chart of the week.</span></li><li><span class="hz-mark">✅</span><span><strong>Three findings.</strong> Strong and quantified: Engineering pays about 20,000 USD more than HR at the same level, with what it means and what to check next.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>The work deserves 100; the grade is 85 because it arrived 3 hours late (−15).</li><li>Your Advance 1 was in this notebook on November 3, but it never reached the mailbox. Always submit through the mailbox, even if the work is not perfect.</li><li>Remove the “[cite: 1]” marks left in the text cells.</li></ul>
+</div>
+</div>
+<div class="hz-team">
+<div class="hz-team-head"><span class="hz-team-name">PJMC</span><span class="hz-team-meta">Case B · FinTrust Bank · submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>85</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>Duplicates and missing values.</strong> 60 duplicates removed; missing values filled with the median, with the reason written in the log.</span></li><li><span class="hz-mark">✅</span><span><strong>Inconsistent categories.</strong> Every spelling of <code>employment_type</code> and <code>loan_purpose</code> is mapped to its category, typos included (<code>eduaction</code>, <code>bussiness</code>).</span></li><li><span class="hz-mark">⚠️</span><span><strong>Impossible values.</strong> Good ranges, plus a check that experience is consistent with age. But <code>annual_income</code> has no upper limit, so the filler codes 9,999,999, 8,888,888, and 5,555,555 stay as real incomes and pull the averages up.</span></li><li><span class="hz-mark">✅</span><span><strong>Cleaning summary table.</strong> Issue, decision, rows affected, and justification for every step.</span></li><li><span class="hz-mark">✅</span><span><strong>Exploratory charts.</strong> Four charts, each with a printed interpretation, three of them against <code>default</code>.</span></li><li><span class="hz-mark">⚠️</span><span><strong>Three findings.</strong> Each has a business meaning, but two rest on very small differences (3.4 points by purpose, 1.6 by region). Your data has much stronger signals: late payments, credit score, and collateral.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>Advances 1 and 2 are in a single code cell with no text cells (−5). Split them: one step per cell, with a heading and a sentence in a text cell after each result.</li><li>Remove the attempt to read <code>loan_default_clean.csv</code>: that file does not exist (404).</li></ul>
+</div>
+</div>
+<div class="hz-team">
+<div class="hz-team-head"><span class="hz-team-name">The Boys</span><span class="hz-team-meta">Case B · FinTrust Bank · submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>70</strong> 🟡</p>
+<ul class="hz-checks"><li><span class="hz-mark">⚠️</span><span><strong>Duplicates and missing values.</strong> 60 duplicates removed and good ideas (indicator columns such as <code>credit_score_was_missing</code>). But the table says <code>credit_score</code> was filled with the median, while the code sets those 537 loans aside in <code>df_sin_historial</code>, so the analysis runs on 9,463 loans. Choose one and make the table match the code.</span></li><li><span class="hz-mark">❌</span><span><strong>Inconsistent categories.</strong> <code>capitalize()</code> is not enough: <code>Full_time</code>, <code>Full-time</code>, <code>Fulltime</code>, and <code>Full time</code> are still four different labels (your own preview shows two of them), and the same happens with part time and self-employed. In <code>loan_purpose</code> only <code>car</code>/<code>auto</code> was merged; <code>Eduaction</code>, <code>Educat</code>, and <code>Bussiness</code> remain. Run <code>value_counts()</code> after cleaning to check.</span></li><li><span class="hz-mark">⚠️</span><span><strong>Impossible values.</strong> Age, credit score, and negative late payments are fixed. Negative <code>years_employed</code> (30 rows, down to −10) and the filler incomes (9,999,999) are still there.</span></li><li><span class="hz-mark">✅</span><span><strong>Cleaning summary table.</strong> Issue, decision, and rows affected for nine problems. Add the rows for the impossible values.</span></li><li><span class="hz-mark">✅</span><span><strong>Exploratory charts.</strong> Four charts before and after cleaning, all against <code>default</code>, with one sentence each.</span></li><li><span class="hz-mark">⚠️</span><span><strong>Three findings.</strong> Clear recommendations, but some claims have no support in the notebook: a “near-zero default rate” for the safe profile, and the rule by loan purpose (there is no table or chart of purpose against default). The text also contradicts itself: chart 3 says the rise is “almost linear”, and the conclusion calls it “exponential”.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>To unify the spellings: <code>.str.strip().str.lower().str.replace(r"[\s_-]", "", regex=True)</code> turns every variant into <code>fulltime</code>, <code>parttime</code>…; then a dictionary maps each one to its final name.</li><li>Every number in a finding should come from a cell in the notebook. If you have not measured it, write it as a hypothesis to check.</li></ul>
+</div>
+</div>
+<div class="hz-team">
+<div class="hz-team-head"><span class="hz-team-name">zipzip</span><span class="hz-team-meta">Case A · TalentCo · submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>100</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>Duplicates and missing values.</strong> 97 duplicates removed, plus a second pass that found 3 duplicates hidden by spelling (<code>HR</code> vs <code>hr</code>): a sharp detail. Rows without salary are dropped and age and experience are filled with the median of their job level.</span></li><li><span class="hz-mark">✅</span><span><strong>Inconsistent categories.</strong> <code>strip()</code>, lowercase, and a map to the official category, with an <code>assert</code> that nothing unexpected is left. You explained why you did not use <code>title()</code>.</span></li><li><span class="hz-mark">✅</span><span><strong>Impossible values.</strong> Ranges for age, experience, and performance, and a salary range justified with a count by bands.</span></li><li><span class="hz-mark">✅</span><span><strong>Cleaning summary table.</strong> Built from the log, with a check that the deleted rows add up.</span></li><li><span class="hz-mark">✅</span><span><strong>Exploratory charts.</strong> Five charts, each one answering a question, with a consistent color for each job level. You checked that the job-level mix is similar across departments before comparing them.</span></li><li><span class="hz-mark">✅</span><span><strong>Three findings.</strong> Quantified, with what they mean for the business and what to look at next.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>Remove the checklists pasted from the course page (“extraído de la clase”): the notebook is a report for TalentCo, not a to-do list.</li><li>The team has a single member, and the project asks for 2 or 3. If you need help finding a partner, write to hizocar@gmail.com.</li></ul>
+</div>
+</div>
+</div>
+
+| Grade | | Meaning |
+|:--:|:--:|---|
+| 85 – 100 | 🟢 | Every item is done and correct. |
+| 55 – 84 | 🟡 | Every item is there, but some need fixing before the next advance. |
+| 1 – 54 | 🔴 | Important items are missing. |
+| 0 | ⚫ | Not submitted. |
+
+Late submissions lose 15 points per day for up to three days; after that the advance gets a 0.
+
 ## Advance 1 · Team, data, and question
 
 *Due Tuesday, November 3, 23:59. The checklist has five items: team registered, notebook shared, data loaded from its URL, first inspection, and business question with its user.*
@@ -101,11 +212,3 @@ Grades of the weekly advances, on USM's 0–100 scale (55 is a pass). Press **Re
 </div>
 </div>
 
-| Grade | | Meaning |
-|:--:|:--:|---|
-| 85 – 100 | 🟢 | Every item is done and correct. |
-| 55 – 84 | 🟡 | Every item is there, but some need fixing before the next advance. |
-| 1 – 54 | 🔴 | Important items are missing. |
-| 0 | ⚫ | Not submitted. |
-
-Late submissions lose 15 points per day for up to three days; after that the advance gets a 0.

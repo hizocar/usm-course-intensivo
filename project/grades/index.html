@@ -794,12 +794,22 @@
 <h3 id="casa-central">Casa Central</h3>
 <div class="hz-teams">
 <div class="hz-team">
-<div class="hz-team-head"><span class="hz-team-name">Cuando pagan</span><span class="hz-team-meta">Case A · TalentCo · submitted on time</span></div>
-<div class="hz-team-note">Review in progress: the grade will be published here shortly.</div>
+<div class="hz-team-head"><span class="hz-team-name">Cuando pagan</span><span class="hz-team-meta">Case A · TalentCo · submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>95</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>Duplicates and missing values.</strong> 97 duplicates removed, plus 3 more that only appear once the spelling is unified. Rows without salary are dropped; age and experience are filled with the median of their job level, and missing categories become <code>Unknown</code>.</span></li><li><span class="hz-mark">✅</span><span><strong>Inconsistent categories.</strong> A list of valid labels per column and a lowercase map to them, so <code>'nan'</code> written as text turns into a real missing value. You printed the result to check.</span></li><li><span class="hz-mark">⚠️</span><span><strong>Impossible values.</strong> Good ranges for age, experience, and performance. But the extreme salaries are kept and only flagged: 5,342 USD for a Senior or 394,249 for a Junior are not real salaries (no salary falls between 20,000 and 40,000 or between 180,000 and 200,000). Because they stay, the experience–salary correlation drops to 0.63, while without them it is 0.83, and chart 1 shows a long tail that is really errors.</span></li><li><span class="hz-mark">✅</span><span><strong>Cleaning summary table.</strong> From the <code>record()</code> log, with a note that explains why the counts differ from the audit (200 vs 203).</span></li><li><span class="hz-mark">✅</span><span><strong>Exploratory charts.</strong> Six charts, five of them against <code>Salary</code>, each with a sentence that has numbers. The gender comparison within each job level is the right way to look at it.</span></li><li><span class="hz-mark">✅</span><span><strong>Three findings.</strong> Quantified, with what they mean for HR and what to check next, and all their numbers come from a single cell so the text and the code cannot disagree.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>Decide what to do with the extreme salaries before Advance 3: in a regression, a few values of 5,000 or 390,000 USD pull the line and inflate RMSE. If you keep them, show the model with and without them.</li><li>The Advance 2 notebook arrived on time this week: well done.</li></ul>
+</div>
 </div>
 <div class="hz-team">
-<div class="hz-team-head"><span class="hz-team-name">Los Alemanes</span><span class="hz-team-meta">Case A · TalentCo · submitted on time</span></div>
-<div class="hz-team-note">Review in progress: the grade will be published here shortly.</div>
+<div class="hz-team-head"><span class="hz-team-name">Los Alemanes</span><span class="hz-team-meta">Case A · TalentCo · submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>95</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>Duplicates and missing values.</strong> 97 duplicates removed; rows with missing or impossible salary dropped because salary is the target; age and experience filled with the median of the job level (1, 7, and 15 years), performance with the overall median because it barely changes by level.</span></li><li><span class="hz-mark">✅</span><span><strong>Inconsistent categories.</strong> <code>strip()</code> and <code>title()</code>, then <code>PhD</code> and <code>HR</code> restored and the text <code>" nan"</code> turned into a real missing value.</span></li><li><span class="hz-mark">⚠️</span><span><strong>Impossible values.</strong> Experience and performance ranges are right, and the salary cut is justified with a histogram. But the age range 18–100 still keeps 7 ages between 90 and 99, while real ages stop at 47. Look at where the real values end, as you did for salary.</span></li><li><span class="hz-mark">✅</span><span><strong>Cleaning summary table.</strong> Built from the log, plus a written table with the reason for each decision.</span></li><li><span class="hz-mark">✅</span><span><strong>Exploratory charts.</strong> Four charts against salary, each with a “What it shows” sentence that has numbers.</span></li><li><span class="hz-mark">✅</span><span><strong>Three findings.</strong> Quantified (Engineering earns about 21,600 USD more than HR), with what they mean for the people team and a clear warning that they show connections, not causes.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>You gave the notebook your team's name: good. Add a first cell with the team and members, and number the sections in order (there is no section 2).</li><li>Your finding 2 asks to compare employees of the same level in both departments: do it in Advance 3 with a <code>pivot_table</code> by department and job level.</li></ul>
+</div>
 </div>
 <div class="hz-team">
 <div class="hz-team-head"><span class="hz-team-name">búsqueda inusual</span><span class="hz-team-meta">Case A · TalentCo · submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
@@ -829,8 +839,13 @@
 </div>
 </div>
 <div class="hz-team">
-<div class="hz-team-head"><span class="hz-team-name">JC &amp; PF</span><span class="hz-team-meta">Case A · TalentCo · submitted on time</span></div>
-<div class="hz-team-note">Review in progress: the grade will be published here shortly.</div>
+<div class="hz-team-head"><span class="hz-team-name">JC &amp; PF</span><span class="hz-team-meta">Case A · TalentCo · submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>100</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>Duplicates and missing values.</strong> 97 duplicates removed; rows without salary dropped; age and experience filled with the median of their job level, after checking that it really changes by level.</span></li><li><span class="hz-mark">✅</span><span><strong>Inconsistent categories.</strong> A map to the official labels per column, the text <code>'nan'</code> turned into a missing value, and a final check of every column's labels.</span></li><li><span class="hz-mark">✅</span><span><strong>Impossible values.</strong> A table of valid ranges with the reason for each, and the salary cut justified with the empty bands (no salary between 20,000 and 40,000 or between 180,000 and 200,000) and with salaries that do not match the job level.</span></li><li><span class="hz-mark">✅</span><span><strong>Cleaning summary table.</strong> Written decisions with their justification, plus the table built from the log (10,100 → 9,657 rows, no missing values left).</span></li><li><span class="hz-mark">✅</span><span><strong>Exploratory charts.</strong> Seven charts, almost all comparing within the same job level, each with a “Qué muestra” sentence. You checked that departments have the same mix of levels before blaming the gap on them.</span></li><li><span class="hz-mark">✅</span><span><strong>Three findings.</strong> Quantified and well argued: the ~20,000 USD department gap within the same level is exactly the inconsistency TalentCo suspected.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>Excellent work. For Advance 3, your findings already say which variables the model should weigh most: check whether the coefficients agree.</li><li>Advance 1 and 2 now live in one notebook: keep using it until the final submission.</li></ul>
+</div>
 </div>
 <div class="hz-team">
 <div class="hz-team-head"><span class="hz-team-name">Ignachelo</span><span class="hz-team-meta">Case B · FinTrust Bank · not submitted yet</span></div>

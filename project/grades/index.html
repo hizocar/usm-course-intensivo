@@ -900,6 +900,15 @@
 <ul class="hz-tips"><li>Remove the checklists pasted from the course page (“extraído de la clase”): the notebook is a report for TalentCo, not a to-do list.</li><li>The team has a single member, and the project asks for 2 or 3. If you need help finding a partner, write to hizocar@gmail.com.</li></ul>
 </div>
 </div>
+<div class="hz-team">
+<div class="hz-team-head"><span class="hz-team-name">Maestros Consultores</span><span class="hz-team-meta">Case B · FinTrust Bank · submitted after the deadline, accepted without penalty</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>55</strong> 🟡</p>
+<ul class="hz-checks"><li><span class="hz-mark">⚠️</span><span><strong>Duplicates and missing values.</strong> The 60 duplicates are removed. But the missing values are only “documented for later”: nothing is filled or dropped, so <code>credit_score</code> (501), <code>annual_income</code> (404), and four more columns still have gaps. Each one needs a decision and its reason now.</span></li><li><span class="hz-mark">✅</span><span><strong>Inconsistent categories.</strong> <code>employment_type</code> goes from 19 spellings to 4 and <code>loan_purpose</code> to 5, typos included, and you printed the result to check. You merged <code>home improvement</code> into <code>home</code>: that is a decision, so write it down and say why.</span></li><li><span class="hz-mark">❌</span><span><strong>Impossible values.</strong> Only <code>age &lt;= 0</code> is fixed. Ages of 150, credit scores of −50 and 1,095 (the scale is 300–850), negative <code>years_employed</code> and <code>num_late_payments</code>, and filler incomes of 9,999,999 are all still there, and the credit score histogram includes them.</span></li><li><span class="hz-mark">⚠️</span><span><strong>Cleaning summary table.</strong> It has the right columns, but the counts are guesses (“~1,500”, “~2,500”, “Toda la columna”). Count them in code: 3,519 rows changed in <code>employment_type</code> and 3,678 in <code>loan_purpose</code>.</span></li><li><span class="hz-mark">✅</span><span><strong>Exploratory charts.</strong> Four charts, two of them against <code>default</code>, each with a sentence.</span></li><li><span class="hz-mark">⚠️</span><span><strong>Three findings.</strong> They have no numbers (how much higher is the default rate of the unemployed?), and finding 3 asks for limits on large loans while your own box plot shows that loan amount is similar for those who pay and those who default.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>Everything (Advances 1, 2, and 3) is in one code cell (−5). Split it: one step per cell, with a heading and a text cell after each result.</li><li>Your Advance 3 trains on data with gaps and impossible values: fix them first, because the model learns from them.</li></ul>
+</div>
+</div>
 </div>
 
 <table>
@@ -1043,6 +1052,15 @@
 <ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>Registered in the mailbox.</strong> Team and case registered.</span></li><li><span class="hz-mark">✅</span><span><strong>Notebook in Colab, shared.</strong> Shared, with the team, section, and member at the top.</span></li><li><span class="hz-mark">✅</span><span><strong>Data loaded from its URL.</strong> <code>employee_compensation.csv</code> read from the course URL through a <code>DATA_URL</code> variable, kept untouched in <code>raw</code>.</span></li><li><span class="hz-mark">✅</span><span><strong>First inspection.</strong> First rows, types, missing values per column, 97 duplicates, and <code>describe()</code>, followed by a clear reading: ages of 1 and 119, experience from −10 to 78, scores of −1 and 99, and salaries from 5,342 to 394,249.</span></li><li><span class="hz-mark">✅</span><span><strong>Business question and its user.</strong> What explains salary and which differences experience does not justify, for HR to decide whether to adjust salary bands, with <code>Salary</code> as the target of a regression.</span></li></ul>
 <p class="hz-tips-title">How to improve</p>
 <ul class="hz-tips"><li>Submit each advance through the mailbox by its deadline: this one arrived a week late.</li></ul>
+</div>
+</div>
+<div class="hz-team">
+<div class="hz-team-head"><span class="hz-team-name">Maestros Consultores</span><span class="hz-team-meta">Case B · FinTrust Bank · submitted after the deadline, accepted without penalty</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>95</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>Registered in the mailbox.</strong> Team and case registered on November 14.</span></li><li><span class="hz-mark">⚠️</span><span><strong>Notebook in Colab, shared.</strong> Shared, with the team and members in a text cell, but all the code lives in a single cell. The text cell lists four members, while the registration has three: register José Nadeau too (the project asks for 2 or 3 members, so write to hizocar@gmail.com).</span></li><li><span class="hz-mark">✅</span><span><strong>Data loaded from its URL.</strong> <code>loan_default.csv</code> read from the course URL.</span></li><li><span class="hz-mark">✅</span><span><strong>First inspection.</strong> Shape, <code>info()</code> (types and non-null counts), 60 duplicates, and first rows, with a written reading that lists the columns with gaps and the inconsistent categories.</span></li><li><span class="hz-mark">✅</span><span><strong>Business question and its user.</strong> Which applicants are likely to default before the loan is approved, for the credit risk team to filter high-risk applications.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>Write the number of missing values per column (<code>df.isna().sum()</code>): “credit_score has 501” says more than a list of names.</li></ul>
 </div>
 </div>
 </div>

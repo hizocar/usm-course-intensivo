@@ -76,11 +76,11 @@ Everything you hand in during the course goes through this page. Every submissio
   <label class="hz-mb-field">Advance
     <select name="advance" required>
       <option value="">Choose…</option>
-      <option>Advance 1</option>
-      <option>Advance 2</option>
-      <option>Advance 3</option>
-      <option>Advance 4</option>
-      <option>Final project</option>
+      <option value="Advance 1">Advance 1</option>
+      <option value="Advance 2">Advance 2</option>
+      <option value="Advance 3">Advance 3</option>
+      <option value="Advance 4">Advance 4</option>
+      <option value="Final project">Final project</option>
     </select>
   </label>
 

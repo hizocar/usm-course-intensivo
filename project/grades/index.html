@@ -610,11 +610,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#advance-2-cleaning-and-exploratory-analysis" class="md-nav__link">
-    Advance 2 · Cleaning and exploratory analysis
+  <a href="#advance-3-ready-to-model" class="md-nav__link">
+    Advance 3 · Ready to model
   </a>
   
-    <nav class="md-nav" aria-label="Advance 2 · Cleaning and exploratory analysis">
+    <nav class="md-nav" aria-label="Advance 3 · Ready to model">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -637,11 +637,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#advance-1-team-data-and-question" class="md-nav__link">
-    Advance 1 · Team, data, and question
+  <a href="#advance-2-cleaning-and-exploratory-analysis" class="md-nav__link">
+    Advance 2 · Cleaning and exploratory analysis
   </a>
   
-    <nav class="md-nav" aria-label="Advance 1 · Team, data, and question">
+    <nav class="md-nav" aria-label="Advance 2 · Cleaning and exploratory analysis">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -653,6 +653,33 @@
         
           <li class="md-nav__item">
   <a href="#vitacura_1" class="md-nav__link">
+    Vitacura
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advance-1-team-data-and-question" class="md-nav__link">
+    Advance 1 · Team, data, and question
+  </a>
+  
+    <nav class="md-nav" aria-label="Advance 1 · Team, data, and question">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#casa-central_2" class="md-nav__link">
+    Casa Central
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vitacura_2" class="md-nav__link">
     Vitacura
   </a>
   
@@ -720,11 +747,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#advance-2-cleaning-and-exploratory-analysis" class="md-nav__link">
-    Advance 2 · Cleaning and exploratory analysis
+  <a href="#advance-3-ready-to-model" class="md-nav__link">
+    Advance 3 · Ready to model
   </a>
   
-    <nav class="md-nav" aria-label="Advance 2 · Cleaning and exploratory analysis">
+    <nav class="md-nav" aria-label="Advance 3 · Ready to model">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -747,11 +774,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#advance-1-team-data-and-question" class="md-nav__link">
-    Advance 1 · Team, data, and question
+  <a href="#advance-2-cleaning-and-exploratory-analysis" class="md-nav__link">
+    Advance 2 · Cleaning and exploratory analysis
   </a>
   
-    <nav class="md-nav" aria-label="Advance 1 · Team, data, and question">
+    <nav class="md-nav" aria-label="Advance 2 · Cleaning and exploratory analysis">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -763,6 +790,33 @@
         
           <li class="md-nav__item">
   <a href="#vitacura_1" class="md-nav__link">
+    Vitacura
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advance-1-team-data-and-question" class="md-nav__link">
+    Advance 1 · Team, data, and question
+  </a>
+  
+    <nav class="md-nav" aria-label="Advance 1 · Team, data, and question">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#casa-central_2" class="md-nav__link">
+    Casa Central
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vitacura_2" class="md-nav__link">
     Vitacura
   </a>
   
@@ -789,9 +843,168 @@
 
 <h1 id="grades">Grades</h1>
 <p>Grades of the weekly advances, on USM's 0–100 scale (55 is a pass). Press <strong>Reveal</strong> on your team to see its grade and point-by-point feedback against the checklist on the <a href="../progress/">weekly progress</a> page, with advice for the next advance. If your team is missing or something looks wrong, write to hizocar@gmail.com.</p>
+<h2 id="advance-3-ready-to-model">Advance 3 · Ready to model</h2>
+<p><em>Due Tuesday, November 17, 23:59. The checklist has four items for each case: categories encoded and ID columns removed, split before training, the case's own item (Case A: linear regression with test and training metrics; Case B: stratified split, baseline accuracy, and why accuracy misleads), and what you expect the model to find.</em></p>
+<h3 id="casa-central">Casa Central</h3>
+<div class="hz-teams">
+<div class="hz-team">
+<div class="hz-team-head"><span class="hz-team-name">Cuando pagan</span><span class="hz-team-meta">Case A · TalentCo · submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>100</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>Categories encoded and ID columns removed.</strong> <code>get_dummies(drop_first=True)</code> on the five text columns, with the references printed. TalentCo has no ID column, and you dropped <code>salary_outlier</code> because it was computed from the salary itself: keeping it would have been leakage.</span></li><li><span class="hz-mark">✅</span><span><strong>Split before training.</strong> 70/30 with <code>random_state=42</code> before any model, with a check that both sets look alike (average salary and job-level mix).</span></li><li><span class="hz-mark">✅</span><span><strong>Linear regression, test and training metrics.</strong> MAE 4,301, RMSE 5,503, and R² 0.946 on test, next to training (4,346 · 5,545 · 0.943): no overfitting, and 4.6 times better than the baseline. You also answered the Advance 2 feedback: with the extreme salaries, test R² falls from 0.95 to 0.49, and the model misses those 51 rows by 147,227 USD on average.</span></li><li><span class="hz-mark">✅</span><span><strong>What you expect the model to find.</strong> Five concrete expectations written before training, including that experience would weigh less than its 0.83 correlation suggests because job level already carries part of it. The model confirmed it (1,262 USD per year).</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>For Advance 4: 5-fold cross-validation on the training set, and a reasoned choice between MAE and RMSE.</li><li>Your residual analysis (largest miss −25,360 USD) is a good start to explain where the model fails.</li></ul>
+</div>
+</div>
+<div class="hz-team">
+<div class="hz-team-head"><span class="hz-team-name">Los Alemanes</span><span class="hz-team-meta">Case A · TalentCo · submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>100</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>Categories encoded and ID columns removed.</strong> References chosen on purpose (Junior, Bachelor, HR), so every coefficient reads as “how much more than…”. The data has no ID column.</span></li><li><span class="hz-mark">✅</span><span><strong>Split before training.</strong> 70/30 before encoding and training, with the same average salary and job-level mix in both sets. The encoded rows are mapped back to the split, so the test set stays sealed.</span></li><li><span class="hz-mark">✅</span><span><strong>Linear regression, test and training metrics.</strong> MAE 4,366 vs 4,262 and R² 0.943 vs 0.946, plus a baseline (MAE 19,324), read correctly: no overfitting.</span></li><li><span class="hz-mark">✅</span><span><strong>What you expect the model to find.</strong> Based on your own charts: job level, experience (0.83), and the 20,000 USD department gap.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>You applied both Advance 2 comments: departments compared within the same job level, and the age range tightened to 18–70. Well done.</li><li>For Advance 4, interpret at least two coefficients for the people team, for example the department gap at the same level and experience.</li></ul>
+</div>
+</div>
+<div class="hz-team">
+<div class="hz-team-head"><span class="hz-team-name">búsqueda inusual</span><span class="hz-team-meta">Case A · TalentCo · submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>95</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>Categories encoded and ID columns removed.</strong> <code>get_dummies(drop_first=True)</code> with the order of education and job level fixed, and a check for ID columns.</span></li><li><span class="hz-mark">✅</span><span><strong>Split before training.</strong> 70/30 before training; the encoded rows are mapped back to the split.</span></li><li><span class="hz-mark">⚠️</span><span><strong>Linear regression, test and training metrics.</strong> Training and test metrics are side by side, but the reading is wrong: R² 0.57 vs 0.48 is not overfitting. Your cleaning only drops <code>Salary &lt;= 0</code>, so the extreme salaries (5,342 to 17,950 and over 201,000 USD) are still there. A linear model cannot predict them, and the test set happens to hold a few more. Cuando pagan got the same R² (0.49) with them and 0.95 without them.</span></li><li><span class="hz-mark">✅</span><span><strong>What you expect the model to find.</strong> Written from the exploratory analysis. When the results contradict an expectation (you expected no gap between training and test), say so and look for the reason.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>Drop the salaries outside the real range (about 43,000 to 166,000 USD, separated from the rest by empty gaps) and rerun: R² should rise to about 0.95, with RMSE close to MAE.</li><li>Thanks for applying the Advance 2 corrections: they count for the final project (Advance 2 is graded as it was at its deadline).</li></ul>
+</div>
+</div>
+<div class="hz-team">
+<div class="hz-team-head"><span class="hz-team-name">Ana y Cléo</span><span class="hz-team-meta">Case A · TalentCo · submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>100</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>Categories encoded and ID columns removed.</strong> A check for ID columns, then <code>get_dummies(drop_first=True)</code>: 15 numeric columns.</span></li><li><span class="hz-mark">✅</span><span><strong>Split before training.</strong> 80/20 before training.</span></li><li><span class="hz-mark">✅</span><span><strong>Linear regression, test and training metrics.</strong> MAE, RMSE, and R² for training and test in one table (R² 0.860 vs 0.817), read correctly: no overfitting.</span></li><li><span class="hz-mark">✅</span><span><strong>What you expect the model to find.</strong> A hypothesis from the exploratory analysis: job level first, then experience and education, premiums in Finance and Engineering, and almost no effect of gender and region.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>Your RMSE (10,684) is twice your MAE (5,352) and R² is 0.82, while other teams reach 0.95. The reason: the 73 salaries under 18,000 USD are still in the data, because your rule only drops <code>Salary &lt;= 0</code>. Drop them as you did with the ones above 200,000, and rerun.</li><li>The Advance 2 problems are fixed (the target is no longer filled, and every cell runs in order): good progress.</li></ul>
+</div>
+</div>
+<div class="hz-team">
+<div class="hz-team-head"><span class="hz-team-name">Grupito</span><span class="hz-team-meta">Case A · TalentCo · submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>100</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>Categories encoded and ID columns removed.</strong> <code>get_dummies(drop_first=True)</code>, with the references named (Bachelor, Engineering, East, Junior, Female) and an explanation of why one column per variable is dropped. No ID column, explained.</span></li><li><span class="hz-mark">✅</span><span><strong>Split before training.</strong> 70/30 before encoding and training, with a clear explanation of why the test set must stay unseen.</span></li><li><span class="hz-mark">✅</span><span><strong>Linear regression, test and training metrics.</strong> MAE 4,367 vs 4,260 and R² 0.943 vs 0.946, a baseline (MAE 19,324, 4.5 times worse), and a predicted-vs-real chart that notices the model overestimates low salaries and underestimates high ones.</span></li><li><span class="hz-mark">✅</span><span><strong>What you expect the model to find.</strong> Written first, as step 1, before any model.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>The reference department is Engineering (alphabetical), so every department coefficient will come out negative. That is fine; just say it when you interpret them in Advance 4.</li><li>Keeping the cleaning in one place (Advance 2) and reusing <code>df_clean</code> is the right call.</li></ul>
+</div>
+</div>
+<div class="hz-team">
+<div class="hz-team-head"><span class="hz-team-name">JC &amp; PF</span><span class="hz-team-meta">Case A · TalentCo · submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>100</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>Categories encoded and ID columns removed.</strong> You looked for ID columns with <code>nunique()</code>, dropped the helper column <code>Tramo_desempeño</code> (it repeats <code>Performance_Score</code>), and chose every reference with a reason.</span></li><li><span class="hz-mark">✅</span><span><strong>Split before training.</strong> 70/30 before training, with matching average salaries in both sets. You also flagged on your own that the Advance 2 medians were computed before the split: a sharp observation.</span></li><li><span class="hz-mark">✅</span><span><strong>Linear regression, test and training metrics.</strong> Training and test side by side (MAE 4,366 vs 4,262; R² 0.943 vs 0.946) and a baseline: the model cuts the error by 78%.</span></li><li><span class="hz-mark">✅</span><span><strong>What you expect the model to find.</strong> Written before the results, and then checked point by point (“¿Se cumplió lo que esperábamos?”), including the surprise of a 1,600 USD gender gap at equal profile.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>Excellent work, and submitted a week early. For the final project, compute the imputation medians on the training set only, as you noted yourselves.</li><li>Your gender gap is worth testing in Advance 4 with cross-validation before reporting it to HR.</li></ul>
+</div>
+</div>
+<div class="hz-team">
+<div class="hz-team-head"><span class="hz-team-name">Ignachelo</span><span class="hz-team-meta">Case B · FinTrust Bank · submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>100</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>Categories encoded and ID columns removed.</strong> <code>loan_id</code> removed, and the categories encoded with <code>OneHotEncoder</code> inside a <code>Pipeline</code> (equivalent to <code>get_dummies</code>), explained in a text cell.</span></li><li><span class="hz-mark">✅</span><span><strong>Split before training.</strong> The split comes before any model, and the imputation and encoding are fitted on the training set only: the cleanest approach of the week.</span></li><li><span class="hz-mark">✅</span><span><strong>Stratified split, baseline, and why accuracy misleads.</strong> <code>stratify=y_b</code> keeps 28.27% defaults in training; a <code>DummyClassifier</code> baseline gets 71.75% accuracy in test with 0% recall, shown in the confusion matrix and explained.</span></li><li><span class="hz-mark">✅</span><span><strong>What you expect the model to find.</strong> Based on the exploratory analysis: employment type and class imbalance.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>Your case is B: the “Case A” regression of <code>loan_amount</code> is not required (its R² is about 0, so those variables do not explain the loan amount). Remove it to keep the notebook focused.</li><li>Your findings mention “Cordillera Mobile”: the bank is FinTrust. And the impossible values are still in the data (incomes of 10,000,000, which your own chart shows; credit scores of −50 and 1,095; ages of 150): fix them before Advance 4.</li><li>Advances 1 and 2 never reached the mailbox.</li></ul>
+</div>
+</div>
+</div>
+
+<h3 id="vitacura">Vitacura</h3>
+<div class="hz-teams">
+<div class="hz-team">
+<div class="hz-team-head"><span class="hz-team-name">FinTrust Bank Vicente Célia</span><span class="hz-team-meta">Case B · FinTrust Bank · submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>85</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>Categories encoded and ID columns removed.</strong> <code>loan_id</code> and <code>default</code> out of X; <code>get_dummies(drop_first=True)</code> on training and test, with <code>reindex</code> so both have the same 22 columns. Careful work.</span></li><li><span class="hz-mark">✅</span><span><strong>Split before training.</strong> 80/20 before any model.</span></li><li><span class="hz-mark">✅</span><span><strong>Stratified split, baseline, and why accuracy misleads.</strong> <code>stratify=y</code> keeps 28.3% defaults in both sets, and the baseline (71.75%) is explained: it does not find a single default.</span></li><li><span class="hz-mark">❌</span><span><strong>What you expect the model to find.</strong> The paragraph on what you expect the model to find is missing: the notebook ends with empty cells. Your Advance 2 findings (late payments, credit score, collateral) are exactly what it should say.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>Two code cells appear twice (the class distribution and the train/test comparison), and some outputs are empty: delete the duplicates and use <em>Restart session and run all</em>.</li><li>The mailbox now lists the team as “FinTrust Bank Vicente Célia Esteban”: use one team name everywhere, and register Esteban Alonso if he joined the team.</li></ul>
+</div>
+</div>
+<div class="hz-team">
+<div class="hz-team-head"><span class="hz-team-name">Mafilia</span><span class="hz-team-meta">Case A · TalentCo · submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>100</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>Categories encoded and ID columns removed.</strong> References chosen with business sense (Junior, Bachelor, HR), and a written check that there are no ID or leakage columns.</span></li><li><span class="hz-mark">✅</span><span><strong>Split before training.</strong> 70/30 before training, with the job-level mix checked in both sets.</span></li><li><span class="hz-mark">✅</span><span><strong>Linear regression, test and training metrics.</strong> MAE 4,260, RMSE 5,423, and R² 0.946 on test next to training and a baseline (MAE 19,324): about 4.5 times more accurate, with no overfitting.</span></li><li><span class="hz-mark">✅</span><span><strong>What you expect the model to find.</strong> Written with numbers from Advance 2 before training, and then compared with the first coefficients.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>On time this week: well done.</li><li>For Advance 4: 5-fold cross-validation, and two coefficients explained for the people team (for example, Engineering pays about 20,000 USD more than HR at the same level).</li></ul>
+</div>
+</div>
+<div class="hz-team">
+<div class="hz-team-head"><span class="hz-team-name">PJMC</span><span class="hz-team-meta">Case B · FinTrust Bank · submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>100</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>Categories encoded and ID columns removed.</strong> <code>loan_id</code> and <code>default</code> out, a leakage review column by column (<code>num_late_payments</code> is the applicant's history, known before the loan), and the most frequent category as reference.</span></li><li><span class="hz-mark">✅</span><span><strong>Split before training.</strong> 70/30 before any model.</span></li><li><span class="hz-mark">✅</span><span><strong>Stratified split, baseline, and why accuracy misleads.</strong> Stratified split and a <code>DummyClassifier</code> baseline: 71.73% accuracy and 0% recall (none of the 848 defaults in test), with a clear explanation.</span></li><li><span class="hz-mark">✅</span><span><strong>What you expect the model to find.</strong> Quantified from Advance 2: 28.3 points by late payments, 20.9 by credit score, and 11.8 by collateral.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>The notebook now has separate cells with text headings: much easier to read.</li><li>The model reads <code>loan_default_clean.csv</code> from the Colab session, so it only exists if the Advance 2 cell runs first. Keep using <em>Restart session and run all</em> before submitting.</li></ul>
+</div>
+</div>
+<div class="hz-team">
+<div class="hz-team-head"><span class="hz-team-name">The Boys</span><span class="hz-team-meta">Case B · FinTrust Bank · submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>100</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>Categories encoded and ID columns removed.</strong> <code>loan_id</code> out, plus the constant or repeated columns (<code>segmento</code>, <code>credit_score_was_missing</code>…), each explained, and <code>get_dummies</code> on the three text columns.</span></li><li><span class="hz-mark">✅</span><span><strong>Split before training.</strong> 70/30 before training, with the class proportions checked.</span></li><li><span class="hz-mark">✅</span><span><strong>Stratified split, baseline, and why accuracy misleads.</strong> <code>stratify=y</code>, a 71.7% baseline, and a confusion matrix showing that it detects 0 of the 803 defaulters.</span></li><li><span class="hz-mark">✅</span><span><strong>What you expect the model to find.</strong> Quantified: the default rate falls from 41% under a score of 580 to 19% above 700.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>You fixed what Advance 2 missed (spellings, negative years, filler incomes): well done.</li><li>The 537 loans without a credit score are left out of the model. That is a valid choice, but it is a limitation: say in the final project that the model does not cover applicants without history.</li><li>Delete the empty “redundant” cells at the top, and instead of <code>if 'df_clean' not in globals()</code>, use <em>Restart session and run all</em>.</li></ul>
+</div>
+</div>
+<div class="hz-team">
+<div class="hz-team-head"><span class="hz-team-name">zipzip</span><span class="hz-team-meta">Case A · TalentCo · submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>100</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>Categories encoded and ID columns removed.</strong> Each column checked for IDs, dates, or leakage; you first showed the error <code>LinearRegression</code> gives with text, then chose every reference (Junior, Bachelor, HR, North, Female).</span></li><li><span class="hz-mark">✅</span><span><strong>Split before training.</strong> 70/30 before encoding and training, with <code>assert</code> checks that training and test do not overlap.</span></li><li><span class="hz-mark">✅</span><span><strong>Linear regression, test and training metrics.</strong> MAE 4,346 vs 4,301, RMSE 5,545 vs 5,503, and R² 0.943 vs 0.946, plus a baseline (MAE 19,638), with a correct reading of overfitting.</span></li><li><span class="hz-mark">✅</span><span><strong>What you expect the model to find.</strong> Written before training. You also noted where the model changes an Advance 2 finding: performance matters more once job level is held constant.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>Welcome to Renato Medina: register the team again in the mailbox with both members.</li><li>For Advance 4: 5-fold cross-validation and a reasoned choice between MAE and RMSE.</li></ul>
+</div>
+</div>
+<div class="hz-team">
+<div class="hz-team-head"><span class="hz-team-name">Maestros Consultores</span><span class="hz-team-meta">Case B · FinTrust Bank · submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>95</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>Categories encoded and ID columns removed.</strong> <code>loan_id</code> removed and <code>get_dummies(drop_first=True)</code>.</span></li><li><span class="hz-mark">✅</span><span><strong>Split before training.</strong> 80/20, stratified, before any model.</span></li><li><span class="hz-mark">✅</span><span><strong>Stratified split, baseline, and why accuracy misleads.</strong> Baseline accuracy of 71.75% and a clear explanation of why it misleads with imbalanced classes.</span></li><li><span class="hz-mark">✅</span><span><strong>What you expect the model to find.</strong> Employment stability, credit score, and debt level, based on your exploratory analysis.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>All the code is still in one cell (−5). Split it into steps, each with a text heading.</li><li>The model still learns from impossible values (credit scores of −50 and 1,095, ages of 150, incomes of 9,999,999). Clean them before Advance 4: your logistic regression already uses them, so its numbers will change.</li></ul>
+</div>
+</div>
+</div>
+
+<table>
+<thead>
+<tr>
+<th align="center">Grade</th>
+<th align="center"></th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">85 – 100</td>
+<td align="center">🟢</td>
+<td>Every item is done and correct.</td>
+</tr>
+<tr>
+<td align="center">55 – 84</td>
+<td align="center">🟡</td>
+<td>Every item is there, but some need fixing before the next advance.</td>
+</tr>
+<tr>
+<td align="center">1 – 54</td>
+<td align="center">🔴</td>
+<td>Important items are missing.</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">⚫</td>
+<td>Not submitted.</td>
+</tr>
+</tbody>
+</table>
+<p>Late submissions lose 15 points per day for up to three days; after that the advance gets a 0.</p>
 <h2 id="advance-2-cleaning-and-exploratory-analysis">Advance 2 · Cleaning and exploratory analysis</h2>
 <p><em>Due Tuesday, November 10, 23:59. The checklist has six items: duplicates and missing values, inconsistent categories, impossible values, cleaning summary table, exploratory charts, and three findings.</em></p>
-<h3 id="casa-central">Casa Central</h3>
+<h3 id="casa-central_1">Casa Central</h3>
 <div class="hz-teams">
 <div class="hz-team">
 <div class="hz-team-head"><span class="hz-team-name">Cuando pagan</span><span class="hz-team-meta">Case A · TalentCo · submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
@@ -848,12 +1061,12 @@
 </div>
 </div>
 <div class="hz-team">
-<div class="hz-team-head"><span class="hz-team-name">Ignachelo</span><span class="hz-team-meta">Case B · FinTrust Bank · not submitted yet</span></div>
-<div class="hz-team-note">Nothing received in the mailbox. The three-day late window closes on Friday, November 13, at 23:59 (−15 points per day late).</div>
+<div class="hz-team-head"><span class="hz-team-name">Ignachelo</span><span class="hz-team-meta">Case B · FinTrust Bank · not submitted</span></div>
+<div class="hz-team-note">Nothing received in the mailbox, and the three-day late window closed on Friday, November 13.</div>
 </div>
 </div>
 
-<h3 id="vitacura">Vitacura</h3>
+<h3 id="vitacura_1">Vitacura</h3>
 <div class="hz-teams">
 <div class="hz-team">
 <div class="hz-team-head"><span class="hz-team-name">FinTrust Bank Vicente Célia</span><span class="hz-team-meta">Case B · FinTrust Bank · submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
@@ -911,41 +1124,9 @@
 </div>
 </div>
 
-<table>
-<thead>
-<tr>
-<th align="center">Grade</th>
-<th align="center"></th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">85 – 100</td>
-<td align="center">🟢</td>
-<td>Every item is done and correct.</td>
-</tr>
-<tr>
-<td align="center">55 – 84</td>
-<td align="center">🟡</td>
-<td>Every item is there, but some need fixing before the next advance.</td>
-</tr>
-<tr>
-<td align="center">1 – 54</td>
-<td align="center">🔴</td>
-<td>Important items are missing.</td>
-</tr>
-<tr>
-<td align="center">0</td>
-<td align="center">⚫</td>
-<td>Not submitted.</td>
-</tr>
-</tbody>
-</table>
-<p>Late submissions lose 15 points per day for up to three days; after that the advance gets a 0.</p>
 <h2 id="advance-1-team-data-and-question">Advance 1 · Team, data, and question</h2>
 <p><em>Due Tuesday, November 3, 23:59. The checklist has five items: team registered, notebook shared, data loaded from its URL, first inspection, and business question with its user.</em></p>
-<h3 id="casa-central_1">Casa Central</h3>
+<h3 id="casa-central_2">Casa Central</h3>
 <div class="hz-teams">
 <div class="hz-team">
 <div class="hz-team-head"><span class="hz-team-name">Cuando pagan</span><span class="hz-team-meta">Case A · TalentCo · submitted 11 hours late</span><button type="button" class="hz-reveal">Reveal</button></div>
@@ -1007,7 +1188,7 @@
 </div>
 </div>
 
-<h3 id="vitacura_1">Vitacura</h3>
+<h3 id="vitacura_2">Vitacura</h3>
 <div class="hz-teams">
 <div class="hz-team">
 <div class="hz-team-head"><span class="hz-team-name">FinTrust Bank Vicente Célia</span><span class="hz-team-meta">Case B · FinTrust Bank · submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>

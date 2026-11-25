@@ -77,6 +77,7 @@ Each session lasts 2 hours and 35 minutes and has two parts: a **class** that mo
 **By the end you can:** train decision trees and random forests, control their complexity, read feature importance, compare models with a ROC curve, and build a presentation using the pyramid principle.
 
 - Class: [Better models, a clearer story](classes/Session_5_Better_Models.ipynb)
+- [Class recording](https://drive.google.com/file/d/1MJ5XpG5yJeJl3xs4wHLDp2lqZvNHODbG/view){ target="_blank" } (Casa Central, November 25, in Spanish)
 - [Pyramid presentations in business](classes/Pyramid_Presentations.html){ target="_blank" }
 
 **Workshop:** feedback on Advance 4; compare models and structure the final presentation. → [Final submission](project/progress.md#final-submission), due Tuesday, December 1.

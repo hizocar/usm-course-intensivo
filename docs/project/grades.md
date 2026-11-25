@@ -18,6 +18,15 @@ Late submissions lose 15 points per day for up to three days; after that the adv
 <div class="hz-team">
 <p class="hz-team-case">Case A · TalentCo</p>
 <div class="hz-adv">
+<div class="hz-team-head"><span class="hz-team-name">Advance 4 · The right metric</span><span class="hz-team-meta">submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>75</strong> 🟡</p>
+<ul class="hz-checks"><li><span class="hz-mark">⚠️</span><span><strong>5-fold cross-validation.</strong> Five shuffled folds (R² 0.851 ± 0.028), but run on all the data (<code>X_encoded</code>, <code>y</code>), test set included. Cross-validation goes on the training set only; the test stays sealed until the end.</span></li><li><span class="hz-mark">✅</span><span><strong>Two coefficients in business terms.</strong> Senior +36,824 USD, PhD +17,002, HR −19,305 against Engineering, and a gender gap of 1,431 USD, each with the rest held constant.</span></li><li><span class="hz-mark">✅</span><span><strong>MAE or RMSE, justified.</strong> MAE, because a few outliers inflate RMSE, backed by the residual plot. But the outliers are not “executive salaries”: your plot shows they are very low salaries.</span></li><li><span class="hz-mark">⚠️</span><span><strong>Metrics table.</strong> The metrics are printed, but there is no table that the final project can extend.</span></li><li><span class="hz-mark">❌</span><span><strong>Key message in one sentence.</strong> There is no key message.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>The 73 salaries under 18,000 USD are the outliers in your residual plot. Drop them as you did with those above 200,000: R² should rise from 0.82 to about 0.95 and RMSE will come close to MAE.</li><li>Write the key message as one sentence for HR, with a number and an action (for example, about the department gap).</li></ul>
+</div>
+</div>
+<div class="hz-adv">
 <div class="hz-team-head"><span class="hz-team-name">Advance 3 · Ready to model</span><span class="hz-team-meta">submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
 <div class="hz-revealed" hidden>
 <p class="hz-grade"><strong>100</strong> 🟢</p>
@@ -50,6 +59,15 @@ Late submissions lose 15 points per day for up to three days; after that the adv
 
 <div class="hz-team">
 <p class="hz-team-case">Case A · TalentCo</p>
+<div class="hz-adv">
+<div class="hz-team-head"><span class="hz-team-name">Advance 4 · The right metric</span><span class="hz-team-meta">submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>95</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>5-fold cross-validation.</strong> On the training set only: MAE 6,420 ± 465 USD and R² 0.57 ± 0.07, with the results per fold.</span></li><li><span class="hz-mark">✅</span><span><strong>Two coefficients in business terms.</strong> Experience +1,066 USD per year, Master +7,673, PhD +16,764, and +1,966 per performance point, all with the rest held constant. The business implications are generic, though, and they leave out the two largest effects: job level and department.</span></li><li><span class="hz-mark">✅</span><span><strong>MAE or RMSE, justified.</strong> MAE as the main metric because HR can read it, with RMSE as a complement.</span></li><li><span class="hz-mark">✅</span><span><strong>Metrics table.</strong> Training, test, and cross-validation.</span></li><li><span class="hz-mark">⚠️</span><span><strong>Key message in one sentence.</strong> The closing sentence works as a message, but it is vague (“relevant factors”) and is not labelled as the key message. The top of the pyramid states the answer with a number and an action.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>As noted in Advance 3, the extreme salaries are still in the data: that is why RMSE (23,416) is more than three times MAE (7,043) and R² is 0.48. Drop the salaries outside about 43,000 to 166,000 USD before the final project: every number will change, and R² should reach about 0.95.</li></ul>
+</div>
+</div>
 <div class="hz-adv">
 <div class="hz-team-head"><span class="hz-team-name">Advance 3 · Ready to model</span><span class="hz-team-meta">submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
 <div class="hz-revealed" hidden>
@@ -84,6 +102,15 @@ Late submissions lose 15 points per day for up to three days; after that the adv
 <div class="hz-team">
 <p class="hz-team-case">Case A · TalentCo</p>
 <div class="hz-adv">
+<div class="hz-team-head"><span class="hz-team-name">Advance 4 · The right metric</span><span class="hz-team-meta">submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>100</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>5-fold cross-validation.</strong> Five folds on the training set only: MAE 4,365 ± 98 USD and R² 0.943 ± 0.003, in line with the test (4,301). The best and worst folds differ by just 240 USD.</span></li><li><span class="hz-mark">✅</span><span><strong>Two coefficients in business terms.</strong> Each job-level step (Junior → Mid +14,218 USD; Mid → Senior +19,097) and the gender gap (+1,524 USD, 95% interval 1,252 to 1,796, positive in all five folds), each with its range across folds.</span></li><li><span class="hz-mark">✅</span><span><strong>MAE or RMSE, justified.</strong> RMSE to compare models, because a large miss on one salary costs more (a lost candidate, unfair pay), and MAE to report to HR. You even checked RMSE/MAE against what normal noise would give.</span></li><li><span class="hz-mark">✅</span><span><strong>Metrics table.</strong> Baseline, model with and without extremes, and training, cross-validation, and test for the chosen model.</span></li><li><span class="hz-mark">✅</span><span><strong>Key message in one sentence.</strong> Pay bands by level, experience, department, and education, starting the review with the 87 employees (3.0%) who earn more than 10,000 USD below what is expected.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>You also corrected your own earlier readings (performance does pay: 8,029 USD from a score of 1 to 5). That is exactly what good analysis does.</li><li>Your review list uses a model without gender or age, so the gender gap is not treated as normal. Keep that argument for the presentation.</li></ul>
+</div>
+</div>
+<div class="hz-adv">
 <div class="hz-team-head"><span class="hz-team-name">Advance 3 · Ready to model</span><span class="hz-team-meta">submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
 <div class="hz-revealed" hidden>
 <p class="hz-grade"><strong>100</strong> 🟢</p>
@@ -116,6 +143,15 @@ Late submissions lose 15 points per day for up to three days; after that the adv
 
 <div class="hz-team">
 <p class="hz-team-case">Case A · TalentCo</p>
+<div class="hz-adv">
+<div class="hz-team-head"><span class="hz-team-name">Advance 4 · The right metric</span><span class="hz-team-meta">submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>100</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>5-fold cross-validation.</strong> MAE 4,381 ± 69 USD across five folds, R² between 0.934 and 0.947, close to the test (4,260).</span></li><li><span class="hz-mark">✅</span><span><strong>Two coefficients in business terms.</strong> Senior +33,202 USD, HR −20,034 USD against Engineering, PhD +17,687 USD, each with what it means for TalentCo, plus a chart of all coefficients.</span></li><li><span class="hz-mark">✅</span><span><strong>MAE or RMSE, justified.</strong> MAE as the main metric because HR can read it directly, RMSE as a check (RMSE/MAE 1.27, 6.2% of errors above 10,000 USD), and a note on when you would switch.</span></li><li><span class="hz-mark">✅</span><span><strong>Metrics table.</strong> Baseline, training, cross-validation, and test.</span></li><li><span class="hz-mark">✅</span><span><strong>Key message in one sentence.</strong> Salary is set mainly by job level and department: a Senior earns about 33,000 USD more than a Junior and HR about 20,000 USD less than Engineering, so bands should be built on both.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>The extra analysis (effect of a typical change; 516 employees at least 10% below their expected pay, 0.61% of the payroll) is strong material for the presentation.</li><li>Your review list uses the model that includes gender, so it “expects” women to earn about 1,600 USD less and treats that gap as normal. Try the list with a model without gender.</li></ul>
+</div>
+</div>
 <div class="hz-adv">
 <div class="hz-team-head"><span class="hz-team-name">Advance 3 · Ready to model</span><span class="hz-team-meta">submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
 <div class="hz-revealed" hidden>
@@ -150,6 +186,15 @@ Late submissions lose 15 points per day for up to three days; after that the adv
 <div class="hz-team">
 <p class="hz-team-case">Case B · FinTrust Bank</p>
 <div class="hz-adv">
+<div class="hz-team-head"><span class="hz-team-name">Advance 4 · The right metric</span><span class="hz-team-meta">submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>95</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>Logistic regression and its metrics.</strong> Logistic regression in a <code>Pipeline</code>: AUC 0.715 on test (0.721 ± 0.014 in cross-validation), with the confusion matrix and precision, recall, and F1 at 0.5.</span></li><li><span class="hz-mark">✅</span><span><strong>Threshold justified with the cost of each error.</strong> An explicit, editable assumption (a missed default costs five times a wrongly rejected client), threshold 0.16 chosen on training out-of-fold probabilities, the cost compared with approving everyone, rejecting everyone, and 0.5, and a sensitivity analysis.</span></li><li><span class="hz-mark">✅</span><span><strong>Metrics table.</strong> All the metrics in one table (drop the Case A rows; see below).</span></li><li><span class="hz-mark">⚠️</span><span><strong>Key message in one sentence.</strong> It is generated by code and ends with a clause about Case A, which is not your case. And the “Contraste con lo que esperábamos” section still holds instructions addressed to you (“ajusten esta frase…”, “edítenla si prefieren…”): it reads as a template that was never completed. Write both in your own words.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>With the 0.16 threshold the bank would reject about 72% of applicants (1,450 of 2,000). Say it next to the 88% recall: it is the real cost of that decision.</li><li>The cost section mentions “Cordillera Mobile” again: the bank is FinTrust. And drop the <code>loan_amount</code> regression: it is not your case.</li></ul>
+</div>
+</div>
+<div class="hz-adv">
 <div class="hz-team-head"><span class="hz-team-name">Advance 3 · Ready to model</span><span class="hz-team-meta">submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
 <div class="hz-revealed" hidden>
 <p class="hz-grade"><strong>100</strong> 🟢</p>
@@ -172,6 +217,15 @@ Late submissions lose 15 points per day for up to three days; after that the adv
 
 <div class="hz-team">
 <p class="hz-team-case">Case A · TalentCo</p>
+<div class="hz-adv">
+<div class="hz-team-head"><span class="hz-team-name">Advance 4 · The right metric</span><span class="hz-team-meta">submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>100</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>5-fold cross-validation.</strong> <code>KFold</code> with shuffling on the training set: MAE 4,381 ± 111 USD, training error almost the same (no overfitting), and the baseline evaluated the same way.</span></li><li><span class="hz-mark">✅</span><span><strong>Two coefficients in business terms.</strong> Senior +32,837 USD; Engineering +20,036 and Finance +14,606 against HR, “the size of about 15 years of experience”; performance +2,007 USD per point. You also checked that the coefficients are stable across folds.</span></li><li><span class="hz-mark">✅</span><span><strong>MAE or RMSE, justified.</strong> MAE as the main metric, with three reasons (HR understands it, a salary error costs in proportion, RMSE/MAE is only 1.27), and when RMSE would be the better choice.</span></li><li><span class="hz-mark">✅</span><span><strong>Metrics table.</strong> Baseline and linear regression in cross-validation, training, and test.</span></li><li><span class="hz-mark">✅</span><span><strong>Key message in one sentence.</strong> At the same level, experience, degree, and performance, TalentCo pays about 20,000 USD more in Engineering than in HR and only about 2,000 USD per performance point, so department bands should be reviewed and part of the raises tied to performance.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>The gender gap is stable across folds (about 1,490 to 1,720 USD): present it as something to audit, not as proof.</li><li>For the final project, add the second model to the same table.</li></ul>
+</div>
+</div>
 <div class="hz-adv">
 <div class="hz-team-head"><span class="hz-team-name">Advance 3 · Ready to model</span><span class="hz-team-meta">submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
 <div class="hz-revealed" hidden>
@@ -205,6 +259,15 @@ Late submissions lose 15 points per day for up to three days; after that the adv
 
 <div class="hz-team">
 <p class="hz-team-case">Case A · TalentCo</p>
+<div class="hz-adv">
+<div class="hz-team-head"><span class="hz-team-name">Advance 4 · The right metric</span><span class="hz-team-meta">submitted 30 minutes late</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>85</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>5-fold cross-validation.</strong> MAE 4,381 ± 68 USD across the five folds, close to the test MAE (4,262).</span></li><li><span class="hz-mark">✅</span><span><strong>Two coefficients in business terms.</strong> Engineering +20,036 USD against HR at the same level, Senior +32,837 USD, and a gender gap of 1,594 USD flagged for review, read as associations, not causes.</span></li><li><span class="hz-mark">✅</span><span><strong>MAE or RMSE, justified.</strong> RMSE to compare models, because one 25,000 USD miss on a person's salary is worse than several small ones; MAE still reported.</span></li><li><span class="hz-mark">✅</span><span><strong>Metrics table.</strong> Baseline and linear regression on the test, plus the cross-validated MAE.</span></li><li><span class="hz-mark">✅</span><span><strong>Key message in one sentence.</strong> HR earns 20,000 USD less than Engineering at the same level, experience, and education, so the people team should review department bands first.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>The work deserves 100 (it was ready on November 20); the grade is 85 because it reached the mailbox 30 minutes late (−15).</li><li>Add the RMSE and R² of the cross-validation and a training row to the table, so the final models can be compared on every metric.</li></ul>
+</div>
+</div>
 <div class="hz-adv">
 <div class="hz-team-head"><span class="hz-team-name">Advance 3 · Ready to model</span><span class="hz-team-meta">submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
 <div class="hz-revealed" hidden>
@@ -241,6 +304,15 @@ Late submissions lose 15 points per day for up to three days; after that the adv
 <div class="hz-team">
 <p class="hz-team-case">Case B · FinTrust Bank</p>
 <div class="hz-adv">
+<div class="hz-team-head"><span class="hz-team-name">Advance 4 · The right metric</span><span class="hz-team-meta">submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>95</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>Logistic regression and its metrics.</strong> Standardized logistic regression; at 0.5: precision 0.59, recall 0.28, F1 0.38, and AUC 0.738, with the ROC curve.</span></li><li><span class="hz-mark">✅</span><span><strong>Threshold justified with the cost of each error.</strong> A missed default assumed to cost five times a wrong rejection, and the threshold (0.20) chosen with 5-fold cross-validation on the training set, without touching the test. Recall rises to 0.82 and missed defaults fall from 405 to 99.</span></li><li><span class="hz-mark">✅</span><span><strong>Metrics table.</strong> Baseline, 0.5, and 0.20, with false positives, false negatives, and total cost.</span></li><li><span class="hz-mark">⚠️</span><span><strong>Key message in one sentence.</strong> It describes the method (“FinTrust can use logistic regression…”) without a number or a decision. The top of the pyramid gives the answer, for example how many defaults the 0.20 threshold catches and at what cost.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>Say how many applications the 0.20 threshold rejects (1,202 of 2,000, 60%): the bank needs that number to decide.</li></ul>
+</div>
+</div>
+<div class="hz-adv">
 <div class="hz-team-head"><span class="hz-team-name">Advance 3 · Ready to model</span><span class="hz-team-meta">submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
 <div class="hz-revealed" hidden>
 <p class="hz-grade"><strong>85</strong> 🟢</p>
@@ -273,6 +345,15 @@ Late submissions lose 15 points per day for up to three days; after that the adv
 
 <div class="hz-team">
 <p class="hz-team-case">Case B · FinTrust Bank</p>
+<div class="hz-adv">
+<div class="hz-team-head"><span class="hz-team-name">Advance 4 · The right metric</span><span class="hz-team-meta">submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>90</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>Logistic regression and its metrics.</strong> Standardized, with <code>class_weight='balanced'</code>: confusion matrix, precision, recall, F1, and AUC (0.714) at 0.5 and at 0.35.</span></li><li><span class="hz-mark">⚠️</span><span><strong>Threshold justified with the cost of each error.</strong> The costs are described only in words (a missed default loses capital; a wrong rejection loses interest), and 0.35 is not compared with other thresholds. Because <code>class_weight='balanced'</code> already pushes the probabilities up, 0.35 on top of it rejects about 70% of applicants (1,392 of 2,000).</span></li><li><span class="hz-mark">✅</span><span><strong>Metrics table.</strong> Baseline, 0.5, and 0.35 on the test set.</span></li><li><span class="hz-mark">✅</span><span><strong>Key message in one sentence.</strong> With a number: the 0.35 threshold catches 86% of defaults.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>All the code is still in one cell (−5).</li><li>Give each error a number (for example, a missed default = the loan amount; a wrong rejection = the interest lost), choose the threshold that minimizes the total cost on the training set, and report how many applications it rejects. The impossible values (credit scores of −50 and 1,095) are also still in the data.</li></ul>
+</div>
+</div>
 <div class="hz-adv">
 <div class="hz-team-head"><span class="hz-team-name">Advance 3 · Ready to model</span><span class="hz-team-meta">submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
 <div class="hz-revealed" hidden>
@@ -307,6 +388,10 @@ Late submissions lose 15 points per day for up to three days; after that the adv
 <div class="hz-team">
 <p class="hz-team-case">Case A · TalentCo</p>
 <div class="hz-adv">
+<div class="hz-team-head"><span class="hz-team-name">Advance 4 · The right metric</span><span class="hz-team-meta">not submitted yet</span></div>
+<div class="hz-team-note">Nothing received in the mailbox yet. The three-day late window closes on Friday, November 27, at 23:59 (−15 points per day late).</div>
+</div>
+<div class="hz-adv">
 <div class="hz-team-head"><span class="hz-team-name">Advance 3 · Ready to model</span><span class="hz-team-meta">submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
 <div class="hz-revealed" hidden>
 <p class="hz-grade"><strong>100</strong> 🟢</p>
@@ -339,6 +424,15 @@ Late submissions lose 15 points per day for up to three days; after that the adv
 
 <div class="hz-team">
 <p class="hz-team-case">Case B · FinTrust Bank</p>
+<div class="hz-adv">
+<div class="hz-team-head"><span class="hz-team-name">Advance 4 · The right metric</span><span class="hz-team-meta">submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>100</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>Logistic regression and its metrics.</strong> Standardized pipeline; at 0.5: precision 0.605, recall 0.288, F1 0.39, and AUC 0.737, each explained for the bank (“of every 10 rejected clients, 6 would have defaulted”).</span></li><li><span class="hz-mark">✅</span><span><strong>Threshold justified with the cost of each error.</strong> The cost of each error computed loan by loan from your own data (a missed default loses the amount lent; a wrong rejection loses the interest). Threshold 0.25 chosen on training out-of-fold probabilities, matching the theoretical 0.27, plus a sensitivity analysis on how much of a default is recovered (0.32 at 25%, 0.44 at 50%).</span></li><li><span class="hz-mark">✅</span><span><strong>Metrics table.</strong> Baseline, 0.5, and 0.25, with the cost of errors: 10.3 M USD against 16.1 M for approving everyone.</span></li><li><span class="hz-mark">✅</span><span><strong>Key message in one sentence.</strong> Rejecting applications with at least a 25% probability of default would catch almost 3 of every 4 defaults and cut losses from credit errors by 36% against approving everyone.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>The best work in Case B this week. Your warning that this threshold rejects about 49% of applications belongs in the presentation, right next to the savings.</li></ul>
+</div>
+</div>
 <div class="hz-adv">
 <div class="hz-team-head"><span class="hz-team-name">Advance 3 · Ready to model</span><span class="hz-team-meta">submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
 <div class="hz-revealed" hidden>
@@ -373,6 +467,15 @@ Late submissions lose 15 points per day for up to three days; after that the adv
 <div class="hz-team">
 <p class="hz-team-case">Case B · FinTrust Bank</p>
 <div class="hz-adv">
+<div class="hz-team-head"><span class="hz-team-name">Advance 4 · The right metric</span><span class="hz-team-meta">submitted 2 hours late</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>35</strong> 🔴</p>
+<ul class="hz-checks"><li><span class="hz-mark">⚠️</span><span><strong>Logistic regression and its metrics.</strong> Logistic regression with balanced classes and its confusion matrix: recall 67.2% (540 of 803 defaulters) and accuracy 66.9%. Precision, F1, and AUC are missing.</span></li><li><span class="hz-mark">❌</span><span><strong>Threshold justified with the cost of each error.</strong> No threshold is chosen: the model uses the default 0.5, and the cost of each type of error is not discussed.</span></li><li><span class="hz-mark">❌</span><span><strong>Metrics table.</strong> There is no metrics table.</span></li><li><span class="hz-mark">❌</span><span><strong>Key message in one sentence.</strong> There is no key message: section 5.2 has two bullet points, not one sentence.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>On merit the grade is 50; it is 35 because it arrived 2 hours late (−15).</li><li>Your model is a good start. Add <code>roc_auc_score(y_test, modelo_lr.predict_proba(X_test)[:, 1])</code>, give each error a cost, try thresholds from 0.05 to 0.95 on the training set, and keep the one with the lowest total cost, as in the Session 4 notebook. The final project needs all four items.</li></ul>
+</div>
+</div>
+<div class="hz-adv">
 <div class="hz-team-head"><span class="hz-team-name">Advance 3 · Ready to model</span><span class="hz-team-meta">submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
 <div class="hz-revealed" hidden>
 <p class="hz-grade"><strong>100</strong> 🟢</p>
@@ -406,6 +509,15 @@ Late submissions lose 15 points per day for up to three days; after that the adv
 <div class="hz-team">
 <p class="hz-team-case">Case A · TalentCo</p>
 <div class="hz-adv">
+<div class="hz-team-head"><span class="hz-team-name">Advance 4 · The right metric</span><span class="hz-team-meta">submitted 10 hours late</span><button type="button" class="hz-reveal">Reveal</button></div>
+<div class="hz-revealed" hidden>
+<p class="hz-grade"><strong>85</strong> 🟢</p>
+<ul class="hz-checks"><li><span class="hz-mark">✅</span><span><strong>5-fold cross-validation.</strong> Shuffled folds on the training set: MAE 4,365 ± 88 USD, R² between 0.939 and 0.945, and the test MAE (4,301) inside that range.</span></li><li><span class="hz-mark">✅</span><span><strong>Two coefficients in business terms.</strong> Engineering +20,076 USD against HR (21% of the average salary) and PhD +17,788 USD, “worth about 14 years of experience”, plus a check that both are stable across folds.</span></li><li><span class="hz-mark">✅</span><span><strong>MAE or RMSE, justified.</strong> MAE with three reasons, keeping RMSE as a check.</span></li><li><span class="hz-mark">✅</span><span><strong>Metrics table.</strong> Baseline, training, test, and cross-validation.</span></li><li><span class="hz-mark">✅</span><span><strong>Key message in one sentence.</strong> Salary can be estimated within about 4,300 USD, and the remaining gaps by region and gender (about 4,900 and 1,500 USD) are what HR should review first.</span></li></ul>
+<p class="hz-tips-title">How to improve</p>
+<ul class="hz-tips"><li>The work deserves 100 and was ready on November 22, but it reached the mailbox 10 hours late (−15). Submit as soon as the advance is ready.</li></ul>
+</div>
+</div>
+<div class="hz-adv">
 <div class="hz-team-head"><span class="hz-team-name">Advance 3 · Ready to model</span><span class="hz-team-meta">submitted on time</span><button type="button" class="hz-reveal">Reveal</button></div>
 <div class="hz-revealed" hidden>
 <p class="hz-grade"><strong>100</strong> 🟢</p>
@@ -436,6 +548,7 @@ Late submissions lose 15 points per day for up to three days; after that the adv
 
 ## What each advance checks
 
+- **Advance 4 · The right metric.** Due Tuesday, November 24, 23:59. Case A has five items: 5-fold cross-validation, two coefficients interpreted in business terms, a justified choice between MAE and RMSE, the metrics table, and the key message in one sentence. Case B has four: logistic regression with its confusion matrix, precision, recall, F1, and AUC; a threshold justified with the cost of each error; the metrics table; and the key message.
 - **Advance 3 · Ready to model.** Due Tuesday, November 17, 23:59. The checklist has four items for each case: categories encoded and ID columns removed, split before training, the case's own item (Case A: linear regression with test and training metrics; Case B: stratified split, baseline accuracy, and why accuracy misleads), and what you expect the model to find.
 - **Advance 2 · Cleaning and exploratory analysis.** Due Tuesday, November 10, 23:59. The checklist has six items: duplicates and missing values, inconsistent categories, impossible values, cleaning summary table, exploratory charts, and three findings.
 - **Advance 1 · Team, data, and question.** Due Tuesday, November 3, 23:59. The checklist has five items: team registered, notebook shared, data loaded from its URL, first inspection, and business question with its user.
